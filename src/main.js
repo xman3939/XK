@@ -3,7 +3,7 @@ import './style.css';
 const loader = document.getElementById('loader');
 const home = document.getElementById('home');
 
-const loaderDuration = 1800;
+const loaderDuration = 2400;
 const blackPauseDuration = 450;
 
 window.addEventListener('load', () => {
