@@ -125,6 +125,35 @@ body {
   visibility: visible;
 }
 
+.home-nav {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  z-index: 2;
+}
+
+.home-nav-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.home-nav-button.is-active {
+  color: #8f8f8f;
+}
+
 .home-logo {
   position: absolute;
   right: 32px;
