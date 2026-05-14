@@ -55,7 +55,7 @@ body {
 }
 
 .loader-logo {
-  width: min(270px, 57vw);
+  width: min(400px, 85vw);
   height: auto;
   display: block;
 }
@@ -158,7 +158,7 @@ body {
   position: absolute;
   right: 32px;
   bottom: 32px;
-  width: min(300px, 58vw);
+  width: min(450, 87vw);
   height: auto;
   display: block;
 }
