@@ -19,7 +19,6 @@ body {
 }
 
 body {
-  overflow: hidden;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
 }
 
@@ -75,64 +74,28 @@ body {
   animation: loadingDot 1.2s infinite;
 }
 
-.loading-dots span:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.loading-dots span:nth-child(2) {
-  animation-delay: 0.18s;
-}
-
-.loading-dots span:nth-child(3) {
-  animation-delay: 0.36s;
-}
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.18s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.36s; }
 
 @keyframes loadingDot {
-  0%,
-  20% {
-    opacity: 0;
-  }
-
-  35%,
-  75% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  0%, 20%  { opacity: 0; }
+  35%, 75% { opacity: 1; }
+  100%     { opacity: 0; }
 }
 
 /* ----------------------------- */
-/* REAL HOME SCREEN */
+/* NAV */
 /* ----------------------------- */
-
-.home {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  background: #000;
-  padding: 32px;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 900ms ease,
-    visibility 900ms ease;
-}
-
-.home.is-visible {
-  opacity: 1;
-  visibility: visible;
-}
 
 .home-nav {
-  position: absolute;
+  position: fixed;
   left: 32px;
   bottom: 32px;
   display: flex;
   align-items: center;
   gap: 22px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .home-nav-button {
@@ -148,17 +111,157 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
+  transition: color 300ms ease;
 }
 
+.home-nav-button:hover,
 .home-nav-button.is-active {
   color: #8f8f8f;
+}
+
+/* ----------------------------- */
+/* HOME PAGE */
+/* ----------------------------- */
+
+body.home-page {
+  overflow: hidden;
+}
+
+body.home-page #app {
+  position: fixed;
+  inset: 0;
 }
 
 .home-logo {
   position: absolute;
   right: 32px;
   bottom: 32px;
-  width: min(450, 87vw);
+  width: min(450px, 87vw);
   height: auto;
   display: block;
+}
+
+/* ----------------------------- */
+/* WORK PAGE */
+/* ----------------------------- */
+
+body.work-page {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.work-layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 64px 140px 64px;
+}
+
+.projects-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 180px;
+  row-gap: 180px;
+  align-items: center;
+}
+
+.project-card {
+  width: 100%;
+  cursor: pointer;
+}
+
+.project-image-wrap {
+  width: 100%;
+}
+
+.project-image {
+  width: 100%;
+  max-height: 720px;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 500ms ease;
+}
+
+.project-card:hover .project-image {
+  filter: grayscale(0%);
+}
+
+.project-meta {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-title,
+.project-date {
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-date {
+  text-align: right;
+}
+
+/* ----------------------------- */
+/* PROJECT DETAIL PAGE */
+/* ----------------------------- */
+
+.project-detail {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 64px 140px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project-detail-image-wrap {
+  width: 100%;
+  max-width: 900px;
+}
+
+.project-detail-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.project-detail-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+}
+
+.project-back-button {
+  align-self: flex-start;
+}
+
+.project-not-found {
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------- */
+/* TEXT REVEAL */
+/* ----------------------------- */
+
+.reveal-chunk {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 110ms linear;
+}
+
+.reveal-chunk.is-visible {
+  opacity: 1;
 }
