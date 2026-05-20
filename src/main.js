@@ -20,22 +20,19 @@ const mobileMenuClose = document.getElementById('mobile-menu-close');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileMenuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
 
-// Fragment mobile links into reveal chunks
-mobileMenuLinks.forEach(link => fragmentElement(link));
-
 function openMobileMenu() {
-  mobileMenu.querySelectorAll('.reveal-chunk').forEach(c => c.classList.remove('is-visible'));
+  mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
   mobileMenu.classList.add('is-open');
   mobileMenu.setAttribute('aria-hidden', 'false');
   mobileMenuLinks.forEach((link, i) => {
-    setTimeout(() => runReveal(link, { burstCount: 3, burstGap: 65, chunkGap: 30 }), 160 + i * 150);
+    setTimeout(() => link.classList.add('menu-link-animate'), 280 + i * 120);
   });
 }
 
 function closeMobileMenu() {
   mobileMenu.classList.remove('is-open');
   mobileMenu.setAttribute('aria-hidden', 'true');
-  mobileMenu.querySelectorAll('.reveal-chunk').forEach(c => c.classList.remove('is-visible'));
+  mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
 }
 
 mobileMenuToggle.addEventListener('click', openMobileMenu);
