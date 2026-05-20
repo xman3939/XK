@@ -259,8 +259,8 @@ body.work-page {
 .mobile-menu-toggle {
   display: none;
   position: fixed;
-  top: 28px;
-  right: 28px;
+  top: 18px;
+  right: 14px;
   z-index: 10;
   background: transparent;
   border: 0;
@@ -294,8 +294,8 @@ body.work-page {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 32px 44px 32px;
+  align-items: flex-start;
+  padding: 32px 20px 0 20px;
   height: 100%;
 }
 
@@ -303,7 +303,7 @@ body.work-page {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px;
+  gap: 10px;
 }
 
 .mobile-menu-link {
@@ -312,12 +312,19 @@ body.work-page {
   padding: 0;
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: color 300ms ease;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: color 300ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
+.mobile-menu-link.menu-link-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .mobile-menu-link:hover {
@@ -330,12 +337,12 @@ body.work-page {
   padding: 0;
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   cursor: pointer;
   transition: color 300ms ease;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .mobile-menu-close:hover {
@@ -356,11 +363,11 @@ body.work-page {
   }
 
   .home-logo {
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 40px;
-    width: min(260px, 72vw);
+    left: 16px;
+    right: 16px;
+    bottom: 32px;
+    width: auto;
+    transform: none;
   }
 
   .work-layout {

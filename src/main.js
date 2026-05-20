@@ -19,14 +19,21 @@ const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileMenuClose = document.getElementById('mobile-menu-close');
 const mobileMenu = document.getElementById('mobile-menu');
 
+const mobileMenuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
+
 function openMobileMenu() {
+  mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
   mobileMenu.classList.add('is-open');
   mobileMenu.setAttribute('aria-hidden', 'false');
+  mobileMenuLinks.forEach((link, i) => {
+    setTimeout(() => link.classList.add('menu-link-animate'), 140 + i * 80);
+  });
 }
 
 function closeMobileMenu() {
   mobileMenu.classList.remove('is-open');
   mobileMenu.setAttribute('aria-hidden', 'true');
+  mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
 }
 
 mobileMenuToggle.addEventListener('click', openMobileMenu);
