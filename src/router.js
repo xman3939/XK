@@ -25,8 +25,8 @@ function matchRoute(pathname) {
 }
 
 function updateNavActive(pathname) {
-  document.querySelectorAll('[data-route]').forEach(btn => {
-    const route = btn.getAttribute('data-route');
+  document.querySelectorAll('[data-route], [data-mobile-route]').forEach(btn => {
+    const route = btn.getAttribute('data-route') ?? btn.getAttribute('data-mobile-route');
     const isActive = pathname === route || (route !== '/' && pathname.startsWith(route));
     btn.classList.toggle('is-active', isActive);
   });

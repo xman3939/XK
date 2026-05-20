@@ -18,28 +18,30 @@ document.querySelectorAll('[data-route]').forEach(btn => {
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileMenuClose = document.getElementById('mobile-menu-close');
 const mobileMenu = document.getElementById('mobile-menu');
-
 const mobileMenuLinks = mobileMenu.querySelectorAll('.mobile-menu-link');
 
+// Fragment mobile links into reveal chunks
+mobileMenuLinks.forEach(link => fragmentElement(link));
+
 function openMobileMenu() {
-  mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
+  mobileMenu.querySelectorAll('.reveal-chunk').forEach(c => c.classList.remove('is-visible'));
   mobileMenu.classList.add('is-open');
   mobileMenu.setAttribute('aria-hidden', 'false');
   mobileMenuLinks.forEach((link, i) => {
-    setTimeout(() => link.classList.add('menu-link-animate'), 140 + i * 80);
+    setTimeout(() => runReveal(link, { burstCount: 3, burstGap: 65, chunkGap: 30 }), 160 + i * 150);
   });
 }
 
 function closeMobileMenu() {
   mobileMenu.classList.remove('is-open');
   mobileMenu.setAttribute('aria-hidden', 'true');
-  mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
+  mobileMenu.querySelectorAll('.reveal-chunk').forEach(c => c.classList.remove('is-visible'));
 }
 
 mobileMenuToggle.addEventListener('click', openMobileMenu);
 mobileMenuClose.addEventListener('click', closeMobileMenu);
 
-document.querySelectorAll('.mobile-menu-link').forEach(btn => {
+mobileMenuLinks.forEach(btn => {
   btn.addEventListener('click', () => {
     closeMobileMenu();
     navigate(btn.dataset.mobileRoute);
