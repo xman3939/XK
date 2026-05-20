@@ -25,6 +25,22 @@
       <button class="home-nav-button" type="button" data-route="/contact">CONTACT</button>
     </nav>
 
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open menu">
+      <img src="/assets/icons/menu_w.svg" alt="" />
+    </button>
+
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <div class="mobile-menu-links">
+          <button class="mobile-menu-link" type="button" data-mobile-route="/">HOME</button>
+          <button class="mobile-menu-link" type="button" data-mobile-route="/work">WORK</button>
+          <button class="mobile-menu-link" type="button" data-mobile-route="/about">ABOUT</button>
+          <button class="mobile-menu-link" type="button" data-mobile-route="/contact">CONTACT</button>
+        </div>
+        <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Close menu">X</button>
+      </div>
+    </div>
+
     <div id="app"></div>
 
     <script type="module" src="/src/main.js"></script>

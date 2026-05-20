@@ -2,7 +2,7 @@ export default {
   title: 'XK',
   bodyClass: 'home-page',
   render() {
-    return `<img src="/assets/XK1W.svg" alt="XK" class="home-logo" style="opacity:0;transition:opacity 520ms ease" />`;
+    return `<img src="/assets/XK1W.svg" alt="XK" class="home-logo" style="opacity:0;transition:opacity 900ms ease" />`;
   },
   init() {
     const logo = document.querySelector('.home-logo');
