@@ -25,7 +25,7 @@ function openMobileMenu() {
   mobileMenu.classList.add('is-open');
   mobileMenu.setAttribute('aria-hidden', 'false');
   mobileMenuLinks.forEach((link, i) => {
-    setTimeout(() => link.classList.add('menu-link-animate'), 280 + i * 120);
+    setTimeout(() => link.classList.add('menu-link-animate'), 200 + i * 90);
   });
 }
 

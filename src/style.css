@@ -318,11 +318,12 @@ body.work-page {
   text-transform: uppercase;
   cursor: pointer;
   opacity: 0;
-  transition: color 300ms ease, opacity 400ms ease;
+  transition: color 300ms ease;
 }
 
 .mobile-menu-link.menu-link-animate {
   opacity: 1;
+  transition: color 300ms ease, opacity 320ms ease;
 }
 
 .mobile-menu-link:hover,
