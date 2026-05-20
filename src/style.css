@@ -336,9 +336,9 @@ body.work-page {
   padding: 0;
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   cursor: pointer;
   transition: color 300ms ease;
   align-self: flex-start;
