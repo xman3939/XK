@@ -298,6 +298,50 @@ body.work-page {
 }
 
 /* ----------------------------- */
+/* DESKTOP BG SLIDESHOW */
+/* ----------------------------- */
+
+.desktop-bg-slideshow {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .desktop-bg-slideshow {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .desktop-bg-slideshow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .desktop-bg-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .desktop-bg-slide.is-active {
+    opacity: 1;
+  }
+}
+
+/* ----------------------------- */
 /* MOBILE MENU */
 /* ----------------------------- */
 
