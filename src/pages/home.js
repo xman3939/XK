@@ -9,17 +9,6 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/8.jpg',
 ];
 
-const BG_IMAGES_DESKTOP = [
-  '/assets/backgrounds-desktop/1.jpg',
-  '/assets/backgrounds-desktop/2.jpg',
-  '/assets/backgrounds-desktop/3.jpg',
-  '/assets/backgrounds-desktop/4.jpg',
-  '/assets/backgrounds-desktop/5.png',
-  '/assets/backgrounds-desktop/6.jpg',
-  '/assets/backgrounds-desktop/7.jpg',
-  '/assets/backgrounds-desktop/8.jpg',
-];
-
 let _bgCleanup = null;
 
 export default {
@@ -32,19 +21,14 @@ export default {
     const logo = document.querySelector('.home-logo');
     if (logo) setTimeout(() => requestAnimationFrame(() => { logo.style.opacity = '1'; }), 380);
 
-    const isMobile = window.innerWidth <= 768;
-    const images = isMobile ? BG_IMAGES : BG_IMAGES_DESKTOP;
-    const containerClass = isMobile ? 'mobile-bg-slideshow' : 'desktop-bg-slideshow';
-    const slideClass = isMobile ? 'mobile-bg-slide' : 'desktop-bg-slide';
-
-    {
+    if (window.innerWidth <= 768) {
       const container = document.createElement('div');
-      container.className = containerClass;
+      container.className = 'mobile-bg-slideshow';
 
-      const slides = images.map(src => {
+      const slides = BG_IMAGES.map(src => {
         const img = document.createElement('img');
         img.src = src;
-        img.className = slideClass;
+        img.className = 'mobile-bg-slide';
         img.decoding = 'async';
         container.appendChild(img);
         return img;
