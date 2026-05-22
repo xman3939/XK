@@ -56,7 +56,11 @@ export default {
       document.addEventListener('click', onTap);
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
-      const startTimer = setTimeout(() => activate(0), delay);
+      const startTimer = setTimeout(() => {
+        slides[0].style.transition = 'opacity 900ms ease';
+        activate(0);
+        setTimeout(() => { slides[0].style.transition = ''; }, 950);
+      }, delay);
 
       _bgCleanup = () => {
         clearTimeout(startTimer);
