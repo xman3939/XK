@@ -1,5 +1,4 @@
 const BG_IMAGES = [
-  '/assets/backgrounds-mobile/0.mp4',
   '/assets/backgrounds-mobile/1.jpg',
   '/assets/backgrounds-mobile/2.jpg',
   '/assets/backgrounds-mobile/3.jpg',
@@ -27,22 +26,12 @@ export default {
       container.className = 'mobile-bg-slideshow';
 
       const slides = BG_IMAGES.map(src => {
-        const isVideo = src.endsWith('.mp4');
-        let el;
-        if (isVideo) {
-          el = document.createElement('video');
-          el.setAttribute('muted', '');
-          el.setAttribute('playsinline', '');
-          el.muted = true;
-          el.src = src;
-        } else {
-          el = document.createElement('img');
-          el.decoding = 'async';
-          el.src = src;
-        }
-        el.className = 'mobile-bg-slide';
-        container.appendChild(el);
-        return el;
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'mobile-bg-slide';
+        img.decoding = 'async';
+        container.appendChild(img);
+        return img;
       });
 
       // insert before #app so it sits behind it in the stacking order
@@ -63,36 +52,18 @@ export default {
 
       function onTap(e) {
         if (e.target.closest('button, a')) return;
-        const firstSlide = slides[0];
-        if (current === 0 && firstSlide instanceof HTMLVideoElement && !firstSlide.ended) {
-          if (firstSlide.paused) firstSlide.play().catch(() => {});
-          return;
-        }
         advance();
       }
       document.addEventListener('click', onTap);
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => {
-        const firstSlide = slides[0];
-        const isVideo = firstSlide instanceof HTMLVideoElement;
-
-        firstSlide.style.transition = 'opacity 900ms ease';
+        slides[0].style.transition = 'opacity 900ms ease';
         activate(0);
-
-        if (isVideo) {
-          if (firstSlide.paused) firstSlide.play().catch(() => {});
-          firstSlide.addEventListener('ended', () => {
-            firstSlide.style.transition = '';
-            advance();
-            intervalId = setInterval(advance, 5000);
-          }, { once: true });
-        } else {
-          setTimeout(() => {
-            firstSlide.style.transition = '';
-            intervalId = setInterval(advance, 5000);
-          }, 950);
-        }
+        setTimeout(() => {
+          slides[0].style.transition = '';
+          intervalId = setInterval(advance, 5000);
+        }, 950);
       }, delay);
 
       _bgCleanup = () => {
