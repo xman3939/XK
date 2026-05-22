@@ -34,7 +34,7 @@ const SLIDE_INFO = [
 let _bgCleanup = null;
 
 const FADE_MS = 700;
-const CYCLE_MS = 8000;
+const CYCLE_MS = 6000;
 
 export default {
   title: 'XK',
@@ -114,7 +114,9 @@ export default {
 
       function onTap(e) {
         if (e.target.closest('button, a')) return;
+        clearInterval(intervalId);
         advance();
+        intervalId = setInterval(advance, CYCLE_MS);
       }
       document.addEventListener('click', onTap);
 
