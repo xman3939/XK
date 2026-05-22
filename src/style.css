@@ -374,7 +374,7 @@ body.work-page {
   top: 0;
   left: 0;
   right: 0;
-  height: 65vh;
+  height: 40vh;
   background: #000;
   z-index: 15;
   transform: translateY(-100%);
