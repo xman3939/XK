@@ -203,6 +203,7 @@ body.work-page {
   line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: pre-wrap;
 }
 
 .project-date {
