@@ -33,7 +33,6 @@ export default {
           el = document.createElement('video');
           el.setAttribute('muted', '');
           el.setAttribute('playsinline', '');
-          el.setAttribute('autoplay', '');
           el.muted = true;
           el.src = src;
         } else {
