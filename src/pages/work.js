@@ -2,12 +2,12 @@ import { navigate } from '../router.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
 
 export const projects = [
-  { slug: 'test-1', title: 'TEST 1', date: 'MM/YYYY', image: '/assets/projects/project-1.jpg', alt: 'PYXL' },
-  { slug: 'test-2', title: 'TEST 2', date: 'MM/YYYY', image: '/assets/projects/project-2.jpg', alt: 'TEST 2' },
-  { slug: 'test-3', title: 'TEST 3', date: 'MM/YYYY', image: '/assets/projects/project-3.jpg', alt: 'TEST 3' },
-  { slug: 'test-4', title: 'TEST 4', date: 'MM/YYYY', image: '/assets/projects/project-4.jpg', alt: 'TEST 4' },
-  { slug: 'test-5', title: 'TEST 5', date: 'MM/YYYY', image: '/assets/projects/project-5.png', alt: 'TEST 5' },
-  { slug: 'test-6', title: 'TEST 6', date: 'MM/YYYY', image: '/assets/projects/project-6.jpg', alt: 'TEST 6' },
+  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL' },
+  { slug: 'test-2', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA' },
+  { slug: 'test-3', title: 'PROJECT 152',  date: '11/2025',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152' },
+  { slug: 'test-4', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET' },
+  { slug: 'test-5', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.png', alt: 'NATURE' },
+  { slug: 'test-6', title: 'ABSTRACT',     date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT' },
 ];
 
 export default {
