@@ -1,4 +1,5 @@
 const BG_IMAGES = [
+  '/assets/backgrounds-mobile/0.mp4',
   '/assets/backgrounds-mobile/1.jpg',
   '/assets/backgrounds-mobile/2.jpg',
   '/assets/backgrounds-mobile/3.jpg',
@@ -26,12 +27,15 @@ export default {
       container.className = 'mobile-bg-slideshow';
 
       const slides = BG_IMAGES.map(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = 'mobile-bg-slide';
-        img.decoding = 'async';
-        container.appendChild(img);
-        return img;
+        const isVideo = src.endsWith('.mp4');
+        const el = isVideo
+          ? Object.assign(document.createElement('video'), { muted: true, playsInline: true })
+          : document.createElement('img');
+        el.src = src;
+        el.className = 'mobile-bg-slide';
+        if (!isVideo) el.decoding = 'async';
+        container.appendChild(el);
+        return el;
       });
 
       // insert before #app so it sits behind it in the stacking order
@@ -52,18 +56,33 @@ export default {
 
       function onTap(e) {
         if (e.target.closest('button, a')) return;
+        const firstSlide = slides[0];
+        if (current === 0 && firstSlide instanceof HTMLVideoElement && !firstSlide.ended) return;
         advance();
       }
       document.addEventListener('click', onTap);
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => {
-        slides[0].style.transition = 'opacity 900ms ease';
+        const firstSlide = slides[0];
+        const isVideo = firstSlide instanceof HTMLVideoElement;
+
+        firstSlide.style.transition = 'opacity 900ms ease';
         activate(0);
-        setTimeout(() => {
-          slides[0].style.transition = '';
-          intervalId = setInterval(advance, 5000);
-        }, 950);
+
+        if (isVideo) {
+          firstSlide.play();
+          firstSlide.addEventListener('ended', () => {
+            firstSlide.style.transition = '';
+            advance();
+            intervalId = setInterval(advance, 5000);
+          }, { once: true });
+        } else {
+          setTimeout(() => {
+            firstSlide.style.transition = '';
+            intervalId = setInterval(advance, 5000);
+          }, 950);
+        }
       }, delay);
 
       _bgCleanup = () => {
