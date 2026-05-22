@@ -9,6 +9,7 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/8.jpg',
   '/assets/backgrounds-mobile/9.jpg',
   '/assets/backgrounds-mobile/10.jpg',
+  '/assets/backgrounds-mobile/11.jpg',
 ];
 
 let _bgCleanup = null;
