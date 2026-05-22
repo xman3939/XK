@@ -354,8 +354,11 @@ body.work-page {
   .slide-caption {
     display: block;
     position: fixed;
-    top: 60px;
+    top: 50%;
     left: 16px;
+    right: 16px;
+    transform: translateY(-50%);
+    text-align: center;
     z-index: 5;
     color: #fff;
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;

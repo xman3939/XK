@@ -1,9 +1,9 @@
 import { navigate } from '../router.js';
-import { fragmentElement, runReveal } from '../text-reveal.js';
+import { runReveal } from '../text-reveal.js';
 
 const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.jpg',
-  '/assets/backgrounds-mobile/2.jpg',
+  '/assets/backgrounds-mobile/2.png',
   '/assets/backgrounds-mobile/3.jpg',
   '/assets/backgrounds-mobile/4.jpg',
   '/assets/backgrounds-mobile/5.jpg',
@@ -13,10 +13,13 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/9.jpg',
   '/assets/backgrounds-mobile/10.jpg',
   '/assets/backgrounds-mobile/11.jpg',
+  '/assets/backgrounds-mobile/12.jpg',
 ];
 
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
+  { name: 'PYXL',             href: '/work/test-1' },
+  { name: 'CRYSTAL GOBLET',   href: '/work/test-1' },
   { name: 'TERRA',            href: '/work/test-1' },
   { name: 'STREET GALLERY',   href: '/work/test-1' },
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
@@ -26,7 +29,6 @@ const SLIDE_INFO = [
   { name: 'PROJECT 152',      href: '/work/test-1' },
   { name: 'NATURE GALLERY',   href: '/work/test-1' },
   { name: 'STREET GALLERY',   href: '/work/test-1' },
-  null,
 ];
 
 let _bgCleanup = null;
@@ -75,9 +77,12 @@ export default {
       function showCaption(index) {
         const info = SLIDE_INFO[index];
         if (!info) { captionEl.style.opacity = '0'; return; }
-        captionEl.textContent = `${info.name} — SEE MORE`;
         captionEl.dataset.href = info.href;
-        fragmentElement(captionEl);
+        // Word-level chunks so spaces render correctly between spans
+        captionEl.innerHTML = `${info.name} — SEE MORE`
+          .split(' ')
+          .map(w => `<span class="reveal-chunk">${w}</span>`)
+          .join(' ');
         captionEl.style.opacity = '1';
         runReveal(captionEl, { burstCount: 4, burstGap: 60, chunkGap: 18 });
       }
