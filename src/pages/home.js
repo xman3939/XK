@@ -14,6 +14,9 @@ const BG_IMAGES = [
 
 let _bgCleanup = null;
 
+const FADE_MS = 700;
+const CYCLE_MS = 8000;
+
 export default {
   title: 'XK',
   bodyClass: 'home-page',
@@ -41,15 +44,34 @@ export default {
       document.body.insertBefore(container, appEl);
 
       let current = 0;
+      let transitioning = false;
       let intervalId = null;
 
-      function activate(index) {
-        slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+      function show(index) {
+        if (transitioning || index === current) return;
+        transitioning = true;
+
+        const prev = slides[current];
+        const next = slides[index];
+
+        // next fades in on top; prev stays fully visible underneath — no black flash
+        next.style.zIndex = '2';
+        next.style.opacity = '1';
+
+        setTimeout(() => {
+          // prev is now hidden behind next — remove instantly, no visible transition
+          prev.style.transition = 'none';
+          prev.style.opacity = '0';
+          prev.style.zIndex = '0';
+          requestAnimationFrame(() => requestAnimationFrame(() => { prev.style.transition = ''; }));
+          next.style.zIndex = '1';
+          current = index;
+          transitioning = false;
+        }, FADE_MS + 50);
       }
 
       function advance() {
-        current = (current + 1) % slides.length;
-        activate(current);
+        show((current + 1) % slides.length);
       }
 
       function onTap(e) {
@@ -60,8 +82,9 @@ export default {
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => {
-        activate(0);
-        intervalId = setInterval(advance, 5000);
+        slides[0].style.zIndex = '1';
+        slides[0].style.opacity = '1';
+        intervalId = setInterval(advance, CYCLE_MS);
       }, delay);
 
       _bgCleanup = () => {

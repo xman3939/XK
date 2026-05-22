@@ -289,14 +289,9 @@ body.work-page {
     object-position: center;
     filter: grayscale(100%);
     opacity: 0;
-    transition: opacity 400ms ease-in-out;
+    transition: opacity 700ms ease-in-out;
     z-index: 0;
     pointer-events: none;
-  }
-
-  .mobile-bg-slide.is-active {
-    opacity: 1;
-    z-index: 1;
   }
 }
 
