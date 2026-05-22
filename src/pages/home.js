@@ -35,7 +35,7 @@ export default {
           el.setAttribute('playsinline', '');
           el.setAttribute('autoplay', '');
           el.muted = true;
-          el.dataset.src = src;
+          el.src = src;
         } else {
           el = document.createElement('img');
           el.decoding = 'async';
@@ -65,7 +65,10 @@ export default {
       function onTap(e) {
         if (e.target.closest('button, a')) return;
         const firstSlide = slides[0];
-        if (current === 0 && firstSlide instanceof HTMLVideoElement && !firstSlide.ended) return;
+        if (current === 0 && firstSlide instanceof HTMLVideoElement && !firstSlide.ended) {
+          if (firstSlide.paused) firstSlide.play().catch(() => {});
+          return;
+        }
         advance();
       }
       document.addEventListener('click', onTap);
@@ -79,12 +82,7 @@ export default {
         activate(0);
 
         if (isVideo) {
-          firstSlide.src = firstSlide.dataset.src;
-          firstSlide.play().catch(() => {
-            firstSlide.style.transition = '';
-            advance();
-            intervalId = setInterval(advance, 5000);
-          });
+          if (firstSlide.paused) firstSlide.play().catch(() => {});
           firstSlide.addEventListener('ended', () => {
             firstSlide.style.transition = '';
             advance();
