@@ -14,9 +14,10 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/10.jpg',
   '/assets/backgrounds-mobile/11.jpg',
   '/assets/backgrounds-mobile/12.jpg',
+  '/assets/backgrounds-mobile/13.jpg',
 ];
 
-const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55];
+const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
 
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
@@ -30,6 +31,7 @@ const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
   { name: 'PROJECT 152',      href: '/work/test-1' },
   { name: 'NATURE GALLERY',   href: '/work/test-1' },
+  { name: 'STREET GALLERY',   href: '/work/test-1' },
   { name: 'STREET GALLERY',   href: '/work/test-1' },
 ];
 
