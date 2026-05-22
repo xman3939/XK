@@ -14,10 +14,10 @@ export default {
   title: 'XK — Work',
   bodyClass: 'work-page',
   render() {
-    const cards = projects.map(p => `
+    const cards = projects.map((p, i) => `
       <article class="project-card" data-project-slug="${p.slug}" role="button" tabindex="0">
         <div class="project-image-wrap">
-          <img src="${p.image}" alt="${p.alt}" class="project-image" />
+          <img src="${p.image}" alt="${p.alt}" class="project-image" decoding="async"${i >= 3 ? ' loading="lazy"' : ''} />
         </div>
         <div class="project-meta">
           <span class="project-title">${p.title}</span>
@@ -38,13 +38,17 @@ export default {
 
     document.querySelectorAll('.project-title, .project-date').forEach(el => fragmentElement(el));
 
-    Promise.all(images.map(img => {
+    const eagerImages = images.filter(img => img.getAttribute('loading') !== 'lazy');
+    const waitForImages = Promise.all(eagerImages.map(img => {
       if (img.complete && img.naturalWidth > 0) return Promise.resolve();
       return new Promise(resolve => {
         img.addEventListener('load', resolve, { once: true });
         img.addEventListener('error', resolve, { once: true });
       });
-    })).then(() => {
+    }));
+    const timeout = new Promise(resolve => setTimeout(resolve, 1500));
+
+    Promise.race([waitForImages, timeout]).then(() => {
       setTimeout(() => {
         if (layout) layout.style.opacity = '1';
         // fire reveal after layout fade completes

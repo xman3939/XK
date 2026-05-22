@@ -371,13 +371,13 @@ body.work-page {
   }
 
   .work-layout {
-    padding: 80px 20px 80px 20px;
+    padding: 80px 16px 80px 16px;
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: 56px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    row-gap: 48px;
   }
 
   .project-detail {
