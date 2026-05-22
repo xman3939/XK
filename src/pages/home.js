@@ -16,6 +16,8 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/12.jpg',
 ];
 
+const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25];
+
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
   { name: 'PYXL',             href: '/work/test-1' },
@@ -59,6 +61,10 @@ export default {
         return img;
       });
 
+      const overlay = document.createElement('div');
+      overlay.className = 'mobile-bg-overlay';
+      container.appendChild(overlay);
+
       const appEl = document.getElementById('app');
       document.body.insertBefore(container, appEl);
 
@@ -85,6 +91,10 @@ export default {
         runReveal(captionEl, { burstCount: 12, burstGap: 30, chunkGap: 10 });
       }
 
+      function setOverlay(index) {
+        overlay.style.background = `rgba(0,0,0,${SLIDE_OVERLAY[index] ?? 0.25})`;
+      }
+
       function show(index) {
         if (transitioning || index === current) return;
         transitioning = true;
@@ -93,6 +103,7 @@ export default {
         const next = slides[index];
 
         captionEl.style.opacity = '0';
+        setOverlay(index);
 
         next.style.zIndex = '2';
         next.style.opacity = '1';
@@ -125,6 +136,7 @@ export default {
       const startTimer = setTimeout(() => {
         slides[0].style.zIndex = '1';
         slides[0].style.opacity = '1';
+        setOverlay(0);
         intervalId = setInterval(advance, CYCLE_MS);
         setTimeout(() => showCaption(0), FADE_MS);
       }, delay);
