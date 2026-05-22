@@ -33,13 +33,14 @@ export default {
           el = document.createElement('video');
           el.setAttribute('muted', '');
           el.setAttribute('playsinline', '');
-          el.setAttribute('preload', 'auto');
+          el.setAttribute('autoplay', '');
           el.muted = true;
+          el.dataset.src = src;
         } else {
           el = document.createElement('img');
           el.decoding = 'async';
+          el.src = src;
         }
-        el.src = src;
         el.className = 'mobile-bg-slide';
         container.appendChild(el);
         return el;
@@ -78,6 +79,7 @@ export default {
         activate(0);
 
         if (isVideo) {
+          firstSlide.src = firstSlide.dataset.src;
           firstSlide.play().catch(() => {
             firstSlide.style.transition = '';
             advance();
