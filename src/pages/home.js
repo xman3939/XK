@@ -73,12 +73,8 @@ export default {
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => {
-        slides[0].style.transition = 'opacity 900ms ease';
         activate(0);
-        setTimeout(() => {
-          slides[0].style.transition = '';
-          intervalId = setInterval(advance, 5000);
-        }, 950);
+        intervalId = setInterval(advance, 5000);
       }, delay);
 
       _bgCleanup = () => {

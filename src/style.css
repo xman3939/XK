@@ -289,11 +289,14 @@ body.work-page {
     object-position: center;
     filter: grayscale(100%);
     opacity: 0;
+    transition: opacity 900ms ease;
+    z-index: 0;
     pointer-events: none;
   }
 
   .mobile-bg-slide.is-active {
     opacity: 1;
+    z-index: 1;
   }
 }
 
@@ -333,11 +336,14 @@ body.work-page {
     object-position: center;
     filter: grayscale(100%);
     opacity: 0;
+    transition: opacity 900ms ease;
+    z-index: 0;
     pointer-events: none;
   }
 
   .desktop-bg-slide.is-active {
     opacity: 1;
+    z-index: 1;
   }
 }
 
