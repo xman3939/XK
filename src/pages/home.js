@@ -1,5 +1,5 @@
 import { navigate } from '../router.js';
-import { runReveal } from '../text-reveal.js';
+import { fragmentElement, runReveal } from '../text-reveal.js';
 
 const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.jpg',
@@ -78,13 +78,10 @@ export default {
         const info = SLIDE_INFO[index];
         if (!info) { captionEl.style.opacity = '0'; return; }
         captionEl.dataset.href = info.href;
-        // Word-level chunks so spaces render correctly between spans
-        captionEl.innerHTML = `${info.name} — SEE MORE`
-          .split(' ')
-          .map(w => `<span class="reveal-chunk">${w}</span>`)
-          .join(' ');
+        captionEl.textContent = info.name + ' - SEE MORE';
+        fragmentElement(captionEl);
         captionEl.style.opacity = '1';
-        runReveal(captionEl, { burstCount: 4, burstGap: 60, chunkGap: 18 });
+        runReveal(captionEl, { burstCount: 8, burstGap: 55, chunkGap: 20 });
       }
 
       function show(index) {
@@ -96,12 +93,10 @@ export default {
 
         captionEl.style.opacity = '0';
 
-        // next fades in on top; prev stays fully visible underneath — no black flash
         next.style.zIndex = '2';
         next.style.opacity = '1';
 
         setTimeout(() => {
-          // prev is now hidden behind next — remove instantly, no visible transition
           prev.style.transition = 'none';
           prev.style.opacity = '0';
           prev.style.zIndex = '0';

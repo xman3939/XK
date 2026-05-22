@@ -366,6 +366,7 @@ body.work-page {
     line-height: 1;
     letter-spacing: 0.12em;
     text-decoration: none;
+    white-space: pre-wrap;
     opacity: 0;
     transition: opacity 300ms ease;
     pointer-events: auto;
