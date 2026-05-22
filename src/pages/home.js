@@ -39,6 +39,7 @@ export default {
       document.body.insertBefore(container, appEl);
 
       let current = 0;
+      let intervalId = null;
 
       function activate(index) {
         slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
@@ -59,11 +60,15 @@ export default {
       const startTimer = setTimeout(() => {
         slides[0].style.transition = 'opacity 900ms ease';
         activate(0);
-        setTimeout(() => { slides[0].style.transition = ''; }, 950);
+        setTimeout(() => {
+          slides[0].style.transition = '';
+          intervalId = setInterval(advance, 5000);
+        }, 950);
       }, delay);
 
       _bgCleanup = () => {
         clearTimeout(startTimer);
+        clearInterval(intervalId);
         document.removeEventListener('click', onTap);
         container.remove();
         _bgCleanup = null;
