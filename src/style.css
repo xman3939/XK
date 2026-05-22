@@ -496,8 +496,8 @@ body.work-page {
   }
 
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 16px;
+    grid-template-columns: 1fr;
+    column-gap: 0;
     row-gap: 48px;
   }
 
