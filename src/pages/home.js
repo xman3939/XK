@@ -36,28 +36,23 @@ export default {
       document.body.insertBefore(container, appEl);
 
       let current = 0;
-      let intervalId = null;
 
       function activate(index) {
         slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
       }
 
-      function startCycle() {
-        activate(0);
-        intervalId = setInterval(() => {
-          current = (current + 1) % slides.length;
-          activate(current);
-        }, 5000);
+      function advance() {
+        current = (current + 1) % slides.length;
+        activate(current);
       }
 
-      // First load: wait for loader (2400ms) + fade (900ms) + black pause (450ms) + 1s of black
-      // Subsequent: loader is already gone, just wait ~1.2s after logo fades in
+      container.addEventListener('click', advance);
+
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
-      const startTimer = setTimeout(startCycle, delay);
+      const startTimer = setTimeout(() => activate(0), delay);
 
       _bgCleanup = () => {
         clearTimeout(startTimer);
-        clearInterval(intervalId);
         container.remove();
         _bgCleanup = null;
       };
