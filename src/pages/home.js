@@ -1,9 +1,12 @@
 const BG_IMAGES = [
-  '/assets/backgrounds-mobile/DSC03365.jpg',
-  '/assets/backgrounds-mobile/DSC03657.jpg',
-  '/assets/backgrounds-mobile/fractured-perception-output-full-res (12).png',
-  '/assets/backgrounds-mobile/posterSOCIALMEDIA-1.png',
-  '/assets/backgrounds-mobile/test9.jpg',
+  '/assets/backgrounds-mobile/1.jpg',
+  '/assets/backgrounds-mobile/2.jpg',
+  '/assets/backgrounds-mobile/3.jpg',
+  '/assets/backgrounds-mobile/4.jpg',
+  '/assets/backgrounds-mobile/5.jpg',
+  '/assets/backgrounds-mobile/6.png',
+  '/assets/backgrounds-mobile/7.jpg',
+  '/assets/backgrounds-mobile/8.jpg',
 ];
 
 let _bgCleanup = null;
