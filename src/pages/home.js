@@ -28,12 +28,19 @@ export default {
 
       const slides = BG_IMAGES.map(src => {
         const isVideo = src.endsWith('.mp4');
-        const el = isVideo
-          ? Object.assign(document.createElement('video'), { muted: true, playsInline: true })
-          : document.createElement('img');
+        let el;
+        if (isVideo) {
+          el = document.createElement('video');
+          el.setAttribute('muted', '');
+          el.setAttribute('playsinline', '');
+          el.setAttribute('preload', 'auto');
+          el.muted = true;
+        } else {
+          el = document.createElement('img');
+          el.decoding = 'async';
+        }
         el.src = src;
         el.className = 'mobile-bg-slide';
-        if (!isVideo) el.decoding = 'async';
         container.appendChild(el);
         return el;
       });
@@ -71,7 +78,11 @@ export default {
         activate(0);
 
         if (isVideo) {
-          firstSlide.play();
+          firstSlide.play().catch(() => {
+            firstSlide.style.transition = '';
+            advance();
+            intervalId = setInterval(advance, 5000);
+          });
           firstSlide.addEventListener('ended', () => {
             firstSlide.style.transition = '';
             advance();
