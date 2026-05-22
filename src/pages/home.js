@@ -1,5 +1,5 @@
 import { navigate } from '../router.js';
-import { fragmentElement, runReveal } from '../text-reveal.js';
+import { runReveal } from '../text-reveal.js';
 
 const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.jpg',
@@ -78,10 +78,11 @@ export default {
         const info = SLIDE_INFO[index];
         if (!info) { captionEl.style.opacity = '0'; return; }
         captionEl.dataset.href = info.href;
-        captionEl.textContent = info.name + ' - SEE MORE';
-        fragmentElement(captionEl);
+        captionEl.innerHTML = [...(info.name + ' - SEE MORE')]
+          .map(c => `<span class="reveal-chunk">${c === ' ' ? '&nbsp;' : c}</span>`)
+          .join('');
         captionEl.style.opacity = '1';
-        runReveal(captionEl, { burstCount: 8, burstGap: 55, chunkGap: 20 });
+        runReveal(captionEl, { burstCount: 12, burstGap: 30, chunkGap: 10 });
       }
 
       function show(index) {
