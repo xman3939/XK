@@ -49,13 +49,18 @@ export default {
         activate(current);
       }
 
-      container.addEventListener('click', advance);
+      function onTap(e) {
+        if (e.target.closest('button, a')) return;
+        advance();
+      }
+      document.addEventListener('click', onTap);
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => activate(0), delay);
 
       _bgCleanup = () => {
         clearTimeout(startTimer);
+        document.removeEventListener('click', onTap);
         container.remove();
         _bgCleanup = null;
       };
