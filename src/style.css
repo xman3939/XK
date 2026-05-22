@@ -343,6 +343,33 @@ body.work-page {
 }
 
 /* ----------------------------- */
+/* SLIDE CAPTION */
+/* ----------------------------- */
+
+.slide-caption {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .slide-caption {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 16px;
+    z-index: 5;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: auto;
+  }
+}
+
+/* ----------------------------- */
 /* MOBILE MENU */
 /* ----------------------------- */
 

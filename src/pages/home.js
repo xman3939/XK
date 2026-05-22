@@ -1,3 +1,6 @@
+import { navigate } from '../router.js';
+import { fragmentElement, runReveal } from '../text-reveal.js';
+
 const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.jpg',
   '/assets/backgrounds-mobile/2.jpg',
@@ -10,6 +13,20 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/9.jpg',
   '/assets/backgrounds-mobile/10.jpg',
   '/assets/backgrounds-mobile/11.jpg',
+];
+
+const SLIDE_INFO = [
+  { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
+  { name: 'TERRA',            href: '/work/test-1' },
+  { name: 'STREET GALLERY',   href: '/work/test-1' },
+  { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
+  { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
+  { name: 'STREET GALLERY',   href: '/work/test-1' },
+  { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
+  { name: 'PROJECT 152',      href: '/work/test-1' },
+  { name: 'NATURE GALLERY',   href: '/work/test-1' },
+  { name: 'STREET GALLERY',   href: '/work/test-1' },
+  null,
 ];
 
 let _bgCleanup = null;
@@ -43,9 +60,27 @@ export default {
       const appEl = document.getElementById('app');
       document.body.insertBefore(container, appEl);
 
+      const captionEl = document.createElement('a');
+      captionEl.className = 'slide-caption';
+      document.body.insertBefore(captionEl, appEl);
+      captionEl.addEventListener('click', e => {
+        e.preventDefault();
+        if (captionEl.dataset.href) navigate(captionEl.dataset.href);
+      });
+
       let current = 0;
       let transitioning = false;
       let intervalId = null;
+
+      function showCaption(index) {
+        const info = SLIDE_INFO[index];
+        if (!info) { captionEl.style.opacity = '0'; return; }
+        captionEl.textContent = `${info.name} — SEE MORE`;
+        captionEl.dataset.href = info.href;
+        fragmentElement(captionEl);
+        captionEl.style.opacity = '1';
+        runReveal(captionEl, { burstCount: 4, burstGap: 60, chunkGap: 18 });
+      }
 
       function show(index) {
         if (transitioning || index === current) return;
@@ -53,6 +88,8 @@ export default {
 
         const prev = slides[current];
         const next = slides[index];
+
+        captionEl.style.opacity = '0';
 
         // next fades in on top; prev stays fully visible underneath — no black flash
         next.style.zIndex = '2';
@@ -67,6 +104,7 @@ export default {
           next.style.zIndex = '1';
           current = index;
           transitioning = false;
+          showCaption(index);
         }, FADE_MS + 50);
       }
 
@@ -85,6 +123,7 @@ export default {
         slides[0].style.zIndex = '1';
         slides[0].style.opacity = '1';
         intervalId = setInterval(advance, CYCLE_MS);
+        setTimeout(() => showCaption(0), FADE_MS);
       }, delay);
 
       _bgCleanup = () => {
@@ -92,6 +131,7 @@ export default {
         clearInterval(intervalId);
         document.removeEventListener('click', onTap);
         container.remove();
+        captionEl.remove();
         _bgCleanup = null;
       };
     }
