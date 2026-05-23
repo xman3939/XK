@@ -22,6 +22,37 @@ export const GALLERIES = {
       '/assets/abstract-gallery/16.jpg',
     ]
   },
+  '3': {
+    title: 'STREET',
+    images: [
+      '/assets/street-gallery/1.jpg',
+      '/assets/street-gallery/2.jpg',
+      '/assets/street-gallery/3.jpg',
+      '/assets/street-gallery/4.jpg',
+      '/assets/street-gallery/5.jpg',
+      '/assets/street-gallery/6.jpg',
+      '/assets/street-gallery/7.jpg',
+      '/assets/street-gallery/8.jpg',
+      '/assets/street-gallery/9.jpg',
+      '/assets/street-gallery/10.jpg',
+      '/assets/street-gallery/11.jpg',
+      '/assets/street-gallery/12.jpg',
+      '/assets/street-gallery/13.jpg',
+      '/assets/street-gallery/14.jpg',
+      '/assets/street-gallery/15.jpg',
+      '/assets/street-gallery/16.jpg',
+      '/assets/street-gallery/17.jpg',
+      '/assets/street-gallery/18.jpg',
+      '/assets/street-gallery/19.jpg',
+      '/assets/street-gallery/20.jpg',
+      '/assets/street-gallery/21.jpg',
+      '/assets/street-gallery/22.jpg',
+      '/assets/street-gallery/23.jpg',
+      '/assets/street-gallery/24.jpg',
+      '/assets/street-gallery/25.jpg',
+      '/assets/street-gallery/26.jpg',
+    ]
+  },
   '2': {
     title: 'NATURE',
     images: [
