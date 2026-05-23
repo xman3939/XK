@@ -48,7 +48,7 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/10.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35];
+const DESKTOP_SLIDE_OVERLAY = [0.55, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'ABSTRACT',       href: '/work/test-6' },
