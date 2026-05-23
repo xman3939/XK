@@ -3,7 +3,8 @@ const routes = [
   { path: '/work',       page: () => import('./pages/work.js') },
   { path: '/about',      page: () => import('./pages/about.js') },
   { path: '/contact',    page: () => import('./pages/contact.js') },
-  { path: '/work/:slug', page: () => import('./pages/project.js') },
+  { path: '/work/:slug',    page: () => import('./pages/project.js') },
+  { path: '/gallery/:id',  page: () => import('./pages/gallery.js') },
 ];
 
 function matchRoute(pathname) {

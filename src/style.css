@@ -255,6 +255,102 @@ body.work-page {
 }
 
 /* ----------------------------- */
+/* GALLERY PAGE */
+/* ----------------------------- */
+
+.gallery-layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 64px 140px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 300ms ease;
+}
+
+.gallery-item:hover .gallery-image {
+  opacity: 0.72;
+}
+
+/* ----------------------------- */
+/* GALLERY LIGHTBOX */
+/* ----------------------------- */
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease, background 300ms ease;
+}
+
+.gallery-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.gallery-lightbox-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.gallery-lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: color 300ms ease;
+}
+
+.gallery-lightbox-close:hover {
+  color: #8f8f8f;
+}
+
+/* ----------------------------- */
 /* MOBILE BG SLIDESHOW */
 /* ----------------------------- */
 
@@ -526,6 +622,20 @@ body.work-page {
 
   .project-detail {
     padding: 80px 20px 80px 20px;
+  }
+
+  .gallery-layout {
+    padding: 80px 16px 80px 16px;
+    gap: 32px;
+  }
+
+  .gallery-grid {
+    gap: 3px;
+  }
+
+  .gallery-lightbox-close {
+    top: 18px;
+    right: 14px;
   }
 
   .project-detail-meta {
