@@ -646,23 +646,36 @@ body.work-page {
 }
 
 /* ----------------------------- */
+/* MENU BLUR OVERLAY */
+/* ----------------------------- */
+
+.menu-blur-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 14;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 380ms ease;
+}
+
+.menu-blur-overlay.is-active {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .menu-blur-overlay {
+    display: block;
+  }
+}
+
+/* ----------------------------- */
 /* MOBILE BREAKPOINT */
 /* ----------------------------- */
 
 @media (max-width: 768px) {
-  #app,
-  .mobile-bg-slideshow,
-  .slide-caption {
-    transition: filter 380ms ease, transform 380ms ease;
-  }
-
-  body.menu-open #app,
-  body.menu-open .mobile-bg-slideshow,
-  body.menu-open .slide-caption {
-    filter: blur(3px);
-    transform: scale(1.03);
-  }
-
   .home-nav {
     display: none;
   }
