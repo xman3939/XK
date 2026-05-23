@@ -255,6 +255,62 @@ body.work-page {
 }
 
 /* ----------------------------- */
+/* CONTACT PAGE */
+/* ----------------------------- */
+
+.contact-layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 64px 140px 64px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 80px;
+  row-gap: 24px;
+  align-items: center;
+}
+
+.contact-label {
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.contact-link {
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 300ms ease;
+}
+
+.contact-link:hover {
+  color: #8f8f8f;
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    padding: 80px 16px 80px 16px;
+  }
+
+  .contact-grid {
+    column-gap: 48px;
+  }
+}
+
+/* ----------------------------- */
 /* GALLERY PAGE */
 /* ----------------------------- */
 
