@@ -594,6 +594,18 @@ body.work-page {
 /* ----------------------------- */
 
 @media (max-width: 768px) {
+  #app,
+  .mobile-bg-slideshow,
+  .slide-caption {
+    transition: filter 380ms ease;
+  }
+
+  body.menu-open #app,
+  body.menu-open .mobile-bg-slideshow,
+  body.menu-open .slide-caption {
+    filter: blur(6px);
+  }
+
   .home-nav {
     display: none;
   }

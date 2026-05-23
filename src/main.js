@@ -24,6 +24,7 @@ function openMobileMenu() {
   mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
   mobileMenu.classList.add('is-open');
   mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('menu-open');
   mobileMenuLinks.forEach((link, i) => {
     setTimeout(() => link.classList.add('menu-link-animate'), 200 + i * 90);
   });
@@ -33,6 +34,7 @@ function closeMobileMenu() {
   mobileMenu.classList.remove('is-open');
   mobileMenu.setAttribute('aria-hidden', 'true');
   mobileMenuLinks.forEach(link => link.classList.remove('menu-link-animate'));
+  document.body.classList.remove('menu-open');
 }
 
 mobileMenuToggle.addEventListener('click', openMobileMenu);
