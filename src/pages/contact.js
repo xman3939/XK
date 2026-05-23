@@ -4,15 +4,20 @@ export default {
   render() {
     return `
       <main class="contact-layout" style="opacity:0;transition:opacity 520ms ease">
-        <div class="contact-grid">
-          <span class="contact-label">EMAIL</span>
-          <a class="contact-link" href="#">LINK</a>
-
-          <span class="contact-label">LINKEDIN</span>
-          <a class="contact-link" href="#">LINK</a>
-
-          <span class="contact-label">INSTAGRAM</span>
-          <a class="contact-link" href="#">LINK</a>
+        <span class="contact-heading">CONTACT</span>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="contact-label">EMAIL</span>
+            <a class="contact-link" href="#">LINK</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">LINKEDIN</span>
+            <a class="contact-link" href="#">LINK</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">INSTAGRAM</span>
+            <a class="contact-link" href="#">LINK</a>
+          </div>
         </div>
       </main>
     `;

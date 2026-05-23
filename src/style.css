@@ -262,18 +262,13 @@ body.work-page {
   width: 100%;
   min-height: 100vh;
   padding: 64px 64px 140px 64px;
-  display: flex;
-  align-items: flex-start;
-}
-
-.contact-grid {
   display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 80px;
-  row-gap: 24px;
-  align-items: center;
+  grid-template-columns: auto 1fr;
+  column-gap: 120px;
+  align-items: start;
 }
 
+.contact-heading,
 .contact-label {
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
@@ -282,6 +277,18 @@ body.work-page {
   letter-spacing: 0.12em;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .contact-link {
@@ -303,9 +310,6 @@ body.work-page {
 @media (max-width: 768px) {
   .contact-layout {
     padding: 80px 16px 80px 16px;
-  }
-
-  .contact-grid {
     column-gap: 48px;
   }
 }
