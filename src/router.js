@@ -50,6 +50,7 @@ export async function render(pathname) {
   document.body.className = page.bodyClass ?? '';
   app.innerHTML = page.render(matched.params);
   document.title = page.title ?? 'XK';
+  window.scrollTo(0, 0);
 
   currentPage = page;
   page.init?.(matched.params);
