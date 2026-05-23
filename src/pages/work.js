@@ -6,7 +6,7 @@ export const projects = [
   { slug: 'test-2', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA' },
   { slug: 'test-3', title: 'PROJECT 152',  date: '11/2025',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152' },
   { slug: 'test-4', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET' },
-  { slug: 'test-5', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.png', alt: 'NATURE' },
+  { slug: 'test-5', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.png', alt: 'NATURE', gallery: '2' },
   { slug: 'test-6', title: 'ABSTRACT',     date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT', gallery: '1' },
 ];
 
