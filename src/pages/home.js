@@ -37,28 +37,24 @@ const SLIDE_INFO = [
 
 const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/1.jpg',
-  '/assets/backgrounds-desktop/2.png',
+  '/assets/backgrounds-desktop/2.mp4',
   '/assets/backgrounds-desktop/3.jpg',
   '/assets/backgrounds-desktop/4.jpg',
   '/assets/backgrounds-desktop/5.jpg',
   '/assets/backgrounds-desktop/6.jpg',
   '/assets/backgrounds-desktop/7.jpg',
   '/assets/backgrounds-desktop/8.jpg',
-  '/assets/backgrounds-desktop/9.jpg',
-  '/assets/backgrounds-desktop/10.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.55, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35];
+const DESKTOP_SLIDE_OVERLAY = [0.55, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'ABSTRACT',       href: '/work/test-6' },
   { name: 'PYXL',           href: '/work/test-1' },
   { name: 'CRYSTAL GOBLET', href: '/work/test-1' },
-  { name: 'TERRA',          href: '/work/test-2' },
-  { name: 'STREET',         href: '/work/test-4' },
-  { name: 'STREET',         href: '/work/test-4' },
   { name: 'ABSTRACT',       href: '/work/test-6' },
-  { name: 'PROJECT 152',    href: '/work/test-3' },
+  { name: 'STREET',         href: '/work/test-4' },
+  { name: 'NATURE',         href: '/work/test-5' },
   { name: 'NATURE',         href: '/work/test-5' },
   { name: 'STREET',         href: '/work/test-4' },
 ];
@@ -186,12 +182,22 @@ export default {
       container.className = 'desktop-bg-slideshow';
 
       const slides = DESKTOP_BG_IMAGES.map(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = 'desktop-bg-slide';
-        img.decoding = 'async';
-        container.appendChild(img);
-        return img;
+        let el;
+        if (src.endsWith('.mp4') || src.endsWith('.webm')) {
+          el = document.createElement('video');
+          el.src = src;
+          el.muted = true;
+          el.playsInline = true;
+          el.preload = 'auto';
+          el.loop = false;
+        } else {
+          el = document.createElement('img');
+          el.decoding = 'async';
+          el.src = src;
+        }
+        el.className = 'desktop-bg-slide';
+        container.appendChild(el);
+        return el;
       });
 
       const overlay = document.createElement('div');
@@ -233,12 +239,23 @@ export default {
         overlay.style.background = `rgba(0,0,0,${DESKTOP_SLIDE_OVERLAY[index] ?? 0.35})`;
       }
 
+      function onVideoEnd() {
+        advance();
+        intervalId = setInterval(advance, CYCLE_MS);
+      }
+
       function show(index) {
         if (transitioning || index === current) return;
         transitioning = true;
 
         const prev = slides[current];
         const next = slides[index];
+
+        if (prev.tagName === 'VIDEO') {
+          prev.removeEventListener('ended', onVideoEnd);
+          prev.pause();
+          prev.currentTime = 0;
+        }
 
         captionEl.style.opacity = '0';
         setOverlay(index);
@@ -255,6 +272,14 @@ export default {
           current = index;
           transitioning = false;
           showCaption(index);
+
+          if (next.tagName === 'VIDEO') {
+            clearInterval(intervalId);
+            intervalId = null;
+            next.currentTime = 0;
+            next.play();
+            next.addEventListener('ended', onVideoEnd, { once: true });
+          }
         }, DESKTOP_FADE_MS + 50);
       }
 
@@ -264,6 +289,8 @@ export default {
 
       function onTap(e) {
         if (e.target.closest('button, a')) return;
+        const cur = slides[current];
+        if (cur.tagName === 'VIDEO' && !cur.paused && !cur.ended) return;
         clearInterval(intervalId);
         advance();
         intervalId = setInterval(advance, CYCLE_MS);
@@ -272,10 +299,17 @@ export default {
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => {
-        slides[0].style.zIndex = '1';
-        slides[0].style.opacity = '1';
+        const first = slides[0];
+        first.style.zIndex = '1';
+        first.style.opacity = '1';
         setOverlay(0);
-        intervalId = setInterval(advance, CYCLE_MS);
+        if (first.tagName === 'VIDEO') {
+          first.currentTime = 0;
+          first.play();
+          first.addEventListener('ended', onVideoEnd, { once: true });
+        } else {
+          intervalId = setInterval(advance, CYCLE_MS);
+        }
         setTimeout(() => showCaption(0), DESKTOP_FADE_MS);
       }, delay);
 
@@ -284,6 +318,12 @@ export default {
         clearInterval(intervalId);
         document.removeEventListener('click', onTap);
         captionEl.removeEventListener('click', onCaptionClick);
+        slides.forEach(s => {
+          if (s.tagName === 'VIDEO') {
+            s.removeEventListener('ended', onVideoEnd);
+            s.pause();
+          }
+        });
         container.remove();
         captionEl.style.opacity = '0';
         captionEl.classList.remove('is-visible');
