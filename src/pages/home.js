@@ -35,9 +35,38 @@ const SLIDE_INFO = [
   { name: 'STREET GALLERY',   href: '/work/test-1' },
 ];
 
+const DESKTOP_BG_IMAGES = [
+  '/assets/backgrounds-desktop/1.jpg',
+  '/assets/backgrounds-desktop/2.png',
+  '/assets/backgrounds-desktop/3.jpg',
+  '/assets/backgrounds-desktop/4.jpg',
+  '/assets/backgrounds-desktop/5.jpg',
+  '/assets/backgrounds-desktop/6.jpg',
+  '/assets/backgrounds-desktop/7.jpg',
+  '/assets/backgrounds-desktop/8.jpg',
+  '/assets/backgrounds-desktop/9.jpg',
+  '/assets/backgrounds-desktop/10.jpg',
+];
+
+const DESKTOP_SLIDE_OVERLAY = [0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35];
+
+const DESKTOP_SLIDE_INFO = [
+  { name: 'ABSTRACT',       href: '/work/test-6' },
+  { name: 'PYXL',           href: '/work/test-1' },
+  { name: 'CRYSTAL GOBLET', href: '/work/test-1' },
+  { name: 'TERRA',          href: '/work/test-2' },
+  { name: 'STREET',         href: '/work/test-4' },
+  { name: 'STREET',         href: '/work/test-4' },
+  { name: 'ABSTRACT',       href: '/work/test-6' },
+  { name: 'PROJECT 152',    href: '/work/test-3' },
+  { name: 'NATURE',         href: '/work/test-5' },
+  { name: 'STREET',         href: '/work/test-4' },
+];
+
 let _bgCleanup = null;
 
 const FADE_MS = 700;
+const DESKTOP_FADE_MS = 900;
 const CYCLE_MS = 6000;
 
 export default {
@@ -149,6 +178,117 @@ export default {
         document.removeEventListener('click', onTap);
         container.remove();
         captionEl.remove();
+        _bgCleanup = null;
+      };
+
+    } else {
+      const container = document.createElement('div');
+      container.className = 'desktop-bg-slideshow';
+
+      const slides = DESKTOP_BG_IMAGES.map(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = 'desktop-bg-slide';
+        img.decoding = 'async';
+        container.appendChild(img);
+        return img;
+      });
+
+      const overlay = document.createElement('div');
+      overlay.className = 'desktop-bg-overlay';
+      container.appendChild(overlay);
+
+      const appEl = document.getElementById('app');
+      document.body.insertBefore(container, appEl);
+
+      const captionEl = document.getElementById('nav-slide-caption');
+
+      const onCaptionClick = e => {
+        e.preventDefault();
+        if (captionEl.dataset.href) navigate(captionEl.dataset.href);
+      };
+      captionEl.addEventListener('click', onCaptionClick);
+
+      let current = 0;
+      let transitioning = false;
+      let intervalId = null;
+
+      function showCaption(index) {
+        const info = DESKTOP_SLIDE_INFO[index];
+        if (!info) {
+          captionEl.style.opacity = '0';
+          captionEl.classList.remove('is-visible');
+          return;
+        }
+        captionEl.dataset.href = info.href;
+        captionEl.innerHTML = [...(info.name + ' - SEE MORE')]
+          .map(c => `<span class="reveal-chunk">${c === ' ' ? '&nbsp;' : c}</span>`)
+          .join('');
+        captionEl.classList.add('is-visible');
+        captionEl.style.opacity = '1';
+        runReveal(captionEl, { burstCount: 12, burstGap: 30, chunkGap: 10 });
+      }
+
+      function setOverlay(index) {
+        overlay.style.background = `rgba(0,0,0,${DESKTOP_SLIDE_OVERLAY[index] ?? 0.35})`;
+      }
+
+      function show(index) {
+        if (transitioning || index === current) return;
+        transitioning = true;
+
+        const prev = slides[current];
+        const next = slides[index];
+
+        captionEl.style.opacity = '0';
+        setOverlay(index);
+
+        next.style.zIndex = '2';
+        next.style.opacity = '1';
+
+        setTimeout(() => {
+          prev.style.transition = 'none';
+          prev.style.opacity = '0';
+          prev.style.zIndex = '0';
+          requestAnimationFrame(() => requestAnimationFrame(() => { prev.style.transition = ''; }));
+          next.style.zIndex = '1';
+          current = index;
+          transitioning = false;
+          showCaption(index);
+        }, DESKTOP_FADE_MS + 50);
+      }
+
+      function advance() {
+        show((current + 1) % slides.length);
+      }
+
+      function onTap(e) {
+        if (e.target.closest('button, a')) return;
+        clearInterval(intervalId);
+        advance();
+        intervalId = setInterval(advance, CYCLE_MS);
+      }
+      document.addEventListener('click', onTap);
+
+      const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
+      const startTimer = setTimeout(() => {
+        slides[0].style.zIndex = '1';
+        slides[0].style.opacity = '1';
+        setOverlay(0);
+        intervalId = setInterval(advance, CYCLE_MS);
+        setTimeout(() => showCaption(0), DESKTOP_FADE_MS);
+      }, delay);
+
+      _bgCleanup = () => {
+        clearTimeout(startTimer);
+        clearInterval(intervalId);
+        document.removeEventListener('click', onTap);
+        captionEl.removeEventListener('click', onCaptionClick);
+        container.remove();
+        captionEl.style.opacity = '0';
+        captionEl.classList.remove('is-visible');
+        captionEl.innerHTML = '';
+        captionEl.dataset.href = '';
         _bgCleanup = null;
       };
     }
