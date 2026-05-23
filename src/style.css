@@ -597,13 +597,14 @@ body.work-page {
   #app,
   .mobile-bg-slideshow,
   .slide-caption {
-    transition: filter 380ms ease;
+    transition: filter 380ms ease, transform 380ms ease;
   }
 
   body.menu-open #app,
   body.menu-open .mobile-bg-slideshow,
   body.menu-open .slide-caption {
     filter: blur(3px);
+    transform: scale(1.03);
   }
 
   .home-nav {
