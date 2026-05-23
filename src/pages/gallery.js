@@ -4,13 +4,22 @@ export const GALLERIES = {
   '1': {
     title: 'ABSTRACT',
     images: [
-      '/assets/backgrounds-desktop/1.jpg',
-      '/assets/backgrounds-desktop/3.jpg',
-      '/assets/backgrounds-desktop/4.jpg',
-      '/assets/backgrounds-desktop/5.jpg',
-      '/assets/backgrounds-desktop/6.jpg',
-      '/assets/backgrounds-desktop/7.jpg',
-      '/assets/backgrounds-desktop/8.jpg',
+      '/assets/abstract-gallery/1.jpg',
+      '/assets/abstract-gallery/2.jpg',
+      '/assets/abstract-gallery/3.jpg',
+      '/assets/abstract-gallery/4.jpg',
+      '/assets/abstract-gallery/5.jpg',
+      '/assets/abstract-gallery/6.jpg',
+      '/assets/abstract-gallery/7.jpg',
+      '/assets/abstract-gallery/8.jpg',
+      '/assets/abstract-gallery/9.jpg',
+      '/assets/abstract-gallery/10.jpg',
+      '/assets/abstract-gallery/11.jpg',
+      '/assets/abstract-gallery/12.jpg',
+      '/assets/abstract-gallery/13.jpg',
+      '/assets/abstract-gallery/14.jpg',
+      '/assets/abstract-gallery/15.jpg',
+      '/assets/abstract-gallery/16.jpg',
     ]
   }
 };
