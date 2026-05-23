@@ -603,7 +603,7 @@ body.work-page {
   body.menu-open #app,
   body.menu-open .mobile-bg-slideshow,
   body.menu-open .slide-caption {
-    filter: blur(6px);
+    filter: blur(3px);
   }
 
   .home-nav {
