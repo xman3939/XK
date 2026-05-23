@@ -46,7 +46,7 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/8.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.55, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35];
+const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'ABSTRACT',       href: '/work/test-6' },
@@ -185,11 +185,13 @@ export default {
         let el;
         if (src.endsWith('.mp4') || src.endsWith('.webm')) {
           el = document.createElement('video');
-          el.src = src;
+          el.setAttribute('muted', '');
+          el.setAttribute('playsinline', '');
+          el.setAttribute('preload', 'auto');
           el.muted = true;
           el.playsInline = true;
-          el.preload = 'auto';
           el.loop = false;
+          el.src = src;
         } else {
           el = document.createElement('img');
           el.decoding = 'async';
@@ -257,6 +259,14 @@ export default {
           prev.currentTime = 0;
         }
 
+        if (next.tagName === 'VIDEO') {
+          clearInterval(intervalId);
+          intervalId = null;
+          next.currentTime = 0;
+          next.addEventListener('ended', onVideoEnd, { once: true });
+          next.play().catch(() => {});
+        }
+
         captionEl.style.opacity = '0';
         setOverlay(index);
 
@@ -272,14 +282,6 @@ export default {
           current = index;
           transitioning = false;
           showCaption(index);
-
-          if (next.tagName === 'VIDEO') {
-            clearInterval(intervalId);
-            intervalId = null;
-            next.currentTime = 0;
-            next.play();
-            next.addEventListener('ended', onVideoEnd, { once: true });
-          }
         }, DESKTOP_FADE_MS + 50);
       }
 
@@ -305,8 +307,8 @@ export default {
         setOverlay(0);
         if (first.tagName === 'VIDEO') {
           first.currentTime = 0;
-          first.play();
           first.addEventListener('ended', onVideoEnd, { once: true });
+          first.play().catch(() => {});
         } else {
           intervalId = setInterval(advance, CYCLE_MS);
         }

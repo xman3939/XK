@@ -180,12 +180,12 @@ body.work-page {
   max-height: 720px;
   object-fit: contain;
   display: block;
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(1.15);
   transition: filter 500ms ease;
 }
 
 .project-card:hover .project-image {
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(1.2);
 }
 
 .project-meta {
