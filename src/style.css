@@ -269,6 +269,10 @@ body.project-detail-page {
   text-underline-offset: 3px;
 }
 
+.desc-toggle {
+  display: none;
+}
+
 .meta-value {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -770,6 +774,33 @@ body.project-detail-page {
 
   .project-info {
     padding: 48px 20px;
+  }
+
+  .meta-value--desc {
+    max-height: 4.8em;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+  }
+
+  .meta-value--desc.is-expanded {
+    max-height: 100em;
+  }
+
+  .desc-toggle {
+    display: block;
+    grid-column: 1 / -1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 10px 0 0;
+    text-align: left;
   }
 
   .gallery-layout {
