@@ -62,13 +62,16 @@ export default {
     document.querySelectorAll('.meta-label').forEach(el => fragmentElement(el));
     document.querySelectorAll('.meta-item').forEach(el => fragmentElement(el));
     document.querySelectorAll('.meta-value--more a').forEach(el => fragmentElement(el));
+    const descToggleEl = document.querySelector('.desc-toggle');
+    if (descToggleEl) fragmentElement(descToggleEl);
 
     const descToggle = document.querySelector('.desc-toggle');
     const descEl     = document.querySelector('.meta-value--desc');
     if (descToggle && descEl) {
       descToggle.addEventListener('click', () => {
         const expanded = descEl.classList.toggle('is-expanded');
-        descToggle.textContent = expanded ? 'VIEW LESS -' : 'VIEW MORE +';
+        descToggle.innerHTML = (expanded ? 'VIEW LESS -' : 'VIEW MORE +')
+          .split('').map(c => `<span class="reveal-chunk is-visible">${c}</span>`).join('');
         descToggle.setAttribute('aria-expanded', String(expanded));
       });
     }
