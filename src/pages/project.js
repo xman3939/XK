@@ -12,17 +12,20 @@ export default {
       return `<div class="project-page"><p class="project-not-found">PROJECT NOT FOUND</p></div>`;
     }
 
-    const toolsHtml = project.tools?.length ? project.tools.join('<br>') : '';
+    const toolsHtml     = project.tools?.length     ? project.tools.join('<br>')     : '';
+    const languagesHtml = project.languages?.length ? project.languages.join('<br>') : '';
 
     return `
       <div class="project-page" style="opacity:0">
         <section class="project-hero">
           <div class="project-info">
             <div class="project-meta-grid">
-              <span class="meta-label">${project.title}</span>
+              <span class="meta-label meta-label--title">${project.title}</span>
               <span class="meta-value">${project.description ?? ''}</span>
               <span class="meta-label">TOOLS</span>
               <span class="meta-value">${toolsHtml}</span>
+              <span class="meta-label">LANGUAGES</span>
+              <span class="meta-value">${languagesHtml}</span>
               <span class="meta-label">MORE</span>
               <span class="meta-value">${project.more ?? ''}</span>
             </div>

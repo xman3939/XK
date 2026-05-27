@@ -255,6 +255,10 @@ body.project-detail-page {
   white-space: nowrap;
 }
 
+.meta-label--title {
+  color: #fff;
+}
+
 .meta-value {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
