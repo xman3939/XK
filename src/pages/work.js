@@ -62,12 +62,62 @@ export default {
       const go = () => {
         if (p?.gallery) {
           navigate(`/gallery/${p.gallery}`);
-        } else {
-          const img = card.querySelector('.project-image');
-          transitionState.slug = p.slug;
-          transitionState.rect = img ? img.getBoundingClientRect() : null;
-          navigate(`/work/${card.dataset.projectSlug}`);
+          return;
         }
+
+        const img = card.querySelector('.project-image');
+
+        // Skip animated transition on mobile (layout stacks differently)
+        if (!img || window.innerWidth <= 768) {
+          navigate(`/work/${card.dataset.projectSlug}`);
+          return;
+        }
+
+        const rect = img.getBoundingClientRect();
+
+        // Create a fixed-position clone that flies from thumbnail → hero panel
+        const clone = img.cloneNode();
+        clone.id = 'project-transition-clone';
+        clone.removeAttribute('class');
+        clone.style.cssText = [
+          'position:fixed',
+          `left:${rect.left}px`,
+          `top:${rect.top}px`,
+          `width:${rect.width}px`,
+          `height:${rect.height}px`,
+          'object-fit:contain',
+          'z-index:1000',
+          'margin:0',
+          'padding:0',
+          'border:none',
+          'display:block',
+          'pointer-events:none',
+          'filter:grayscale(100%) brightness(1.15)',
+        ].join(';');
+        document.body.appendChild(clone);
+
+        // Target: right 50% of viewport, full height
+        const tx = window.innerWidth / 2 - rect.left;
+        const ty = -rect.top;
+        const ease = 'cubic-bezier(0.4, 0, 0.2, 1)';
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            clone.style.transition = [
+              `transform 620ms ${ease}`,
+              `width 620ms ${ease}`,
+              `height 620ms ${ease}`,
+              `filter 500ms ${ease}`,
+            ].join(',');
+            clone.style.transform = `translate(${tx}px, ${ty}px)`;
+            clone.style.width = `${window.innerWidth / 2}px`;
+            clone.style.height = `${window.innerHeight}px`;
+            clone.style.filter = 'none';
+          });
+        });
+
+        transitionState.slug = p.slug;
+        navigate(`/work/${card.dataset.projectSlug}`);
       };
       card.addEventListener('click', go);
       card.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
@@ -79,14 +129,11 @@ export default {
       if (!layout) { resolve(); return; }
 
       if (transitionState.slug) {
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach(card => {
-          if (card.dataset.projectSlug !== transitionState.slug) {
-            card.style.transition = 'opacity 200ms ease';
-            card.style.opacity = '0';
-          }
-        });
-        setTimeout(resolve, 220);
+        // Clone is already animating — just fade the whole layout out
+        // so the clone is the only thing moving on screen
+        layout.style.transition = 'opacity 220ms ease';
+        layout.style.opacity = '0';
+        setTimeout(resolve, 240);
       } else {
         layout.style.transition = 'opacity 480ms ease';
         layout.style.opacity = '0';
