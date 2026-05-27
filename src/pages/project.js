@@ -22,7 +22,7 @@ export default {
             <div class="project-meta-grid">
               <span class="meta-label meta-label--title">${project.title}</span>
               <span class="meta-value meta-value--desc">${project.description ?? ''}</span>
-              ${project.description ? `<button class="desc-toggle" aria-expanded="false">VIEW MORE</button>` : ''}
+              ${project.description ? `<button class="desc-toggle" aria-expanded="false">VIEW MORE +</button>` : ''}
               ${project.tools?.length ? `
               <span class="meta-label">TOOLS</span>
               <span class="meta-value meta-value--list">${toolsHtml}</span>` : ''}
@@ -68,7 +68,7 @@ export default {
     if (descToggle && descEl) {
       descToggle.addEventListener('click', () => {
         const expanded = descEl.classList.toggle('is-expanded');
-        descToggle.textContent = expanded ? 'VIEW LESS' : 'VIEW MORE';
+        descToggle.textContent = expanded ? 'VIEW LESS -' : 'VIEW MORE +';
         descToggle.setAttribute('aria-expanded', String(expanded));
       });
     }

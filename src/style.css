@@ -777,7 +777,7 @@ body.project-detail-page {
   }
 
   .meta-value--desc {
-    max-height: 4.8em;
+    max-height: 7.5em;
     overflow: hidden;
     transition: max-height 400ms ease;
   }
@@ -788,7 +788,7 @@ body.project-detail-page {
 
   .desc-toggle {
     display: block;
-    grid-column: 1 / -1;
+    grid-column: 2;
     background: none;
     border: none;
     color: #fff;
