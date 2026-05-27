@@ -1,3 +1,4 @@
+import { navigate } from '../router.js';
 import { projects } from './work.js';
 import { transitionState, MOVE_MS } from '../transition-state.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
@@ -17,6 +18,7 @@ export default {
 
     return `
       <div class="project-page" style="opacity:0">
+        <button class="home-nav-button project-back-btn" type="button">← BACK</button>
         <section class="project-hero">
           <div class="project-info">
             <div class="project-meta-grid">
@@ -59,6 +61,12 @@ export default {
     });
 
     // Char-level fragmentation for labels, list items, and more link
+    const backBtn = document.querySelector('.project-back-btn');
+    if (backBtn) {
+      fragmentElement(backBtn);
+      backBtn.addEventListener('click', () => navigate('/work'));
+    }
+
     document.querySelectorAll('.meta-label').forEach(el => fragmentElement(el));
     document.querySelectorAll('.meta-item').forEach(el => fragmentElement(el));
     document.querySelectorAll('.meta-value--more a').forEach(el => fragmentElement(el));
@@ -113,7 +121,10 @@ export default {
           info.style.opacity    = '1';
           info.style.transform  = 'none';
 
-          setTimeout(() => runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 }), 80);
+          setTimeout(() => {
+            runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 });
+            if (backBtn) runReveal(backBtn, { burstCount: 1, burstGap: 0, chunkGap: 20 });
+          }, 80);
 
           transitionState.slug = null;
         }, 160);
@@ -129,7 +140,10 @@ export default {
       requestAnimationFrame(() => {
         page.style.transition = 'opacity 400ms ease';
         page.style.opacity    = '1';
-        setTimeout(() => runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 }), 200);
+        setTimeout(() => {
+          runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 });
+          if (backBtn) runReveal(backBtn, { burstCount: 1, burstGap: 0, chunkGap: 20 });
+        }, 200);
       });
     }
   },
