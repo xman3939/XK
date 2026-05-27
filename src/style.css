@@ -15,7 +15,7 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100%;
-  background: #000;
+  background: #1a1a1a;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 20;
-  background: #000;
+  background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,42 +211,84 @@ body.work-page {
 }
 
 /* ----------------------------- */
-/* PROJECT DETAIL PAGE */
+/* PROJECT PAGE */
 /* ----------------------------- */
 
-.project-detail {
+body.project-detail-page {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.project-page {
   width: 100%;
+}
+
+.project-hero {
+  display: flex;
+  height: 100vh;
   min-height: 100vh;
-  padding: 64px 64px 140px 64px;
+}
+
+.project-info {
+  width: 50%;
+  padding: 80px 56px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 48px;
 }
 
-.project-detail-image-wrap {
-  width: 100%;
-  max-width: 900px;
+.project-hero-title {
+  margin: 0;
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-.project-detail-image {
+.project-meta-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px 48px;
+  align-items: start;
+}
+
+.meta-label {
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #8f8f8f;
+  text-transform: uppercase;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.meta-value {
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.project-image-panel {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.project-hero-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  object-fit: contain;
-}
-
-.project-detail-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 900px;
-}
-
-.project-back-button {
-  align-self: flex-start;
 }
 
 .project-not-found {
+  padding: 120px 64px;
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -580,7 +622,7 @@ body.work-page {
   left: 0;
   right: 0;
   height: 40vh;
-  background: #000;
+  background: #1a1a1a;
   z-index: 15;
   transform: translateY(-100%);
   transition: transform 380ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -706,8 +748,23 @@ body.work-page {
     row-gap: 48px;
   }
 
-  .project-detail {
-    padding: 80px 20px 80px 20px;
+  .project-hero {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .project-info,
+  .project-image-panel {
+    width: 100%;
+  }
+
+  .project-image-panel {
+    height: 60vw;
+  }
+
+  .project-info {
+    padding: 48px 20px;
   }
 
   .gallery-layout {

@@ -1,5 +1,6 @@
 import { navigate } from '../router.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
+import { transitionState } from '../transition-state.js';
 
 export const projects = [
   { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.png', alt: 'PYXL' },
@@ -58,7 +59,16 @@ export default {
 
     document.querySelectorAll('[data-project-slug]').forEach(card => {
       const p = projects.find(proj => proj.slug === card.dataset.projectSlug);
-      const go = () => p?.gallery ? navigate(`/gallery/${p.gallery}`) : navigate(`/work/${card.dataset.projectSlug}`);
+      const go = () => {
+        if (p?.gallery) {
+          navigate(`/gallery/${p.gallery}`);
+        } else {
+          const img = card.querySelector('.project-image');
+          transitionState.slug = p.slug;
+          transitionState.rect = img ? img.getBoundingClientRect() : null;
+          navigate(`/work/${card.dataset.projectSlug}`);
+        }
+      };
       card.addEventListener('click', go);
       card.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
     });
@@ -67,9 +77,21 @@ export default {
     return new Promise(resolve => {
       const layout = document.querySelector('.work-layout');
       if (!layout) { resolve(); return; }
-      layout.style.transition = 'opacity 480ms ease';
-      layout.style.opacity = '0';
-      setTimeout(resolve, 480);
+
+      if (transitionState.slug) {
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+          if (card.dataset.projectSlug !== transitionState.slug) {
+            card.style.transition = 'opacity 200ms ease';
+            card.style.opacity = '0';
+          }
+        });
+        setTimeout(resolve, 220);
+      } else {
+        layout.style.transition = 'opacity 480ms ease';
+        layout.style.opacity = '0';
+        setTimeout(resolve, 480);
+      }
     });
   }
 };
