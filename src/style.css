@@ -259,6 +259,12 @@ body.project-detail-page {
   color: #fff;
 }
 
+.meta-link {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .meta-value {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
