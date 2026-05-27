@@ -3,7 +3,7 @@ import { fragmentElement, runReveal } from '../text-reveal.js';
 import { transitionState, PRE_DELAY, MOVE_MS } from '../transition-state.js';
 
 export const projects = [
-  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.png', alt: 'PYXL' },
+  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL' },
   { slug: 'test-2', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA' },
   { slug: 'test-3', title: 'PROJECT 152',  date: '11/2025',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152' },
   { slug: 'test-4', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET', gallery: '3' },
@@ -86,7 +86,7 @@ export default {
           `top:${rect.top}px`,
           `width:${rect.width}px`,
           `height:${rect.height}px`,
-          'object-fit:contain',
+          'object-fit:cover',
           'object-position:center center',
           'z-index:1000',
           'margin:0',
@@ -94,7 +94,6 @@ export default {
           'border:none',
           'display:block',
           'pointer-events:none',
-          'filter:grayscale(100%) brightness(1.15)',
           'transition:none',
           'will-change:left,top,width,height',
         ].join(';');
@@ -109,13 +108,11 @@ export default {
             `top ${MOVE_MS}ms ${ease}`,
             `width ${MOVE_MS}ms ${ease}`,
             `height ${MOVE_MS}ms ${ease}`,
-            `filter 500ms ease`,
           ].join(',');
           clone.style.left   = `${vw / 2}px`;
           clone.style.top    = '0px';
           clone.style.width  = `${vw / 2}px`;
           clone.style.height = `${vh}px`;
-          clone.style.filter = 'none';
         }, PRE_DELAY);
 
         transitionState.slug = p.slug;
