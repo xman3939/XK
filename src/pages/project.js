@@ -12,8 +12,8 @@ export default {
       return `<div class="project-page"><p class="project-not-found">PROJECT NOT FOUND</p></div>`;
     }
 
-    const toolsHtml     = project.tools?.length     ? project.tools.join('<br>')     : '';
-    const languagesHtml = project.languages?.length ? project.languages.join('<br>') : '';
+    const toolsHtml     = project.tools?.length     ? project.tools.map(t => `<span class="meta-item">${t}</span>`).join('')     : '';
+    const languagesHtml = project.languages?.length ? project.languages.map(l => `<span class="meta-item">${l}</span>`).join('') : '';
 
     return `
       <div class="project-page" style="opacity:0">
@@ -21,16 +21,16 @@ export default {
           <div class="project-info">
             <div class="project-meta-grid">
               <span class="meta-label meta-label--title">${project.title}</span>
-              <span class="meta-value">${project.description ?? ''}</span>
+              <span class="meta-value meta-value--desc">${project.description ?? ''}</span>
               ${project.tools?.length ? `
               <span class="meta-label">TOOLS</span>
-              <span class="meta-value">${toolsHtml}</span>` : ''}
+              <span class="meta-value meta-value--list">${toolsHtml}</span>` : ''}
               ${project.languages?.length ? `
               <span class="meta-label">LANGUAGES</span>
-              <span class="meta-value">${languagesHtml}</span>` : ''}
+              <span class="meta-value meta-value--list">${languagesHtml}</span>` : ''}
               ${project.more ? `
               <span class="meta-label">MORE</span>
-              <span class="meta-value">${project.more}</span>` : ''}
+              <span class="meta-value meta-value--more">${project.more}</span>` : ''}
             </div>
           </div>
           <div class="project-image-panel">
@@ -49,22 +49,13 @@ export default {
     const clone   = document.getElementById('project-transition-clone');
     const panel   = document.querySelector('.project-image-panel');
 
-    // Fragment all meta text so the reveal stagger covers both columns
+    // Labels + list items + more link get the stagger reveal.
+    // Description is a long paragraph — skip fragmentation to preserve spaces and speed.
     document.querySelectorAll('.meta-label').forEach(el => fragmentElement(el));
-    document.querySelectorAll('.meta-value').forEach(el => {
-      if (el.children.length === 0) {
-        fragmentElement(el);
-      } else {
-        // Element has child tags (e.g. anchor in MORE) — fragment each child
-        el.querySelectorAll('a, span').forEach(child => {
-          if (child.children.length === 0) fragmentElement(child);
-        });
-      }
-    });
+    document.querySelectorAll('.meta-item').forEach(el => fragmentElement(el));
+    document.querySelectorAll('.meta-value--more a').forEach(el => fragmentElement(el));
 
     if (clone && transitionState.slug && info && heroImg && panel) {
-      // Measure the actual rendered panel position — this is exact and accounts
-      // for scrollbar width, padding, or any layout quirk
       const panelRect = panel.getBoundingClientRect();
 
       heroImg.style.opacity = '0';
@@ -72,7 +63,6 @@ export default {
       info.style.transform  = 'translateX(-20px)';
       page.style.opacity    = '1';
 
-      // Kick off the clone animation toward the exact panel rect
       const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
       requestAnimationFrame(() => {
         clone.style.transition = [
@@ -92,19 +82,16 @@ export default {
         if (done) return;
         done = true;
 
-        // Crossfade real hero image in over the clone
         heroImg.style.transition = 'opacity 160ms ease';
         heroImg.style.opacity    = '1';
 
         setTimeout(() => {
           clone.remove();
 
-          // Slide info panel in
           info.style.transition = 'opacity 400ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1)';
           info.style.opacity    = '1';
           info.style.transform  = 'none';
 
-          // Staggered text reveal fires as info slides in
           setTimeout(() => runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 }), 80);
 
           transitionState.slug = null;
@@ -115,7 +102,7 @@ export default {
         if (e.target === clone && e.propertyName === 'width') finish();
       };
       clone.addEventListener('transitionend', handler);
-      setTimeout(finish, MOVE_MS + 120); // fallback
+      setTimeout(finish, MOVE_MS + 120);
     } else {
       if (clone) clone.remove();
       requestAnimationFrame(() => {

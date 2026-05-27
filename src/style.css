@@ -259,6 +259,10 @@ body.project-detail-page {
   color: #fff;
 }
 
+.meta-item {
+  display: block;
+}
+
 .meta-link {
   color: #fff;
   text-decoration: underline;
