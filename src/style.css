@@ -783,6 +783,11 @@ body.project-detail-page {
     padding: 48px 20px;
   }
 
+  .project-back-btn {
+    top: 18px;
+    left: 14px;
+  }
+
   .meta-value--desc {
     max-height: 7.5em;
     overflow: hidden;
