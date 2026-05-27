@@ -3,7 +3,7 @@ import { fragmentElement, runReveal } from '../text-reveal.js';
 import { transitionState, PRE_DELAY } from '../transition-state.js';
 
 export const projects = [
-  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL',
+  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
     description: 'PYXL is a web experience for anyone interested in looking at their photography through a new lens. Daily themes will guide the users\' photo submissions and incentivize them to answer a few questions about their image. The site will generate a distorted version of their image in several ways based on their responses and they will now have a warped image that reflects their emotions, perceptions and memory of that moment in time. Designed with a monochrome, minimal, "pixel" themed aesthetic, the site\'s experience highlights the photographs submitted by users. You can explore other users\' memories through the archive. The archive is not only a collection of these distorted images, but also a time-capsule for these uniquely human experiences, showing memory and emotion warped through time.',
     tools: ['Adobe Creative Suite', 'VSCode', 'GitHub'],
     languages: ['JavaScript', 'HTML', 'CSS', 'Python', 'SQL'],

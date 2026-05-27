@@ -34,7 +34,7 @@ export default {
             </div>
           </div>
           <div class="project-image-panel">
-            <img class="project-hero-img" src="${project.image}" alt="${project.alt}" decoding="async" />
+            <img class="project-hero-img" src="${project.image}" alt="${project.alt}" decoding="async"${project.objectPosition ? ` style="object-position:${project.objectPosition}"` : ''} />
           </div>
         </section>
       </div>
