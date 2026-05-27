@@ -265,6 +265,7 @@ body.project-detail-page {
   letter-spacing: 0.04em;
   color: #fff;
   line-height: 1.6;
+  text-transform: uppercase;
 }
 
 .project-image-panel {
