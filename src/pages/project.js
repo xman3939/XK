@@ -1,5 +1,5 @@
 import { projects } from './work.js';
-import { transitionState } from '../transition-state.js';
+import { transitionState, PRE_DELAY, MOVE_MS } from '../transition-state.js';
 
 export default {
   title: 'XK — Project',
@@ -35,52 +35,57 @@ export default {
     `;
   },
   init() {
-    const page = document.querySelector('.project-page');
+    const page    = document.querySelector('.project-page');
     if (!page) return;
 
-    const info = document.querySelector('.project-info');
+    const info    = document.querySelector('.project-info');
     const heroImg = document.querySelector('.project-hero-img');
-    const clone = document.getElementById('project-transition-clone');
+    const clone   = document.getElementById('project-transition-clone');
 
     if (clone && transitionState.slug && info && heroImg) {
-      // Clone is still flying in from the work page.
-      // Keep hero image hidden (clone covers that area), show the page shell.
+      // Clone is mid-flight from the work page.
+      // Keep hero image invisible (clone is covering that region),
+      // reveal the page shell so the dark bg shows through.
       heroImg.style.opacity = '0';
-      info.style.opacity = '0';
-      info.style.transform = 'translateX(-16px)';
-      page.style.opacity = '1';
+      info.style.opacity    = '0';
+      info.style.transform  = 'translateX(-20px)';
+      page.style.opacity    = '1';
 
       let done = false;
       const finish = () => {
         if (done) return;
         done = true;
 
-        // Crossfade: fade hero image in over the clone, then remove clone
-        heroImg.style.transition = 'opacity 180ms ease';
-        heroImg.style.opacity = '1';
+        // Crossfade: real hero image fades in over the clone
+        heroImg.style.transition = 'opacity 160ms ease';
+        heroImg.style.opacity    = '1';
 
         setTimeout(() => {
           clone.remove();
 
-          // Slide+fade the info panel in
-          info.style.transition = 'opacity 420ms ease, transform 420ms ease';
-          info.style.opacity = '1';
-          info.style.transform = '';
-          transitionState.slug = null;
-        }, 180);
+          // Info panel slides in after clone is gone
+          info.style.transition = 'opacity 440ms ease, transform 440ms cubic-bezier(0.22, 1, 0.36, 1)';
+          info.style.opacity    = '1';
+          info.style.transform  = 'none';
+          transitionState.slug  = null;
+        }, 160);
       };
 
-      // Fire when the width property finishes (all three transitions are 620ms)
+      // Fire when the `width` property finishes animating
       const handler = (e) => {
         if (e.target === clone && e.propertyName === 'width') finish();
       };
       clone.addEventListener('transitionend', handler);
-      setTimeout(finish, 720); // fallback if transitionend misfires
+
+      // Fallback: fire at expected completion time in case transitionend misfires
+      setTimeout(finish, PRE_DELAY + MOVE_MS + 100);
+
     } else {
+      // Direct URL load — no clone, simple fade in
       if (clone) clone.remove();
       requestAnimationFrame(() => {
         page.style.transition = 'opacity 400ms ease';
-        page.style.opacity = '1';
+        page.style.opacity    = '1';
       });
     }
   },
@@ -89,7 +94,7 @@ export default {
       const page = document.querySelector('.project-page');
       if (!page) { resolve(); return; }
       page.style.transition = 'opacity 400ms ease';
-      page.style.opacity = '0';
+      page.style.opacity    = '0';
       setTimeout(resolve, 400);
     });
   }

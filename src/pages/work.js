@@ -1,6 +1,6 @@
 import { navigate } from '../router.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
-import { transitionState } from '../transition-state.js';
+import { transitionState, PRE_DELAY, MOVE_MS } from '../transition-state.js';
 
 export const projects = [
   { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.png', alt: 'PYXL' },
@@ -52,7 +52,6 @@ export default {
     Promise.race([waitForImages, timeout]).then(() => {
       setTimeout(() => {
         if (layout) layout.style.opacity = '1';
-        // fire reveal after layout fade completes
         setTimeout(() => runReveal('.projects-grid', { burstCount: 8, burstGap: 55, chunkGap: 20 }), 540);
       }, 380);
     });
@@ -67,15 +66,17 @@ export default {
 
         const img = card.querySelector('.project-image');
 
-        // Skip animated transition on mobile (layout stacks differently)
+        // Skip animated transition on mobile
         if (!img || window.innerWidth <= 768) {
           navigate(`/work/${card.dataset.projectSlug}`);
           return;
         }
 
         const rect = img.getBoundingClientRect();
+        const vw = document.documentElement.clientWidth;
+        const vh = window.innerHeight;
 
-        // Create a fixed-position clone that flies from thumbnail → hero panel
+        // Place clone instantly at thumbnail position — no transition yet
         const clone = img.cloneNode();
         clone.id = 'project-transition-clone';
         clone.removeAttribute('class');
@@ -86,6 +87,7 @@ export default {
           `width:${rect.width}px`,
           `height:${rect.height}px`,
           'object-fit:contain',
+          'object-position:center center',
           'z-index:1000',
           'margin:0',
           'padding:0',
@@ -93,28 +95,28 @@ export default {
           'display:block',
           'pointer-events:none',
           'filter:grayscale(100%) brightness(1.15)',
+          'transition:none',
+          'will-change:left,top,width,height',
         ].join(';');
         document.body.appendChild(clone);
 
-        // Target: right 50% of viewport, full height
-        const tx = window.innerWidth / 2 - rect.left;
-        const ty = -rect.top;
-        const ease = 'cubic-bezier(0.4, 0, 0.2, 1)';
-
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            clone.style.transition = [
-              `transform 620ms ${ease}`,
-              `width 620ms ${ease}`,
-              `height 620ms ${ease}`,
-              `filter 500ms ${ease}`,
-            ].join(',');
-            clone.style.transform = `translate(${tx}px, ${ty}px)`;
-            clone.style.width = `${window.innerWidth / 2}px`;
-            clone.style.height = `${window.innerHeight}px`;
-            clone.style.filter = 'none';
-          });
-        });
+        // After pre-fade delay, animate clone to hero panel position
+        // using left/top/width/height so the image is resampled at each frame
+        const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+        setTimeout(() => {
+          clone.style.transition = [
+            `left ${MOVE_MS}ms ${ease}`,
+            `top ${MOVE_MS}ms ${ease}`,
+            `width ${MOVE_MS}ms ${ease}`,
+            `height ${MOVE_MS}ms ${ease}`,
+            `filter 500ms ease`,
+          ].join(',');
+          clone.style.left   = `${vw / 2}px`;
+          clone.style.top    = '0px';
+          clone.style.width  = `${vw / 2}px`;
+          clone.style.height = `${vh}px`;
+          clone.style.filter = 'none';
+        }, PRE_DELAY);
 
         transitionState.slug = p.slug;
         navigate(`/work/${card.dataset.projectSlug}`);
@@ -129,11 +131,10 @@ export default {
       if (!layout) { resolve(); return; }
 
       if (transitionState.slug) {
-        // Clone is already animating — just fade the whole layout out
-        // so the clone is the only thing moving on screen
-        layout.style.transition = 'opacity 220ms ease';
+        // Fade work layout during the pre-delay window; clone handles the visual
+        layout.style.transition = `opacity ${PRE_DELAY}ms ease`;
         layout.style.opacity = '0';
-        setTimeout(resolve, 240);
+        setTimeout(resolve, PRE_DELAY + 20);
       } else {
         layout.style.transition = 'opacity 480ms ease';
         layout.style.opacity = '0';
