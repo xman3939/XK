@@ -49,8 +49,15 @@ export default {
     const clone   = document.getElementById('project-transition-clone');
     const panel   = document.querySelector('.project-image-panel');
 
-    // Labels + list items + more link get the stagger reveal.
-    // Description is a long paragraph — skip fragmentation to preserve spaces and speed.
+    // Word-level fragmentation for description — keeps reveal short and spaces intact
+    document.querySelectorAll('.meta-value--desc').forEach(el => {
+      const words = el.textContent.trim().split(/(\s+)/);
+      el.innerHTML = words.map(w =>
+        /\s/.test(w) ? w : `<span class="reveal-chunk">${w}</span>`
+      ).join('');
+    });
+
+    // Char-level fragmentation for labels, list items, and more link
     document.querySelectorAll('.meta-label').forEach(el => fragmentElement(el));
     document.querySelectorAll('.meta-item').forEach(el => fragmentElement(el));
     document.querySelectorAll('.meta-value--more a').forEach(el => fragmentElement(el));

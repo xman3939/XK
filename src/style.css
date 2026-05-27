@@ -799,6 +799,7 @@ body.project-detail-page {
 
 .reveal-chunk {
   display: inline-block;
+  white-space: pre-wrap;
   opacity: 0;
   transition: opacity 110ms linear;
 }
