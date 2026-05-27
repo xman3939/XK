@@ -754,9 +754,9 @@ body.project-detail-page {
   }
 
   .project-hero {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: auto;
-    min-height: 100vh;
+    min-height: unset;
   }
 
   .project-info,
