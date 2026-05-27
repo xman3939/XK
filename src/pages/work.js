@@ -2,7 +2,7 @@ import { navigate } from '../router.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
 
 export const projects = [
-  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL' },
+  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.png', alt: 'PYXL' },
   { slug: 'test-2', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA' },
   { slug: 'test-3', title: 'PROJECT 152',  date: '11/2025',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152' },
   { slug: 'test-4', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET', gallery: '3' },
