@@ -22,12 +22,15 @@ export default {
             <div class="project-meta-grid">
               <span class="meta-label meta-label--title">${project.title}</span>
               <span class="meta-value">${project.description ?? ''}</span>
+              ${project.tools?.length ? `
               <span class="meta-label">TOOLS</span>
-              <span class="meta-value">${toolsHtml}</span>
+              <span class="meta-value">${toolsHtml}</span>` : ''}
+              ${project.languages?.length ? `
               <span class="meta-label">LANGUAGES</span>
-              <span class="meta-value">${languagesHtml}</span>
+              <span class="meta-value">${languagesHtml}</span>` : ''}
+              ${project.more ? `
               <span class="meta-label">MORE</span>
-              <span class="meta-value">${project.more ?? ''}</span>
+              <span class="meta-value">${project.more}</span>` : ''}
             </div>
           </div>
           <div class="project-image-panel">
@@ -46,8 +49,18 @@ export default {
     const clone   = document.getElementById('project-transition-clone');
     const panel   = document.querySelector('.project-image-panel');
 
-    // Fragment text elements so reveal can stagger them in
+    // Fragment all meta text so the reveal stagger covers both columns
     document.querySelectorAll('.meta-label').forEach(el => fragmentElement(el));
+    document.querySelectorAll('.meta-value').forEach(el => {
+      if (el.children.length === 0) {
+        fragmentElement(el);
+      } else {
+        // Element has child tags (e.g. anchor in MORE) — fragment each child
+        el.querySelectorAll('a, span').forEach(child => {
+          if (child.children.length === 0) fragmentElement(child);
+        });
+      }
+    });
 
     if (clone && transitionState.slug && info && heroImg && panel) {
       // Measure the actual rendered panel position — this is exact and accounts
