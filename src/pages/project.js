@@ -18,9 +18,8 @@ export default {
       <div class="project-page" style="opacity:0">
         <section class="project-hero">
           <div class="project-info">
-            <h1 class="project-hero-title">${project.title}</h1>
             <div class="project-meta-grid">
-              <span class="meta-label">DESCRIPTION</span>
+              <span class="meta-label">${project.title}</span>
               <span class="meta-value">${project.description ?? ''}</span>
               <span class="meta-label">TOOLS</span>
               <span class="meta-value">${toolsHtml}</span>
@@ -45,7 +44,7 @@ export default {
     const panel   = document.querySelector('.project-image-panel');
 
     // Fragment text elements so reveal can stagger them in
-    document.querySelectorAll('.project-hero-title, .meta-label').forEach(el => fragmentElement(el));
+    document.querySelectorAll('.meta-label').forEach(el => fragmentElement(el));
 
     if (clone && transitionState.slug && info && heroImg && panel) {
       // Measure the actual rendered panel position — this is exact and accounts
