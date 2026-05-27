@@ -1,5 +1,6 @@
 import { projects } from './work.js';
-import { transitionState, PRE_DELAY, MOVE_MS } from '../transition-state.js';
+import { transitionState, MOVE_MS } from '../transition-state.js';
+import { fragmentElement, runReveal } from '../text-reveal.js';
 
 export default {
   title: 'XK — Project',
@@ -41,51 +42,71 @@ export default {
     const info    = document.querySelector('.project-info');
     const heroImg = document.querySelector('.project-hero-img');
     const clone   = document.getElementById('project-transition-clone');
+    const panel   = document.querySelector('.project-image-panel');
 
-    if (clone && transitionState.slug && info && heroImg) {
-      // Clone is mid-flight from the work page.
-      // Keep hero image invisible (clone is covering that region),
-      // reveal the page shell so the dark bg shows through.
+    // Fragment text elements so reveal can stagger them in
+    document.querySelectorAll('.project-hero-title, .meta-label').forEach(el => fragmentElement(el));
+
+    if (clone && transitionState.slug && info && heroImg && panel) {
+      // Measure the actual rendered panel position — this is exact and accounts
+      // for scrollbar width, padding, or any layout quirk
+      const panelRect = panel.getBoundingClientRect();
+
       heroImg.style.opacity = '0';
       info.style.opacity    = '0';
       info.style.transform  = 'translateX(-20px)';
       page.style.opacity    = '1';
+
+      // Kick off the clone animation toward the exact panel rect
+      const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+      requestAnimationFrame(() => {
+        clone.style.transition = [
+          `left   ${MOVE_MS}ms ${ease}`,
+          `top    ${MOVE_MS}ms ${ease}`,
+          `width  ${MOVE_MS}ms ${ease}`,
+          `height ${MOVE_MS}ms ${ease}`,
+        ].join(',');
+        clone.style.left   = `${panelRect.left}px`;
+        clone.style.top    = `${panelRect.top}px`;
+        clone.style.width  = `${panelRect.width}px`;
+        clone.style.height = `${panelRect.height}px`;
+      });
 
       let done = false;
       const finish = () => {
         if (done) return;
         done = true;
 
-        // Crossfade: real hero image fades in over the clone
+        // Crossfade real hero image in over the clone
         heroImg.style.transition = 'opacity 160ms ease';
         heroImg.style.opacity    = '1';
 
         setTimeout(() => {
           clone.remove();
 
-          // Info panel slides in after clone is gone
-          info.style.transition = 'opacity 440ms ease, transform 440ms cubic-bezier(0.22, 1, 0.36, 1)';
+          // Slide info panel in
+          info.style.transition = 'opacity 400ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1)';
           info.style.opacity    = '1';
           info.style.transform  = 'none';
-          transitionState.slug  = null;
+
+          // Staggered text reveal fires as info slides in
+          setTimeout(() => runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 }), 80);
+
+          transitionState.slug = null;
         }, 160);
       };
 
-      // Fire when the `width` property finishes animating
       const handler = (e) => {
         if (e.target === clone && e.propertyName === 'width') finish();
       };
       clone.addEventListener('transitionend', handler);
-
-      // Fallback: fire at expected completion time in case transitionend misfires
-      setTimeout(finish, PRE_DELAY + MOVE_MS + 100);
-
+      setTimeout(finish, MOVE_MS + 120); // fallback
     } else {
-      // Direct URL load — no clone, simple fade in
       if (clone) clone.remove();
       requestAnimationFrame(() => {
         page.style.transition = 'opacity 400ms ease';
         page.style.opacity    = '1';
+        setTimeout(() => runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 }), 200);
       });
     }
   },

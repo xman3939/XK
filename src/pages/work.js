@@ -1,6 +1,6 @@
 import { navigate } from '../router.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
-import { transitionState, PRE_DELAY, MOVE_MS } from '../transition-state.js';
+import { transitionState, PRE_DELAY } from '../transition-state.js';
 
 export const projects = [
   { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL' },
@@ -73,10 +73,9 @@ export default {
         }
 
         const rect = img.getBoundingClientRect();
-        const vw = document.documentElement.clientWidth;
-        const vh = window.innerHeight;
 
-        // Place clone instantly at thumbnail position — no transition yet
+        // Place clone at thumbnail position — animation starts in project.js
+        // init() after the page renders so we can measure the exact panel rect
         const clone = img.cloneNode();
         clone.id = 'project-transition-clone';
         clone.removeAttribute('class');
@@ -98,22 +97,6 @@ export default {
           'will-change:left,top,width,height',
         ].join(';');
         document.body.appendChild(clone);
-
-        // After pre-fade delay, animate clone to hero panel position
-        // using left/top/width/height so the image is resampled at each frame
-        const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
-        setTimeout(() => {
-          clone.style.transition = [
-            `left ${MOVE_MS}ms ${ease}`,
-            `top ${MOVE_MS}ms ${ease}`,
-            `width ${MOVE_MS}ms ${ease}`,
-            `height ${MOVE_MS}ms ${ease}`,
-          ].join(',');
-          clone.style.left   = `${vw / 2}px`;
-          clone.style.top    = '0px';
-          clone.style.width  = `${vw / 2}px`;
-          clone.style.height = `${vh}px`;
-        }, PRE_DELAY);
 
         transitionState.slug = p.slug;
         navigate(`/work/${card.dataset.projectSlug}`);
