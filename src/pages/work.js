@@ -41,9 +41,9 @@ export const projects = [
     description: 'Project 152 is a CTA-based publication/zine that revolves around a shared space that has personally influenced my design practice. This publication is primarily informative but includes personal themes throughout its pages. Research and iteration are principles that persist throughout the design process, including an extensive interview with CTA Designer Joe Nelson. Photography was also a large part of the process, every photograph was shot during Fall 2024 and helped develop my understanding of composition and street photography. Experimenting with new forms of photography has opened me up to new avenues of design. This project is not only a memento to a design system that has inspired me, it\'s a physical representation of my growth as a photographer and designer. Several copies were printed on risograph and laser printers at UIC\'s print lab.',
     tools: ['Adobe InDesign', 'Adobe Photoshop', 'Risograph', 'Book Binding Tools'],
   },
-  { slug: 'street-gallery', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET', gallery: '3' },
-  { slug: 'nature-gallery', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.jpg', alt: 'NATURE', gallery: '2' },
-  { slug: 'abstract-gallery', title: 'ABSTRACT',     date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT', gallery: '1' },
+  { href: '/gallery/3', title: 'STREET',   date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET' },
+  { href: '/gallery/2', title: 'NATURE',   date: 'PHOTO GALLERY', image: '/assets/projects/project-5.jpg', alt: 'NATURE' },
+  { href: '/gallery/1', title: 'ABSTRACT', date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT' },
 ];
 
 export default {
@@ -51,7 +51,7 @@ export default {
   bodyClass: 'work-page',
   render() {
     const cards = projects.map((p, i) => `
-      <article class="project-card" data-project-slug="${p.slug}" role="button" tabindex="0">
+      <article class="project-card" ${p.slug ? `data-project-slug="${p.slug}"` : `data-project-href="${p.href}"`} role="button" tabindex="0">
         <div class="project-image-wrap">
           <img src="${p.image}" alt="${p.alt}" class="project-image" decoding="async"${i >= 3 ? ' loading="lazy"' : ''} />
         </div>
@@ -91,11 +91,11 @@ export default {
       }, 380);
     });
 
-    document.querySelectorAll('[data-project-slug]').forEach(card => {
+    document.querySelectorAll('[data-project-slug],[data-project-href]').forEach(card => {
       const p = projects.find(proj => proj.slug === card.dataset.projectSlug);
       const go = () => {
-        if (p?.gallery) {
-          navigate(`/gallery/${p.gallery}`);
+        if (card.dataset.projectHref) {
+          navigate(card.dataset.projectHref);
           return;
         }
 

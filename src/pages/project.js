@@ -15,9 +15,6 @@ export default {
       return `<div class="project-page"><p class="project-not-found">PROJECT NOT FOUND</p></div>`;
     }
 
-    if (project.gallery) {
-      return `<div class="project-page" style="opacity:0"></div>`;
-    }
 
     const toolsHtml     = project.tools?.length     ? project.tools.map(t => `<span class="meta-item">${t}</span>`).join('')     : '';
     const languagesHtml = project.languages?.length ? project.languages.map(l => `<span class="meta-item">${l}</span>`).join('') : '';
@@ -57,13 +54,7 @@ export default {
       </div>
     `;
   },
-  init({ slug } = {}) {
-    const project = projects.find(p => p.slug === slug);
-    if (project?.gallery) {
-      navigate(`/gallery/${project.gallery}`);
-      return;
-    }
-
+  init() {
     const page    = document.querySelector('.project-page');
     if (!page) return;
 
