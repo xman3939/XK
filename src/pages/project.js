@@ -146,6 +146,10 @@ export default {
       info.style.transform  = 'translateX(-20px)';
       page.style.opacity    = '1';
 
+      // Snap clone to the hero's object-position before animating so the crop
+      // matches when the clone is removed and the real image takes over
+      clone.style.objectPosition = heroImg.style.objectPosition || 'center center';
+
       const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
       requestAnimationFrame(() => {
         clone.style.transition = [
