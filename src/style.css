@@ -264,6 +264,14 @@ body.about-page {
   display: block;
 }
 
+.bio-para {
+  margin: 0;
+}
+
+.bio-para + .bio-para {
+  margin-top: 1.2em;
+}
+
 .meta-link {
   color: #fff;
   text-decoration: underline;
@@ -824,7 +832,7 @@ body.about-page {
   }
 
   .meta-value--desc.is-expanded {
-    max-height: 100em;
+    max-height: 200em;
   }
 
   .desc-toggle {
