@@ -308,17 +308,19 @@ body.project-detail-page {
 }
 
 .project-images-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 120px 180px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 180px;
+  row-gap: 120px;
   align-items: center;
 }
 
 .project-images .gallery-item {
-  flex: 0 0 calc((100% - 360px) / 3);
-  min-width: 0;
   min-height: 60px;
+}
+
+.project-images .gallery-item:last-child:nth-child(3n + 1) {
+  grid-column: 2;
 }
 
 .project-not-found {
@@ -838,11 +840,17 @@ body.project-detail-page {
   }
 
   .project-images-grid {
-    gap: 40px 24px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+
+  .project-images .gallery-item:last-child:nth-child(3n + 1) {
+    grid-column: auto;
   }
 
   .project-images .gallery-item {
-    flex: 0 0 calc((100% - 24px) / 2);
+    min-height: unset;
   }
 
   .gallery-layout {
