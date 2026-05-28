@@ -3,8 +3,8 @@ import { fragmentElement, runReveal } from './text-reveal.js';
 import { navigate, render } from './router.js';
 
 const loader = document.getElementById('loader');
+const loaderInner = loader.querySelector('.loader-inner');
 const loaderDuration = 2400;
-const blackPauseDuration = 450;
 
 // Fragment nav buttons into reveal chunks before anything shows
 document.querySelectorAll('[data-route]').forEach(btn => fragmentElement(btn));
@@ -60,12 +60,12 @@ window.addEventListener('load', () => {
   render(location.pathname);
 
   setTimeout(() => {
-    loader.classList.add('is-hidden');
+    loaderInner.classList.add('is-squishing');
 
     setTimeout(() => {
       loader.style.display = 'none';
       sessionStorage.setItem('loaderPlayed', '1');
       setTimeout(() => runReveal('#main-nav'), 120);
-    }, 900 + blackPauseDuration);
+    }, 470);
   }, loaderDuration);
 });
