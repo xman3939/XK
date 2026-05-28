@@ -443,8 +443,8 @@ body.contact-page {
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 24px;
+    grid-template-columns: auto 1fr;
+    gap: 0 20px;
   }
 
   .contact-heading {

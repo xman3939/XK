@@ -9,7 +9,7 @@ const bio = [
 const designTools = [
   'Adobe Creative Suite',
   'Figma',
-  'Product Photography',
+
   'Studio Photography',
   'Book Binding',
   'Webflow/Framer',
