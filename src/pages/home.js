@@ -22,7 +22,7 @@ const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.2
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
   { name: 'PYXL',             href: '/work/test-1' },
-  { name: 'CRYSTAL GOBLET',   href: '/work/test-1' },
+  { name: 'PYXL',             href: '/work/test-1' },
   { name: 'TERRA',            href: '/work/test-1' },
   { name: 'STREET GALLERY',   href: '/work/test-1' },
   { name: 'ABSTRACT GALLERY', href: '/work/test-1' },
