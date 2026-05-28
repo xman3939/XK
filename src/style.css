@@ -315,6 +315,10 @@ body.project-detail-page {
   align-items: start;
 }
 
+.project-images .gallery-item {
+  min-height: 60px;
+}
+
 .project-not-found {
   padding: 120px 64px;
   color: #fff;

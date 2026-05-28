@@ -19,7 +19,7 @@ export default {
     const languagesHtml = project.languages?.length ? project.languages.map(l => `<span class="meta-item">${l}</span>`).join('') : '';
     const imagesHtml    = project.images?.length ? project.images.map((src, i) => `
       <div class="gallery-item" data-index="${i}">
-        <img src="${src}" alt="" class="gallery-image" decoding="async" loading="lazy" />
+        <img src="${src}" alt="" class="gallery-image" decoding="async"${i >= 4 ? ' loading="lazy"' : ''} />
       </div>`).join('') : '';
 
     return `
