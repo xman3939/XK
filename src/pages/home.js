@@ -73,7 +73,15 @@ export default {
   },
   init() {
     const logo = document.querySelector('.home-logo');
-    if (logo) setTimeout(() => requestAnimationFrame(() => { logo.style.opacity = '1'; }), 380);
+    if (logo) {
+      if (sessionStorage.getItem('loaderPlayed')) {
+        setTimeout(() => requestAnimationFrame(() => { logo.style.opacity = '1'; }), 380);
+      } else {
+        window.addEventListener('loaderHide', () => {
+          requestAnimationFrame(() => { logo.style.opacity = '1'; });
+        }, { once: true });
+      }
+    }
 
     if (window.innerWidth <= 768) {
       const container = document.createElement('div');

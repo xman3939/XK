@@ -3,8 +3,9 @@ import { fragmentElement, runReveal } from './text-reveal.js';
 import { navigate, render } from './router.js';
 
 const loader = document.getElementById('loader');
-const loaderInner = loader.querySelector('.loader-inner');
-const loaderDuration = 2400;
+const loaderLogo = loader.querySelector('.loader-logo');
+const loaderText = loader.querySelector('.loader-text');
+const loaderDuration = 2800;
 
 // Fragment nav buttons into reveal chunks before anything shows
 document.querySelectorAll('[data-route]').forEach(btn => fragmentElement(btn));
@@ -60,12 +61,22 @@ window.addEventListener('load', () => {
   render(location.pathname);
 
   setTimeout(() => {
-    loaderInner.classList.add('is-squishing');
+    // Step 1: fade out loading text
+    loaderText.classList.add('is-hiding');
 
+    // Step 2: squish the logo after text is gone
     setTimeout(() => {
-      loader.style.display = 'none';
-      sessionStorage.setItem('loaderPlayed', '1');
-      setTimeout(() => runReveal('#main-nav'), 120);
-    }, 470);
+      loaderLogo.classList.add('is-squishing');
+
+      // Step 3: hide loader, hold black screen, then reveal home elements
+      setTimeout(() => {
+        loader.style.display = 'none';
+        sessionStorage.setItem('loaderPlayed', '1');
+        setTimeout(() => {
+          window.dispatchEvent(new Event('loaderHide'));
+          runReveal('#main-nav');
+        }, 350);
+      }, 430);
+    }, 250);
   }, loaderDuration);
 });
