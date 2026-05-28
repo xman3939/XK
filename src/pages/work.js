@@ -7,6 +7,7 @@ export const projects = [
     images: [
       '/assets/pyxl-images/1.gif',
       '/assets/pyxl-images/2.gif',
+      '/assets/backgrounds-mobile/3.jpg',
       '/assets/pyxl-images/3.gif',
       '/assets/pyxl-images/4.png',
       '/assets/pyxl-images/5.png',
