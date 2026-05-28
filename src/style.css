@@ -68,11 +68,12 @@ body {
   line-height: 1;
   letter-spacing: 0.12em;
   font-weight: 400;
-  transition: opacity 250ms ease;
+  transition: opacity 300ms ease, transform 300ms ease;
 }
 
 .loader-text.is-hiding {
   opacity: 0;
+  transform: translateY(10px);
 }
 
 .loading-dots span {
