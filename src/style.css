@@ -804,6 +804,10 @@ body.about-page {
     height: 60vw;
   }
 
+  body.about-page .project-image-panel {
+    height: 100vw;
+  }
+
   .project-info {
     padding: 48px 20px;
   }
