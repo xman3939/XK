@@ -63,7 +63,7 @@ let _bgCleanup = null;
 
 const FADE_MS = 700;
 const DESKTOP_FADE_MS = 900;
-const CYCLE_MS = 6000;
+const CYCLE_MS = 4000;
 
 export default {
   title: 'XK',
