@@ -96,7 +96,7 @@ export default {
       return `
         <main class="gallery-layout">
           <p class="project-not-found">GALLERY NOT FOUND</p>
-          <button class="home-nav-button project-back-button" type="button" data-back>← BACK</button>
+          <button class="home-nav-button project-back-btn" type="button" data-back>← BACK</button>
         </main>
       `;
     }
@@ -109,7 +109,7 @@ export default {
     return `
       <main class="gallery-layout" style="opacity:0;transition:opacity 520ms ease">
         <div class="gallery-grid">${imgs}</div>
-        <button class="home-nav-button project-back-button" type="button" data-back>← BACK</button>
+        <button class="home-nav-button project-back-btn" type="button" data-back>← BACK</button>
       </main>
     `;
   },
