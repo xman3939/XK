@@ -3,7 +3,7 @@ import { fragmentElement, runReveal } from '../text-reveal.js';
 import { transitionState, PRE_DELAY } from '../transition-state.js';
 
 export const projects = [
-  { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
+  { slug: 'pyxl', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
     images: [
       '/assets/pyxl-images/1.webp',
       '/assets/pyxl-images/2.webp',
@@ -19,7 +19,7 @@ export const projects = [
     languages: ['JavaScript', 'HTML', 'CSS', 'Python', 'SQL'],
     more: '<a href="https://pyxlarchive.digital/" target="_blank" rel="noopener" class="meta-link">VIEW LIVE SITE</a>',
   },
-  { slug: 'test-2', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA',
+  { slug: 'terra', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA',
     images: [
       '/assets/terra-images/1.jpg',
       '/assets/terra-images/2.jpg',
@@ -37,13 +37,13 @@ export const projects = [
     description: 'Studio Terra is a collaborative branding and product development project focused on sustainable plant care. We simulated a realistic workflow and environment for a design studio, and established a visual identity, studio values, and a brand system with a real prototyped product. We were a team of four, and I served as creative director, focusing on typography, visual identity, and product photography.',
     tools: ['Adobe InDesign', 'Adobe Illustrator', 'Photography Studio'],
   },
-  { slug: 'test-3', title: 'PROJECT 152',  date: '11/2024',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152',
+  { slug: 'project-152', title: 'PROJECT 152',  date: '11/2024',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152',
     description: 'Project 152 is a CTA-based publication/zine that revolves around a shared space that has personally influenced my design practice. This publication is primarily informative but includes personal themes throughout its pages. Research and iteration are principles that persist throughout the design process, including an extensive interview with CTA Designer Joe Nelson. Photography was also a large part of the process, every photograph was shot during Fall 2024 and helped develop my understanding of composition and street photography. Experimenting with new forms of photography has opened me up to new avenues of design. This project is not only a memento to a design system that has inspired me, it\'s a physical representation of my growth as a photographer and designer. Several copies were printed on risograph and laser printers at UIC\'s print lab.',
     tools: ['Adobe InDesign', 'Adobe Photoshop', 'Risograph', 'Book Binding Tools'],
   },
-  { slug: 'test-4', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET', gallery: '3' },
-  { slug: 'test-5', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.jpg', alt: 'NATURE', gallery: '2' },
-  { slug: 'test-6', title: 'ABSTRACT',     date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT', gallery: '1' },
+  { slug: 'street-gallery', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET', gallery: '3' },
+  { slug: 'nature-gallery', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.jpg', alt: 'NATURE', gallery: '2' },
+  { slug: 'abstract-gallery', title: 'ABSTRACT',     date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT', gallery: '1' },
 ];
 
 export default {
