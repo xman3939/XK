@@ -6,7 +6,9 @@ export const projects = [
   { slug: 'test-1', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
     images: [
       '/assets/pyxl-images/1.gif',
+      '/assets/pyxl-images/2.gif',
       '/assets/pyxl-images/3.png',
+      '/assets/pyxl-images/4.png',
       '/assets/pyxl-images/5.png',
       '/assets/pyxl-images/6.png',
       '/assets/pyxl-images/7.jpg',
