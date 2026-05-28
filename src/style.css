@@ -444,7 +444,7 @@ body.contact-page {
   .contact-grid {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 0 40px;
+    gap: 0 64px;
   }
 
   .contact-heading {
