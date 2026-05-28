@@ -64,9 +64,9 @@ window.addEventListener('load', () => {
     // Step 1: text slides down and fades
     loaderText.classList.add('is-hiding');
 
-    // Step 2: logo fades out slowly
+    // Step 2: logo flattens down
     setTimeout(() => {
-      loaderLogo.classList.add('is-hiding');
+      loaderLogo.classList.add('is-squishing');
 
       // Step 3: hide loader, hold black screen, then reveal home elements
       setTimeout(() => {
@@ -76,7 +76,7 @@ window.addEventListener('load', () => {
           window.dispatchEvent(new Event('loaderHide'));
           runReveal('#main-nav');
         }, 350);
-      }, 850);
-    }, 300);
+      }, 430);
+    }, 250);
   }, loaderDuration);
 });
