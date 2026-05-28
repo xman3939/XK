@@ -466,7 +466,7 @@ body.contact-page {
     position: fixed;
     bottom: 32px;
     right: 16px;
-    width: min(130px, 32vw);
+    width: min(220px, 55vw);
     height: auto;
     display: block;
     transform-origin: center bottom;
