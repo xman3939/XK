@@ -33,7 +33,7 @@ export default {
         <section class="project-hero">
           <div class="project-info">
             <div class="project-meta-grid">
-              <span class="meta-label meta-label--title">ABOUT</span>
+              <span class="meta-label">ABOUT</span>
               <span class="meta-value"></span>
               <span class="meta-label">DESIGN TOOLS</span>
               <span class="meta-value meta-value--list">${designHtml}</span>
