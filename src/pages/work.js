@@ -42,7 +42,7 @@ export const projects = [
     tools: ['Adobe InDesign', 'Adobe Photoshop', 'Risograph', 'Book Binding Tools'],
   },
   { slug: 'test-4', title: 'STREET',       date: 'PHOTO GALLERY', image: '/assets/projects/project-4.jpg', alt: 'STREET', gallery: '3' },
-  { slug: 'test-5', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.png', alt: 'NATURE', gallery: '2' },
+  { slug: 'test-5', title: 'NATURE',       date: 'PHOTO GALLERY', image: '/assets/projects/project-5.jpg', alt: 'NATURE', gallery: '2' },
   { slug: 'test-6', title: 'ABSTRACT',     date: 'PHOTO GALLERY', image: '/assets/projects/project-6.jpg', alt: 'ABSTRACT', gallery: '1' },
 ];
 
