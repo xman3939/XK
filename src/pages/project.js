@@ -3,6 +3,8 @@ import { projects } from './work.js';
 import { transitionState, MOVE_MS } from '../transition-state.js';
 import { fragmentElement, runReveal } from '../text-reveal.js';
 
+let _cleanup = null;
+
 export default {
   title: 'XK — Project',
   bodyClass: 'project-detail-page',
@@ -15,6 +17,10 @@ export default {
 
     const toolsHtml     = project.tools?.length     ? project.tools.map(t => `<span class="meta-item">${t}</span>`).join('')     : '';
     const languagesHtml = project.languages?.length ? project.languages.map(l => `<span class="meta-item">${l}</span>`).join('') : '';
+    const imagesHtml    = project.images?.length ? project.images.map((src, i) => `
+      <div class="gallery-item" data-index="${i}">
+        <img src="${src}" alt="" class="gallery-image" decoding="async" loading="lazy" />
+      </div>`).join('') : '';
 
     return `
       <div class="project-page" style="opacity:0">
@@ -40,6 +46,10 @@ export default {
             <img class="project-hero-img" src="${project.image}" alt="${project.alt}" decoding="async"${project.objectPosition ? ` style="object-position:${project.objectPosition}"` : ''} />
           </div>
         </section>
+        ${imagesHtml ? `
+        <section class="project-images">
+          <div class="project-images-grid">${imagesHtml}</div>
+        </section>` : ''}
       </div>
     `;
   },
@@ -60,7 +70,6 @@ export default {
       ).join('');
     });
 
-    // Char-level fragmentation for labels, list items, and more link
     const backBtn = document.querySelector('.project-back-btn');
     if (backBtn) {
       fragmentElement(backBtn);
@@ -82,6 +91,51 @@ export default {
           .split('').map(c => `<span class="reveal-chunk is-visible">${c}</span>`).join('');
         descToggle.setAttribute('aria-expanded', String(expanded));
       });
+    }
+
+    // Lightbox for project images
+    if (document.querySelector('.project-images')) {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'gallery-lightbox';
+      lightbox.innerHTML = `
+        <div class="gallery-lightbox-img-wrap">
+          <img class="gallery-lightbox-img" src="" alt="" />
+        </div>
+        <button class="gallery-lightbox-close" type="button">[X]</button>
+      `;
+      document.body.appendChild(lightbox);
+
+      const lbImg = lightbox.querySelector('.gallery-lightbox-img');
+
+      function openLightbox(src) {
+        lbImg.src = src;
+        requestAnimationFrame(() => lightbox.classList.add('is-open'));
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        setTimeout(() => { if (!lightbox.classList.contains('is-open')) lbImg.src = ''; }, 300);
+      }
+
+      document.querySelectorAll('.project-images .gallery-item').forEach(item => {
+        item.addEventListener('click', () => openLightbox(item.querySelector('.gallery-image').src));
+      });
+
+      lightbox.addEventListener('click', e => {
+        if (!e.target.closest('.gallery-lightbox-img')) closeLightbox();
+      });
+
+      const onKeyDown = e => { if (e.key === 'Escape') closeLightbox(); };
+      document.addEventListener('keydown', onKeyDown);
+
+      _cleanup = () => {
+        document.removeEventListener('keydown', onKeyDown);
+        lightbox.remove();
+        document.body.style.overflow = '';
+        _cleanup = null;
+      };
     }
 
     if (clone && transitionState.slug && info && heroImg && panel) {
@@ -148,6 +202,7 @@ export default {
     }
   },
   exit() {
+    if (_cleanup) _cleanup();
     return new Promise(resolve => {
       const page = document.querySelector('.project-page');
       if (!page) { resolve(); return; }

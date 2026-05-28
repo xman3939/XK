@@ -303,6 +303,18 @@ body.project-detail-page {
   display: block;
 }
 
+.project-images {
+  padding: 64px 64px 140px 64px;
+}
+
+.project-images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 180px;
+  row-gap: 80px;
+  align-items: start;
+}
+
 .project-not-found {
   padding: 120px 64px;
   color: #fff;
@@ -813,6 +825,16 @@ body.project-detail-page {
     cursor: pointer;
     padding: 10px 0 0;
     text-align: left;
+  }
+
+  .project-images {
+    padding: 40px 16px 80px 16px;
+  }
+
+  .project-images-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 32px;
   }
 
   .gallery-layout {
