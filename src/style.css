@@ -791,6 +791,10 @@ body.about-page {
     min-height: unset;
   }
 
+  body.about-page .project-hero {
+    flex-direction: column;
+  }
+
   .project-info,
   .project-image-panel {
     width: 100%;
