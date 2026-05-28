@@ -352,37 +352,58 @@ body.about-page {
 /* CONTACT PAGE */
 /* ----------------------------- */
 
-.contact-layout {
-  width: 100%;
-  min-height: 100vh;
-  padding: 64px 64px 140px 64px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 120px;
-  align-items: start;
+body.contact-page {
+  overflow: hidden;
 }
 
-.contact-heading,
+/* Desktop */
+.contact-desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 0 32px;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.contact-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+}
+
+.contact-logo.is-decompressing {
+  animation: contactDecompress 420ms cubic-bezier(0, 0, 0.3, 1) forwards;
+}
+
+@keyframes contactDecompress {
+  0%   { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.contact-links-row {
+  display: flex;
+  gap: 56px;
+}
+
+.contact-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .contact-label {
-  color: #fff;
+  color: #747474;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   line-height: 1;
   letter-spacing: 0.12em;
   font-weight: 400;
   text-transform: uppercase;
-}
-
-.contact-items {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .contact-link {
@@ -401,10 +422,59 @@ body.about-page {
   color: #8f8f8f;
 }
 
+/* Mobile */
+@media (min-width: 769px) {
+  .contact-mobile {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
-  .contact-layout {
-    padding: 80px 16px 80px 16px;
-    column-gap: 48px;
+  .contact-desktop {
+    display: none;
+  }
+
+  .contact-mobile {
+    padding: 80px 20px 100px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+
+  .contact-heading {
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .contact-grid-right {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .contact-mobile-logo {
+    position: fixed;
+    bottom: 32px;
+    right: 16px;
+    width: min(130px, 32vw);
+    height: auto;
+    display: block;
+    transform-origin: center bottom;
+    transform: scaleY(0);
+  }
+
+  .contact-mobile-logo.is-decompressing {
+    animation: contactDecompress 420ms cubic-bezier(0, 0, 0.3, 1) forwards;
   }
 }
 
