@@ -304,7 +304,7 @@ body.project-detail-page {
 }
 
 .project-images {
-  padding: 64px 64px 140px 64px;
+  padding: 140px 64px 140px 64px;
 }
 
 .project-images-grid {
@@ -312,7 +312,7 @@ body.project-detail-page {
   flex-wrap: wrap;
   justify-content: center;
   gap: 120px 180px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .project-images .gallery-item {
