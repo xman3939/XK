@@ -387,7 +387,8 @@ body.contact-page {
 
 .contact-links-row {
   display: flex;
-  gap: 56px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .contact-cluster {
