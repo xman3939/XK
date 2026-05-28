@@ -61,12 +61,12 @@ window.addEventListener('load', () => {
   render(location.pathname);
 
   setTimeout(() => {
-    // Step 1: fade out loading text
+    // Step 1: text slides down and fades
     loaderText.classList.add('is-hiding');
 
-    // Step 2: squish the logo after text is gone
+    // Step 2: logo fades out slowly
     setTimeout(() => {
-      loaderLogo.classList.add('is-squishing');
+      loaderLogo.classList.add('is-hiding');
 
       // Step 3: hide loader, hold black screen, then reveal home elements
       setTimeout(() => {
@@ -76,7 +76,7 @@ window.addEventListener('load', () => {
           window.dispatchEvent(new Event('loaderHide'));
           runReveal('#main-nav');
         }, 350);
-      }, 430);
-    }, 250);
+      }, 850);
+    }, 300);
   }, loaderDuration);
 });
