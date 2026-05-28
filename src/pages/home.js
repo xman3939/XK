@@ -2,19 +2,19 @@ import { navigate } from '../router.js';
 import { runReveal } from '../text-reveal.js';
 
 const BG_IMAGES = [
-  '/assets/backgrounds-mobile/1.jpg',
-  '/assets/backgrounds-mobile/2.png',
-  '/assets/backgrounds-mobile/3.jpg',
-  '/assets/backgrounds-mobile/4.jpg',
-  '/assets/backgrounds-mobile/5.jpg',
-  '/assets/backgrounds-mobile/6.jpg',
-  '/assets/backgrounds-mobile/7.jpg',
-  '/assets/backgrounds-mobile/8.jpg',
-  '/assets/backgrounds-mobile/9.jpg',
-  '/assets/backgrounds-mobile/10.jpg',
-  '/assets/backgrounds-mobile/11.jpg',
-  '/assets/backgrounds-mobile/12.jpg',
-  '/assets/backgrounds-mobile/13.jpg',
+  '/assets/backgrounds-mobile/1.webp',
+  '/assets/backgrounds-mobile/2.webp',
+  '/assets/backgrounds-mobile/3.webp',
+  '/assets/backgrounds-mobile/4.webp',
+  '/assets/backgrounds-mobile/5.webp',
+  '/assets/backgrounds-mobile/6.webp',
+  '/assets/backgrounds-mobile/7.webp',
+  '/assets/backgrounds-mobile/8.webp',
+  '/assets/backgrounds-mobile/9.webp',
+  '/assets/backgrounds-mobile/10.webp',
+  '/assets/backgrounds-mobile/11.webp',
+  '/assets/backgrounds-mobile/12.webp',
+  '/assets/backgrounds-mobile/13.webp',
 ];
 
 const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
