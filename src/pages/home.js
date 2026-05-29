@@ -20,19 +20,19 @@ const BG_IMAGES = [
 const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
 
 const SLIDE_INFO = [
-  { name: 'ABSTRACT GALLERY', href: '/gallery/1' },
+  { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
   { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'TERRA',            href: '/work/terra' },
-  { name: 'STREET GALLERY',   href: '/gallery/3' },
-  { name: 'ABSTRACT GALLERY', href: '/gallery/1' },
-  { name: 'ABSTRACT GALLERY', href: '/gallery/1' },
-  { name: 'STREET GALLERY',   href: '/gallery/3' },
-  { name: 'ABSTRACT GALLERY', href: '/gallery/1' },
+  { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
+  { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
+  { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
+  { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
+  { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
   { name: 'PROJECT 152',      href: '/work/project-152' },
-  { name: 'NATURE GALLERY',   href: '/gallery/2' },
-  { name: 'STREET GALLERY',   href: '/gallery/3' },
-  { name: 'STREET GALLERY',   href: '/gallery/3' },
+  { name: 'NATURE GALLERY',   href: '/gallery/nature-gallery' },
+  { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
+  { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
 ];
 
 const DESKTOP_BG_IMAGES = [
@@ -49,14 +49,14 @@ const DESKTOP_BG_IMAGES = [
 const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
-  { name: 'ABSTRACT',       href: '/gallery/1' },
+  { name: 'ABSTRACT',       href: '/gallery/abstract-gallery' },
   { name: 'PYXL',           href: '/work/pyxl' },
   { name: 'CRYSTAL GOBLET', href: '/work/pyxl' },
-  { name: 'ABSTRACT',       href: '/gallery/1' },
-  { name: 'STREET',         href: '/gallery/3' },
-  { name: 'NATURE',         href: '/gallery/2' },
-  { name: 'NATURE',         href: '/gallery/2' },
-  { name: 'STREET',         href: '/gallery/3' },
+  { name: 'ABSTRACT',       href: '/gallery/abstract-gallery' },
+  { name: 'STREET',         href: '/gallery/street-gallery' },
+  { name: 'NATURE',         href: '/gallery/nature-gallery' },
+  { name: 'NATURE',         href: '/gallery/nature-gallery' },
+  { name: 'STREET',         href: '/gallery/street-gallery' },
 ];
 
 let _bgCleanup = null;

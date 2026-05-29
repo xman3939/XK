@@ -26,17 +26,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.xavierkania.com/gallery/1</loc>
+    <loc>https://www.xavierkania.com/gallery/abstract-gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.xavierkania.com/gallery/2</loc>
+    <loc>https://www.xavierkania.com/gallery/nature-gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.xavierkania.com/gallery/3</loc>
+    <loc>https://www.xavierkania.com/gallery/street-gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

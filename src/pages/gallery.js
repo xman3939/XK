@@ -1,7 +1,7 @@
 import { navigate } from '../router.js';
 
 export const GALLERIES = {
-  '1': {
+  'abstract-gallery': {
     title: 'ABSTRACT',
     images: [
       '/assets/abstract-gallery/1.jpg',
@@ -22,7 +22,7 @@ export const GALLERIES = {
       '/assets/abstract-gallery/16.jpg',
     ]
   },
-  '3': {
+  'street-gallery': {
     title: 'STREET',
     images: [
       '/assets/street-gallery/1.jpg',
@@ -53,7 +53,7 @@ export const GALLERIES = {
       '/assets/street-gallery/26.jpg',
     ]
   },
-  '2': {
+  'nature-gallery': {
     title: 'NATURE',
     images: [
       '/assets/nature-gallery/1.jpg',
@@ -90,8 +90,8 @@ let _cleanup = null;
 export default {
   title: 'XK — Gallery',
   bodyClass: 'work-page',
-  render({ id } = {}) {
-    const gallery = GALLERIES[id];
+  render({ slug } = {}) {
+    const gallery = GALLERIES[slug];
     if (!gallery) {
       return `
         <main class="gallery-layout">
@@ -113,10 +113,10 @@ export default {
       </main>
     `;
   },
-  init({ id } = {}) {
+  init({ slug } = {}) {
     document.querySelector('[data-back]')?.addEventListener('click', () => navigate('/work'));
 
-    const gallery = GALLERIES[id];
+    const gallery = GALLERIES[slug];
     if (!gallery) return;
 
     const layout = document.querySelector('.gallery-layout');
