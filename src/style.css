@@ -335,9 +335,6 @@ body.about-page {
   min-height: 60px;
 }
 
-.project-images .gallery-item:last-child:nth-child(3n + 1) {
-  grid-column: 2;
-}
 
 .project-not-found {
   padding: 120px 64px;
