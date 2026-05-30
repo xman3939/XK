@@ -48,10 +48,10 @@ const DESKTOP_BG_IMAGES = [
 const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
+  { name: 'PYXL',     href: '/work/pyxl' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
-  { name: 'PYXL',     href: '/work/pyxl' },
+  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
   { name: 'TERRA',    href: '/work/terra' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
