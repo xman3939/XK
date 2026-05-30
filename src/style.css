@@ -617,6 +617,75 @@ body.contact-page {
 }
 
 /* ----------------------------- */
+/* DESKTOP BG SLIDESHOW */
+/* ----------------------------- */
+
+.desktop-bg-slideshow {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .desktop-bg-slideshow {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .desktop-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 3;
+    pointer-events: none;
+    transition: background 900ms ease;
+  }
+
+  .desktop-bg-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 900ms ease;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+/* ----------------------------- */
+/* NAV SLIDE CAPTION */
+/* ----------------------------- */
+
+.nav-slide-caption {
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: color 300ms ease, opacity 300ms ease;
+  cursor: pointer;
+  margin-left: 22px;
+  pointer-events: none;
+}
+
+.nav-slide-caption.is-visible {
+  pointer-events: auto;
+}
+
+.nav-slide-caption:hover {
+  color: #8f8f8f;
+}
+
+/* ----------------------------- */
 /* SLIDE CAPTION */
 /* ----------------------------- */
 
