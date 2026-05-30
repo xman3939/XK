@@ -1,7 +1,7 @@
 import { fragmentElement, runReveal } from '../text-reveal.js';
 
 const clusters = [
-  { label: 'EMAIL',     href: 'mailto:xman3939@gmail.com',                  display: 'XMAN3939@GMAIL.COM' },
+  { label: 'EMAIL',     href: 'mailto:xavierkania1222@gmail.com',           display: 'XAVIERKANIA1222@GMAIL.COM' },
   { label: 'LINKEDIN',  href: 'https://www.linkedin.com/in/xman3939',       display: 'XMAN3939' },
   { label: 'INSTAGRAM', href: 'https://www.instagram.com/xavier_kania',     display: '@XAVIER_KANIA' },
   { label: 'GITHUB',    href: 'https://github.com/xman3939',                display: 'XMAN3939' },
