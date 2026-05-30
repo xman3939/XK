@@ -36,7 +36,7 @@ const SLIDE_INFO = [
 ];
 
 const DESKTOP_BG_IMAGES = [
-  '/assets/backgrounds-desktop/1.png',
+  '/assets/backgrounds-desktop/1.jpg',
   '/assets/backgrounds-desktop/2.jpg',
   '/assets/backgrounds-desktop/3.jpg',
   '/assets/backgrounds-desktop/4.jpg',
@@ -276,11 +276,21 @@ export default {
 
       const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
       const startTimer = setTimeout(() => {
-        slides[0].style.zIndex = '1';
-        slides[0].style.opacity = '1';
-        setOverlay(0);
-        intervalId = setInterval(advance, CYCLE_MS);
-        setTimeout(() => showNavCaption(0), DESKTOP_FADE_MS);
+        if (destroyed) return;
+        function start() {
+          if (destroyed) return;
+          slides[0].style.zIndex = '1';
+          slides[0].style.opacity = '1';
+          setOverlay(0);
+          intervalId = setInterval(advance, CYCLE_MS);
+          setTimeout(() => showNavCaption(0), DESKTOP_FADE_MS);
+        }
+        if (slides[0].complete) {
+          start();
+        } else {
+          slides[0].onload = start;
+          slides[0].onerror = start;
+        }
       }, delay);
 
       _bgCleanup = () => {
