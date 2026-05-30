@@ -39,7 +39,7 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/1.jpg',
   '/assets/backgrounds-desktop/2.jpg',
   '/assets/backgrounds-desktop/3.jpg',
-  '/assets/backgrounds-desktop/4.jpg',
+  '/assets/backgrounds-desktop/4.png',
   '/assets/backgrounds-desktop/5.jpg',
   '/assets/backgrounds-desktop/6.jpg',
   '/assets/backgrounds-desktop/7.jpg',
@@ -51,8 +51,8 @@ const DESKTOP_SLIDE_INFO = [
   { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
+  { name: 'PYXL',     href: '/work/pyxl' },
+  { name: 'TERRA',    href: '/work/terra' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
 ];
@@ -183,7 +183,7 @@ export default {
         _bgCleanup = null;
       };
 
-    } else if (false) { // disabled — re-enable when images are ready
+    } else {
       const container = document.createElement('div');
       container.className = 'desktop-bg-slideshow';
 
