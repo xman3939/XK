@@ -183,7 +183,7 @@ export default {
         _bgCleanup = null;
       };
 
-    } else {
+    } else if (false) { // disabled — re-enable when images are ready
       const container = document.createElement('div');
       container.className = 'desktop-bg-slideshow';
 
