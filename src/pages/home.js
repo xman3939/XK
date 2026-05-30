@@ -50,10 +50,10 @@ const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 const DESKTOP_SLIDE_INFO = [
   { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'TERRA',    href: '/work/terra' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
+  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
+  { name: 'STREET',   href: '/gallery/street-gallery' },
+  { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
 ];
 
