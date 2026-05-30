@@ -36,13 +36,13 @@ const SLIDE_INFO = [
 ];
 
 const DESKTOP_BG_IMAGES = [
-  '/assets/backgrounds-desktop/1desktop.jpg',
-  '/assets/backgrounds-desktop/2desktop.jpg',
-  '/assets/backgrounds-desktop/3desktop.jpg',
-  '/assets/backgrounds-desktop/4desktop.png',
-  '/assets/backgrounds-desktop/5desktop.jpg',
-  '/assets/backgrounds-desktop/6desktop.jpg',
-  '/assets/backgrounds-desktop/7desktop.jpg',
+  '/assets/backgrounds-desktop/1.png',
+  '/assets/backgrounds-desktop/2.jpg',
+  '/assets/backgrounds-desktop/3.jpg',
+  '/assets/backgrounds-desktop/4.jpg',
+  '/assets/backgrounds-desktop/5.jpg',
+  '/assets/backgrounds-desktop/6.jpg',
+  '/assets/backgrounds-desktop/7.jpg',
 ];
 
 const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
