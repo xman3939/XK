@@ -183,7 +183,7 @@ export default {
         _bgCleanup = null;
       };
 
-    } else {
+    } else if (DESKTOP_BG_IMAGES.length > 0) {
       // Desktop slideshow
       const container = document.createElement('div');
       container.className = 'desktop-bg-slideshow';
