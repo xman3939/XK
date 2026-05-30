@@ -208,9 +208,10 @@ export default {
       let current = 0;
       let transitioning = false;
       let intervalId = null;
+      let destroyed = false;
 
       function showNavCaption(index) {
-        if (!navCaption) return;
+        if (destroyed || !navCaption) return;
         const info = DESKTOP_SLIDE_INFO[index];
         if (!info) { navCaption.style.opacity = '0'; return; }
         navCaption.dataset.href = info.href;
@@ -243,6 +244,7 @@ export default {
         next.style.opacity = '1';
 
         setTimeout(() => {
+          if (destroyed) return;
           prev.style.transition = 'none';
           prev.style.opacity = '0';
           prev.style.zIndex = '0';
@@ -282,6 +284,7 @@ export default {
       }, delay);
 
       _bgCleanup = () => {
+        destroyed = true;
         clearTimeout(startTimer);
         clearInterval(intervalId);
         document.removeEventListener('click', onTap);
