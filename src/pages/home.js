@@ -36,7 +36,7 @@ const SLIDE_INFO = [
 ];
 
 const DESKTOP_BG_IMAGES = [
-  '/assets/backgrounds-desktop/1.png',
+  '/assets/backgrounds-desktop/1.jpg',
   '/assets/backgrounds-desktop/2.jpg',
   '/assets/backgrounds-desktop/3.jpg',
   '/assets/backgrounds-desktop/4.jpg',
