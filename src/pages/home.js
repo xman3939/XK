@@ -35,32 +35,9 @@ const SLIDE_INFO = [
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
 ];
 
-const DESKTOP_BG_IMAGES = [
-  '/assets/backgrounds-desktop/1.jpg',
-  '/assets/backgrounds-desktop/2.jpg',
-  '/assets/backgrounds-desktop/3.jpg',
-  '/assets/backgrounds-desktop/4.jpg',
-  '/assets/backgrounds-desktop/5.jpg',
-  '/assets/backgrounds-desktop/6.jpg',
-  '/assets/backgrounds-desktop/7.jpg',
-];
-
-const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
-
-const DESKTOP_SLIDE_INFO = [
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'TERRA',    href: '/work/terra' },
-  { name: 'NATURE',   href: '/gallery/nature-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
-  { name: 'NATURE',   href: '/gallery/nature-gallery' },
-];
-
 let _bgCleanup = null;
 
 const FADE_MS = 700;
-const DESKTOP_FADE_MS = 900;
 const CYCLE_MS = 4000;
 
 export default {
@@ -183,118 +160,6 @@ export default {
         _bgCleanup = null;
       };
 
-    } else if (DESKTOP_BG_IMAGES.length > 0) {
-      // Desktop slideshow
-      const container = document.createElement('div');
-      container.className = 'desktop-bg-slideshow';
-
-      const slides = DESKTOP_BG_IMAGES.map(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = 'desktop-bg-slide';
-        img.decoding = 'async';
-        container.appendChild(img);
-        return img;
-      });
-
-      const overlay = document.createElement('div');
-      overlay.className = 'desktop-bg-overlay';
-      container.appendChild(overlay);
-
-      const appEl = document.getElementById('app');
-      document.body.insertBefore(container, appEl);
-
-      const navCaption = document.getElementById('nav-slide-caption');
-
-      let current = 0;
-      let transitioning = false;
-      let intervalId = null;
-
-      function showNavCaption(index) {
-        if (!navCaption) return;
-        const info = DESKTOP_SLIDE_INFO[index];
-        if (!info) { navCaption.style.opacity = '0'; return; }
-        navCaption.dataset.href = info.href;
-        navCaption.innerHTML = [...(info.name + ' - SEE MORE')]
-          .map(c => `<span class="reveal-chunk">${c === ' ' ? '&nbsp;' : c}</span>`)
-          .join('');
-        navCaption.style.opacity = '1';
-        navCaption.classList.add('is-visible');
-        runReveal(navCaption, { burstCount: 12, burstGap: 30, chunkGap: 10 });
-      }
-
-      function setOverlay(index) {
-        overlay.style.background = `rgba(0,0,0,${DESKTOP_SLIDE_OVERLAY[index] ?? 0.2})`;
-      }
-
-      function show(index) {
-        if (transitioning || index === current) return;
-        transitioning = true;
-
-        const prev = slides[current];
-        const next = slides[index];
-
-        if (navCaption) {
-          navCaption.style.opacity = '0';
-          navCaption.classList.remove('is-visible');
-        }
-        setOverlay(index);
-
-        next.style.zIndex = '2';
-        next.style.opacity = '1';
-
-        setTimeout(() => {
-          prev.style.transition = 'none';
-          prev.style.opacity = '0';
-          prev.style.zIndex = '0';
-          requestAnimationFrame(() => requestAnimationFrame(() => { prev.style.transition = ''; }));
-          next.style.zIndex = '1';
-          current = index;
-          transitioning = false;
-          showNavCaption(index);
-        }, DESKTOP_FADE_MS + 50);
-      }
-
-      function advance() {
-        show((current + 1) % slides.length);
-      }
-
-      function onTap(e) {
-        if (e.target.closest('button, a')) return;
-        clearInterval(intervalId);
-        advance();
-        intervalId = setInterval(advance, CYCLE_MS);
-      }
-      document.addEventListener('click', onTap);
-
-      function onNavCaptionClick(e) {
-        e.preventDefault();
-        if (navCaption.dataset.href) navigate(navCaption.dataset.href);
-      }
-      if (navCaption) navCaption.addEventListener('click', onNavCaptionClick);
-
-      const delay = sessionStorage.getItem('loaderPlayed') ? 1200 : 4750;
-      const startTimer = setTimeout(() => {
-        slides[0].style.zIndex = '1';
-        slides[0].style.opacity = '1';
-        setOverlay(0);
-        intervalId = setInterval(advance, CYCLE_MS);
-        setTimeout(() => showNavCaption(0), DESKTOP_FADE_MS);
-      }, delay);
-
-      _bgCleanup = () => {
-        clearTimeout(startTimer);
-        clearInterval(intervalId);
-        document.removeEventListener('click', onTap);
-        container.remove();
-        if (navCaption) {
-          navCaption.removeEventListener('click', onNavCaptionClick);
-          navCaption.style.opacity = '0';
-          navCaption.classList.remove('is-visible');
-          navCaption.innerHTML = '';
-        }
-        _bgCleanup = null;
-      };
     }
   },
   exit() {
