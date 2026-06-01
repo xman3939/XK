@@ -36,23 +36,35 @@ const SLIDE_INFO = [
 ];
 
 const DESKTOP_BG_IMAGES = [
-  '/assets/backgrounds-desktop/1.jpg',
-  '/assets/backgrounds-desktop/2.jpg',
-  '/assets/backgrounds-desktop/3.jpg',
-  '/assets/backgrounds-desktop/4.jpg',
-  '/assets/backgrounds-desktop/5.jpg',
-  '/assets/backgrounds-desktop/6.jpg',
-  '/assets/backgrounds-desktop/7.jpg',
+  '/assets/backgrounds-desktop/1desktop.jpg',
+  '/assets/backgrounds-desktop/2desktop.jpg',
+  '/assets/backgrounds-desktop/3desktop.jpg',
+  '/assets/backgrounds-desktop/4desktop.jpg',
+  '/assets/backgrounds-desktop/5desktop.jpg',
+  '/assets/backgrounds-desktop/6desktop.jpg',
+  '/assets/backgrounds-desktop/7desktop.jpg',
+  '/assets/backgrounds-desktop/8desktop.jpg',
+  '/assets/backgrounds-desktop/9desktop.jpg',
+  '/assets/backgrounds-desktop/10desktop.jpg',
+  '/assets/backgrounds-desktop/11desktop.jpg',
+  '/assets/backgrounds-desktop/12desktop.jpg',
+  '/assets/backgrounds-desktop/13desktop.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.35, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
-  { name: 'PYXL',     href: '/work/pyxl' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'NATURE',   href: '/gallery/nature-gallery' },
+  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
+  { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
   { name: 'TERRA',    href: '/work/terra' },
+  { name: 'NATURE',   href: '/gallery/nature-gallery' },
+  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
+  { name: 'STREET',   href: '/gallery/street-gallery' },
+  { name: 'STREET',   href: '/gallery/street-gallery' },
+  { name: 'NATURE',   href: '/gallery/nature-gallery' },
+  { name: 'NATURE',   href: '/gallery/nature-gallery' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
 ];
