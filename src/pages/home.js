@@ -36,17 +36,17 @@ const SLIDE_INFO = [
 ];
 
 const DESKTOP_BG_IMAGES = [
-  '/assets/backgrounds-desktop/1desktop.jpg',
-  '/assets/backgrounds-desktop/2desktop.jpg',
-  '/assets/backgrounds-desktop/3desktop.jpg',
-  '/assets/backgrounds-desktop/4desktop.jpg',
-  '/assets/backgrounds-desktop/5desktop.jpg',
-  '/assets/backgrounds-desktop/6desktop.jpg',
-  '/assets/backgrounds-desktop/7desktop.jpg',
-  '/assets/backgrounds-desktop/8desktop.jpg',
-  '/assets/backgrounds-desktop/9desktop.jpg',
-  '/assets/backgrounds-desktop/10desktop.jpg',
-  '/assets/backgrounds-desktop/11desktop.jpg',
+  '/assets/backgrounds-desktop/1.jpg',
+  '/assets/backgrounds-desktop/2.jpg',
+  '/assets/backgrounds-desktop/3.jpg',
+  '/assets/backgrounds-desktop/4.jpg',
+  '/assets/backgrounds-desktop/5.jpg',
+  '/assets/backgrounds-desktop/6.jpg',
+  '/assets/backgrounds-desktop/7.jpg',
+  '/assets/backgrounds-desktop/8.jpg',
+  '/assets/backgrounds-desktop/9.jpg',
+  '/assets/backgrounds-desktop/10.jpg',
+  '/assets/backgrounds-desktop/11.jpg',
 ];
 
 const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
