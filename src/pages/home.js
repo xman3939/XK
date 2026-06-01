@@ -36,6 +36,7 @@ const SLIDE_INFO = [
 ];
 
 const DESKTOP_BG_IMAGES = [
+  '/assets/backgrounds-desktop/11.jpg',
   '/assets/backgrounds-desktop/1.jpg',
   '/assets/backgrounds-desktop/2.jpg',
   '/assets/backgrounds-desktop/3.jpg',
@@ -46,12 +47,12 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/8.jpg',
   '/assets/backgrounds-desktop/9.jpg',
   '/assets/backgrounds-desktop/10.jpg',
-  '/assets/backgrounds-desktop/11.jpg',
 ];
 
 const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
+  { name: 'PYXL',     href: '/work/pyxl' },
   { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
@@ -62,7 +63,6 @@ const DESKTOP_SLIDE_INFO = [
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'STREET',   href: '/gallery/street-gallery' },
   { name: 'NATURE',   href: '/gallery/nature-gallery' },
-  { name: 'PYXL',     href: '/work/pyxl' },
 ];
 
 let _bgCleanup = null;
@@ -195,11 +195,12 @@ export default {
       const container = document.createElement('div');
       container.className = 'desktop-bg-slideshow';
 
-      const slides = DESKTOP_BG_IMAGES.map(src => {
+      const slides = DESKTOP_BG_IMAGES.map((src, i) => {
         const img = document.createElement('img');
         img.src = src;
         img.className = 'desktop-bg-slide';
         img.decoding = 'async';
+        if (i === 0) img.style.objectPosition = '50% 30%';
         container.appendChild(img);
         return img;
       });
