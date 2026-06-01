@@ -47,22 +47,24 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/9.jpg',
   '/assets/backgrounds-desktop/10.jpg',
   '/assets/backgrounds-desktop/11.jpg',
+  '/assets/backgrounds-desktop/12.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
-  { name: 'PYXL',     href: '/work/pyxl' },
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'ABSTRACT', href: '/gallery/abstract-gallery' },
-  { name: 'NATURE',   href: '/gallery/nature-gallery' },
-  { name: 'TERRA',    href: '/work/terra' },
-  { name: 'NATURE',   href: '/gallery/nature-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'STREET',   href: '/gallery/street-gallery' },
-  { name: 'NATURE',   href: '/gallery/nature-gallery' },
+  { name: 'PYXL',        href: '/work/pyxl' },
+  { name: 'ABSTRACT',    href: '/gallery/abstract-gallery' },
+  { name: 'STREET',      href: '/gallery/street-gallery' },
+  { name: 'ABSTRACT',    href: '/gallery/abstract-gallery' },
+  { name: 'NATURE',      href: '/gallery/nature-gallery' },
+  { name: 'PROJECT 152', href: '/work/project-152' },
+  { name: 'TERRA',       href: '/work/terra' },
+  { name: 'NATURE',      href: '/gallery/nature-gallery' },
+  { name: 'STREET',      href: '/gallery/street-gallery' },
+  { name: 'STREET',      href: '/gallery/street-gallery' },
+  { name: 'STREET',      href: '/gallery/street-gallery' },
+  { name: 'NATURE',      href: '/gallery/nature-gallery' },
 ];
 
 let _bgCleanup = null;
