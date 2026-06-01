@@ -200,7 +200,7 @@ export default {
         img.src = src;
         img.className = 'desktop-bg-slide';
         img.decoding = 'async';
-        if (i === 0) img.style.objectPosition = '50% 40%';
+        if (i === 0) { img.style.objectPosition = '50% 40%'; img.fetchPriority = 'high'; }
         container.appendChild(img);
         return img;
       });
