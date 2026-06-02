@@ -48,9 +48,11 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/10.jpg',
   '/assets/backgrounds-desktop/11.jpg',
   '/assets/backgrounds-desktop/12.jpg',
+  '/assets/backgrounds-desktop/13.jpg',
+  '/assets/backgrounds-desktop/14.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'PYXL',        href: '/work/pyxl' },
@@ -64,6 +66,8 @@ const DESKTOP_SLIDE_INFO = [
   { name: 'STREET',      href: '/gallery/street-gallery' },
   { name: 'STREET',      href: '/gallery/street-gallery' },
   { name: 'STREET',      href: '/gallery/street-gallery' },
+  { name: 'NATURE',      href: '/gallery/nature-gallery' },
+  { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
 ];
 
