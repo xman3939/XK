@@ -74,6 +74,7 @@ const DESKTOP_SLIDE_INFO = [
 let _bgCleanup = null;
 
 const FADE_MS = 700;
+const DESKTOP_CAROUSEL_ENABLED = false;
 const DESKTOP_FADE_MS = 900;
 const CYCLE_MS = 4000;
 
@@ -197,7 +198,7 @@ export default {
         _bgCleanup = null;
       };
 
-    } else {
+    } else if (DESKTOP_CAROUSEL_ENABLED) {
       const container = document.createElement('div');
       container.className = 'desktop-bg-slideshow';
 
