@@ -74,7 +74,7 @@ const DESKTOP_SLIDE_INFO = [
 let _bgCleanup = null;
 
 const FADE_MS = 700;
-const DESKTOP_CAROUSEL_ENABLED = false;
+const DESKTOP_CAROUSEL_ENABLED = true;
 const DESKTOP_FADE_MS = 900;
 const CYCLE_MS = 4000;
 
