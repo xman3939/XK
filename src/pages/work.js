@@ -105,9 +105,12 @@ export default {
       }, 380);
     });
 
+    let navigating = false;
     document.querySelectorAll('[data-project-slug],[data-project-href]').forEach(card => {
       const p = projects.find(proj => proj.slug === card.dataset.projectSlug);
       const go = () => {
+        if (navigating) return;
+        navigating = true;
         if (card.dataset.projectHref) {
           navigate(card.dataset.projectHref);
           return;
