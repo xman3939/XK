@@ -16,6 +16,7 @@ export default {
     }
 
 
+    const skillsHtml    = project.skills?.length     ? project.skills.map(s => `<span class="meta-item">${s}</span>`).join('')    : '';
     const toolsHtml     = project.tools?.length     ? project.tools.map(t => `<span class="meta-item">${t}</span>`).join('')     : '';
     const languagesHtml = project.languages?.length ? project.languages.map(l => `<span class="meta-item">${l}</span>`).join('') : '';
     const imagesHtml    = project.images?.length ? project.images.map((src, i) => `
@@ -32,6 +33,9 @@ export default {
               <span class="meta-label meta-label--title">${project.title}</span>
               <span class="meta-value meta-value--desc">${project.description ?? ''}</span>
               ${project.description ? `<button class="desc-toggle" aria-expanded="false">VIEW MORE +</button>` : ''}
+              ${project.skills?.length ? `
+              <span class="meta-label">SKILLS</span>
+              <span class="meta-value meta-value--list">${skillsHtml}</span>` : ''}
               ${project.tools?.length ? `
               <span class="meta-label">TOOLS</span>
               <span class="meta-value meta-value--list">${toolsHtml}</span>` : ''}

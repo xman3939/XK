@@ -50,13 +50,15 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/12.jpg',
   '/assets/backgrounds-desktop/13.jpg',
   '/assets/backgrounds-desktop/14.jpg',
+  '/assets/backgrounds-desktop/15.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
-  { name: 'PYXL',        href: '/work/pyxl' },
-  { name: 'ABSTRACT',    href: '/gallery/abstract-gallery' },
+  { name: 'PYXL',           href: '/work/pyxl' },
+  { name: 'CRYSTAL GOBLET', href: '/work/crystal-goblet' },
+  { name: 'ABSTRACT',       href: '/gallery/abstract-gallery' },
   { name: 'STREET',      href: '/gallery/street-gallery' },
   { name: 'ABSTRACT',    href: '/gallery/abstract-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
