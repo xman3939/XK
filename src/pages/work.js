@@ -56,7 +56,7 @@ export const projects = [
     description: 'Project 152 is a CTA-based publication/zine that revolves around a shared space that has personally influenced my design practice. This publication is primarily informative but includes personal themes throughout its pages. Research and iteration are principles that persist throughout the design process, including an extensive interview with CTA Designer Joe Nelson. Photography was also a large part of the process, every photograph was shot during Fall 2024 and helped develop my understanding of composition and street photography. Experimenting with new forms of photography has opened me up to new avenues of design. This project is not only a memento to a design system that has inspired me, it\'s a physical representation of my growth as a photographer and designer. Several copies were printed on risograph and laser printers at UIC\'s print lab.',
     tools: ['Adobe InDesign', 'Adobe Photoshop', 'Risograph', 'Book Binding Tools'],
   },
-  { slug: 'crystal-goblet', title: 'CRYSTAL GOBLET', date: '2024', image: '/assets/projects/project-4.jpg', alt: 'CRYSTAL GOBLET',
+  { slug: 'crystal-goblet', title: 'CRYSTAL GOBLET', date: '11/2024', image: '/assets/projects/project-4.jpg', alt: 'CRYSTAL GOBLET',
     images: [
       '/assets/crystalgoblet-images/1.jpg',
       '/assets/crystalgoblet-images/2.jpg',
