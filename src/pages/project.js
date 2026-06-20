@@ -200,14 +200,32 @@ export default {
       setTimeout(finish, MOVE_MS + 120);
     } else {
       if (clone) clone.remove();
-      requestAnimationFrame(() => {
-        page.style.transition = 'opacity 400ms ease';
-        page.style.opacity    = '1';
-        setTimeout(() => {
-          runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 });
-          if (backBtn) runReveal(backBtn, { burstCount: 1, burstGap: 0, chunkGap: 20 });
-        }, 200);
-      });
+
+      if (!sessionStorage.getItem('loaderPlayed')) {
+        // Direct URL load — wait for the XK loader, then reveal text + fade image
+        window.addEventListener('loaderHide', () => {
+          heroImg.style.opacity = '0';
+          page.style.transition = 'opacity 300ms ease';
+          page.style.opacity    = '1';
+          setTimeout(() => {
+            runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 });
+            if (backBtn) runReveal(backBtn, { burstCount: 1, burstGap: 0, chunkGap: 20 });
+          }, 200);
+          setTimeout(() => {
+            heroImg.style.transition = 'opacity 700ms ease';
+            heroImg.style.opacity    = '1';
+          }, 500);
+        }, { once: true });
+      } else {
+        requestAnimationFrame(() => {
+          page.style.transition = 'opacity 400ms ease';
+          page.style.opacity    = '1';
+          setTimeout(() => {
+            runReveal('.project-info', { burstCount: 5, burstGap: 45, chunkGap: 14 });
+            if (backBtn) runReveal(backBtn, { burstCount: 1, burstGap: 0, chunkGap: 20 });
+          }, 200);
+        });
+      }
     }
   },
   exit() {
