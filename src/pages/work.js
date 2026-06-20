@@ -22,6 +22,8 @@ export const projects = [
   },
   { slug: 'terra', title: 'TERRA',        date: '04/2026',       image: '/assets/projects/project-2.jpg', alt: 'TERRA',
     images: [
+      '/assets/terra-images/branding1.jpg',
+      '/assets/terra-images/branding2.jpg',
       '/assets/terra-images/1.jpg',
       '/assets/terra-images/2.jpg',
       '/assets/terra-images/3.jpg',
