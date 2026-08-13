@@ -67,9 +67,12 @@ export const projects = [
       '/assets/terra-images/s2.webp',
       '/assets/terra-images/s3.webp',
     ],
-    description: 'Studio Terra is a collaborative branding and product development project focused on sustainable plant care. We simulated a realistic workflow and environment for a design studio, and established a visual identity, studio values, and a brand system with a real prototyped product. We were a team of four, and I served as creative director, focusing on typography, visual identity, and product photography.',
-    skills: ['Graphic Design', 'Brand Identity', 'Product Photography', 'Product Design', 'Typography'],
-    tools: ['Adobe InDesign', 'Adobe Illustrator', 'Photography Studio'],
+    description: 'Studio Terra is a sustainable plant care brand and product experience designed for beginner plant owners. The project synthesized extensive user research, brand identity, and product design into a cohesive system that makes plant ownership less intimidating.',
+    sections: [
+      { label: 'PROBLEM', text: 'Beginning plant owners often struggle with care guidance that feels inaccessible or overwhelming. How might we make plant care help more accessible to them?' },
+      { label: 'PROCESS', text: 'I conducted user research with plant owners to understand their pain points, then led the ideation and concept development with my team. We iterated through multiple design directions based on feedback, ultimately landing on a brand identity centered around sustainability and simplicity. As creative director, I focused on typography, visual identity, and product photography. We prototyped and manufactured custom pots that embody the brand system, creating a complete experience from packaging to product.' },
+    ],
+    tools: ['Adobe Creative Suite', 'Photography', 'Product Design', 'Brand Systems'],
   },
   { slug: 'project-152', title: 'PROJECT 152',  date: '11/2024',       image: '/assets/projects/project-3.jpg', alt: 'PROJECT 152',
     images: [
@@ -78,8 +81,11 @@ export const projects = [
       '/assets/p152-images/3.webp',
       '/assets/p152-images/4.webp',
     ],
-    description: 'Project 152 is a CTA-based publication/zine that revolves around a shared space that has personally influenced my design practice. This publication is primarily informative but includes personal themes throughout its pages. Research and iteration are principles that persist throughout the design process, including an extensive interview with CTA Designer Joe Nelson. Photography was also a large part of the process, every photograph was shot during Fall 2024 and helped develop my understanding of composition and street photography. Experimenting with new forms of photography has opened me up to new avenues of design. This project is not only a memento to a design system that has inspired me, it\'s a physical representation of my growth as a photographer and designer. Several copies were printed on risograph and laser printers at UIC\'s print lab.',
-    tools: ['Adobe InDesign', 'Adobe Photoshop', 'Risograph', 'Book Binding Tools'],
+    description: 'PROJECT 152 is a CTA-based publication that explores design practice through research, photography, and typography. The zine synthesizes an extensive interview with designer Joe Nelson alongside original photography shot during Fall 2024, examining how visual systems can tell stories about design culture and community.',
+    sections: [
+      { label: 'PROCESS', text: 'I conducted research into the CTA design world and interviewed designer Joe Nelson to understand his practice. The interview revealed a designer who balances logical, structured design with personal passion for the CTA\'s street art culture. Throughout the design process, I shot original photography that became integral to the visual system. Photography was used as compositional building blocks within the hierarchy, creating dynamic layouts that reflect Joe\'s dual practice. I designed the full publication system across multiple chapters, each with distinct visual treatments tied to the CTA line color system. Multiple copies were printed on risograph and laser printers.' },
+    ],
+    tools: ['Adobe InDesign', 'Adobe Photoshop', 'Photography', 'Risograph', 'Book Binding'],
   },
   { slug: 'crystal-goblet', title: 'CRYSTAL GOBLET', date: '11/2024', image: '/assets/projects/project-4.jpg', alt: 'CRYSTAL GOBLET',
     images: [
