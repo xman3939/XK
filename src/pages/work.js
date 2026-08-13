@@ -67,10 +67,10 @@ export const projects = [
       '/assets/terra-images/s2.webp',
       '/assets/terra-images/s3.webp',
     ],
-    description: 'Studio Terra is a sustainable plant care brand and product experience designed for beginner plant owners. The project synthesized extensive user research, brand identity, and product design into a cohesive system that makes plant ownership less intimidating.',
+    description: 'Studio Terra is a sustainable plant care brand and product experience designed for beginner plant owners. As part of a four-person team, we synthesized extensive user research, brand identity, and product design into a cohesive system that makes plant ownership less intimidating.',
     sections: [
-      { label: 'PROBLEM', text: 'Beginning plant owners often struggle with care guidance that feels inaccessible or overwhelming. How might we make plant care help more accessible to them?' },
-      { label: 'PROCESS', text: 'I conducted user research with plant owners to understand their pain points, then led the ideation and concept development with my team. We iterated through multiple design directions based on feedback, ultimately landing on a brand identity centered around sustainability and simplicity. As creative director, I focused on typography, visual identity, and product photography. We prototyped and manufactured custom pots that embody the brand system, creating a complete experience from packaging to product.' },
+      { label: 'PROBLEM', text: 'How might we make plant care accessible and approachable for people new to plant ownership?' },
+      { label: 'PROCESS', text: 'Our team conducted user research with plant owners to understand their pain points, then ideated and developed multiple design directions based on feedback. We landed on a brand identity centered around sustainability and simplicity. As creative director, I led the visual direction—designing the typography system, visual identity, and directing product photography. Our team prototyped and manufactured custom pots that embody the brand system, creating a complete experience from packaging to product.' },
     ],
     tools: ['Adobe Creative Suite', 'Photography', 'Product Design', 'Brand Systems'],
   },
