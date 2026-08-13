@@ -66,6 +66,8 @@ export const projects = [
       '/assets/terra-images/s1.webp',
       '/assets/terra-images/s2.webp',
       '/assets/terra-images/s3.webp',
+      '/assets/terra-images/slide1.webp',
+      '/assets/terra-images/slide2.webp',
     ],
     description: 'Studio Terra is a sustainable plant care brand and product experience designed for beginner plant owners. As part of a four-person team, we synthesized extensive user research, brand identity, and product design into a cohesive system that makes plant ownership less intimidating.',
     sections: [
