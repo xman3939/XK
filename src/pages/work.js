@@ -9,7 +9,6 @@ export const projects = [
       '/assets/chroma-images/2.webp',
       '/assets/chroma-images/5.webp',
       '/assets/chroma-images/3.svg',
-      '/assets/chroma-images/6.webp',
     ],
     description: 'Chroma is a bold, editorial-inspired café brand built around one idea: color as structure. It\'s a full visual identity system, from the logomark to packaging to the menu, that takes Swiss typography principles and turns them into something graphic and confident for a category that\'s usually soft and muted.',
     sections: [
