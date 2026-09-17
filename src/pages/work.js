@@ -3,6 +3,9 @@ import { fragmentElement, runReveal } from '../text-reveal.js';
 import { transitionState, PRE_DELAY } from '../transition-state.js';
 
 export const projects = [
+  /* CHROMA — temporarily dormant, not live. Assets still on disk in
+     public/assets/chroma-images/. Re-enable by uncommenting this entry
+     and the matching home.js background-slide entries.
   { slug: 'chroma', title: 'CHROMA',    date: '09/2026',       image: '/assets/chroma-images/4.webp', alt: 'CHROMA',
     images: [
       '/assets/chroma-images/1.webp',
@@ -17,6 +20,7 @@ export const projects = [
     ],
     tools: ['Figma', 'Typography & Brand Systems', 'Packaging Design', 'Menu / Editorial Layout Design'],
   },
+  */
   { slug: 'pyxl', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
     images: [
       '/assets/pyxl-images/1.webp',
