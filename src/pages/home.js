@@ -1,10 +1,6 @@
 import { navigate } from '../router.js';
 import { runReveal } from '../text-reveal.js';
 
-// CHROMA background slide temporarily dormant — was '/assets/chroma-images/2.webp'
-// at index 1 of BG_IMAGES/SLIDE_OVERLAY/SLIDE_INFO and DESKTOP_BG_IMAGES/
-// DESKTOP_SLIDE_OVERLAY/DESKTOP_SLIDE_INFO below. See git history (commit
-// 5b685c6) to restore.
 const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.webp',
   '/assets/backgrounds-mobile/2.webp',
