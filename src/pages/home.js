@@ -3,6 +3,7 @@ import { runReveal } from '../text-reveal.js';
 
 const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.webp',
+  '/assets/chroma-images/2.webp',
   '/assets/backgrounds-mobile/2.webp',
   '/assets/backgrounds-mobile/3.webp',
   '/assets/backgrounds-mobile/4.webp',
@@ -15,13 +16,13 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/11.webp',
   '/assets/backgrounds-mobile/12.webp',
   '/assets/backgrounds-mobile/13.webp',
-  '/assets/chroma-images/2.webp',
 ];
 
-const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25, 0.3];
+const SLIDE_OVERLAY = [0.25, 0.3, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
 
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
+  { name: 'CHROMA',           href: '/work/chroma' },
   { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'TERRA',            href: '/work/terra' },
@@ -34,11 +35,11 @@ const SLIDE_INFO = [
   { name: 'NATURE GALLERY',   href: '/gallery/nature-gallery' },
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
-  { name: 'CHROMA',           href: '/work/chroma' },
 ];
 
 const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/1.jpg',
+  '/assets/chroma-images/2.webp',
   '/assets/backgrounds-desktop/2.jpg',
   '/assets/backgrounds-desktop/3.jpg',
   '/assets/backgrounds-desktop/4.jpg',
@@ -53,13 +54,13 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/13.jpg',
   '/assets/backgrounds-desktop/14.jpg',
   '/assets/backgrounds-desktop/15.jpg',
-  '/assets/chroma-images/2.webp',
 ];
 
 const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'PYXL',           href: '/work/pyxl' },
+  { name: 'CHROMA',      href: '/work/chroma' },
   { name: 'ABSTRACT',       href: '/gallery/abstract-gallery' },
   { name: 'STREET',         href: '/gallery/street-gallery' },
   { name: 'CRYSTAL GOBLET', href: '/work/crystal-goblet' },
@@ -74,7 +75,6 @@ const DESKTOP_SLIDE_INFO = [
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
-  { name: 'CHROMA',      href: '/work/chroma' },
 ];
 
 let _bgCleanup = null;

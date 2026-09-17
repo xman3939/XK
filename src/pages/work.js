@@ -6,10 +6,10 @@ export const projects = [
   { slug: 'chroma', title: 'CHROMA',    date: '09/2026',       image: '/assets/chroma-images/4.webp', alt: 'CHROMA',
     images: [
       '/assets/chroma-images/1.webp',
-      '/assets/chroma-images/5.webp',
-      '/assets/chroma-images/6.webp',
       '/assets/chroma-images/2.webp',
+      '/assets/chroma-images/5.webp',
       '/assets/chroma-images/3.svg',
+      '/assets/chroma-images/6.webp',
     ],
     description: 'Chroma is a bold, editorial-inspired café brand built around one idea: color as structure. It\'s a full visual identity system, from the logomark to packaging to the menu, that takes Swiss typography principles and turns them into something graphic and confident for a category that\'s usually soft and muted.',
     sections: [
