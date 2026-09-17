@@ -3,6 +3,21 @@ import { fragmentElement, runReveal } from '../text-reveal.js';
 import { transitionState, PRE_DELAY } from '../transition-state.js';
 
 export const projects = [
+  { slug: 'chroma', title: 'CHROMA',    date: '09/2026',       image: '/assets/chroma-images/4.webp', alt: 'CHROMA',
+    images: [
+      '/assets/chroma-images/1.webp',
+      '/assets/chroma-images/5.webp',
+      '/assets/chroma-images/6.webp',
+      '/assets/chroma-images/2.webp',
+      '/assets/chroma-images/3.svg',
+    ],
+    description: 'Chroma is a bold, editorial-inspired café brand built around one idea: color as structure. It\'s a full visual identity system, from the logomark to packaging to the menu, that takes Swiss typography principles and turns them into something graphic and confident for a category that\'s usually soft and muted.',
+    sections: [
+      { label: 'PROBLEM', text: 'How might a café brand stand out in a category full of quiet, "cozy" aesthetics, while still feeling warm instead of cold or corporate?' },
+      { label: 'PROCESS', text: 'I went through a few different directions before landing on this one, including a newspaper/editorial concept and a retro pixel art idea. I ended up choosing a bold, Swiss-influenced system built on geometric precision and a tight color palette. The logomark was built from scratch on a strict grid, with an angled cut that echoes light splitting into spectrum. It ties the brand\'s name directly into the shape of the mark instead of just being a decorative cut. From there I built the full typographic system, the wordmark, and a restrained black, white, and yellow palette, then applied it across real deliverables: business cards, kraft paper packaging, an editorial-style menu that uses an oversized letterform as a background graphic, and full brand guidelines covering construction, typography, and color usage.' },
+    ],
+    tools: ['Figma', 'Typography & Brand Systems', 'Packaging Design', 'Menu / Editorial Layout Design'],
+  },
   { slug: 'pyxl', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
     images: [
       '/assets/pyxl-images/1.webp',

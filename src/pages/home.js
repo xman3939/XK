@@ -15,9 +15,10 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/11.webp',
   '/assets/backgrounds-mobile/12.webp',
   '/assets/backgrounds-mobile/13.webp',
+  '/assets/chroma-images/2.webp',
 ];
 
-const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
+const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25, 0.3];
 
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
@@ -33,6 +34,7 @@ const SLIDE_INFO = [
   { name: 'NATURE GALLERY',   href: '/gallery/nature-gallery' },
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
+  { name: 'CHROMA',           href: '/work/chroma' },
 ];
 
 const DESKTOP_BG_IMAGES = [
@@ -51,9 +53,10 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/13.jpg',
   '/assets/backgrounds-desktop/14.jpg',
   '/assets/backgrounds-desktop/15.jpg',
+  '/assets/chroma-images/2.webp',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'PYXL',           href: '/work/pyxl' },
@@ -71,6 +74,7 @@ const DESKTOP_SLIDE_INFO = [
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
+  { name: 'CHROMA',      href: '/work/chroma' },
 ];
 
 let _bgCleanup = null;
