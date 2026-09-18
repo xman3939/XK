@@ -866,11 +866,11 @@ body.contact-page {
 
   .mobile-top-rule {
     position: fixed;
-    top: 58px;
+    top: 64px;
     left: 16px;
     right: 16px;
     height: 1px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);
     z-index: 9;
     pointer-events: none;
   }
@@ -879,9 +879,9 @@ body.contact-page {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     box-sizing: border-box;
-    padding: 88px 16px 40px 16px;
+    padding: 96px 16px 40px 16px;
   }
 
   .mobile-home-hero {
@@ -890,20 +890,17 @@ body.contact-page {
     gap: 14px;
   }
 
-  /* Each tile shows only its glyph's bounding box (X: 0-219.42,
-     K: 228.11-447.36 of the 447.36-wide viewBox) scaled to fill the
-     tile, so both letters sit flush-left instead of mirrored. */
   .mobile-home-logo-tile {
     position: relative;
     overflow: hidden;
     width: 100%;
-    aspect-ratio: 219.3 / 110.22;
+    aspect-ratio: 223.68 / 110.22;
   }
 
   .mobile-home-logo-half {
     position: absolute;
     top: 0;
-    width: 204%;
+    width: 200%;
     max-width: none;
     height: 100%;
     display: block;
@@ -914,7 +911,63 @@ body.contact-page {
   }
 
   .mobile-home-logo-tile--right .mobile-home-logo-half {
-    left: -104%;
+    left: -100%;
+  }
+
+  .mobile-home-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-home-tagline,
+  .mobile-home-location {
+    margin: 0;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .mobile-home-location {
+    color: #747474;
+    margin-top: -14px;
+  }
+
+  .mobile-home-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-home-link {
+    align-self: flex-start;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobile-home-rule {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .mobile-home-credit {
+    margin: 0;
+    color: #747474;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .work-layout {
