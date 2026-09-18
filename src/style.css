@@ -860,6 +860,116 @@ body.contact-page {
     transform: none;
   }
 
+  /* ----------------------------- */
+  /* MOBILE HOME (experimental)    */
+  /* ----------------------------- */
+
+  .mobile-top-rule {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    z-index: 9;
+    pointer-events: none;
+  }
+
+  .mobile-home {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 96px 16px 40px 16px;
+  }
+
+  .mobile-home-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .mobile-home-logo-tile {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 223.68 / 110.22;
+  }
+
+  .mobile-home-logo-half {
+    position: absolute;
+    top: 0;
+    width: 200%;
+    max-width: none;
+    height: 100%;
+    display: block;
+  }
+
+  .mobile-home-logo-tile--left .mobile-home-logo-half {
+    left: 0;
+  }
+
+  .mobile-home-logo-tile--right .mobile-home-logo-half {
+    left: -100%;
+  }
+
+  .mobile-home-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-home-tagline,
+  .mobile-home-location {
+    margin: 0;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .mobile-home-location {
+    color: #747474;
+    margin-top: -14px;
+  }
+
+  .mobile-home-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-home-link {
+    align-self: flex-start;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobile-home-rule {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .mobile-home-credit {
+    margin: 0;
+    color: #747474;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
   .work-layout {
     padding: 80px 16px 80px 16px;
   }
