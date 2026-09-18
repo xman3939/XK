@@ -1,5 +1,5 @@
 import { navigate } from '../router.js';
-import { runReveal, fragmentElement } from '../text-reveal.js';
+import { runReveal } from '../text-reveal.js';
 
 const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/1.jpg',
@@ -60,17 +60,6 @@ export default {
               <img src="/assets/XK1W.svg" alt="" class="mobile-home-logo-half" />
             </div>
           </div>
-          <div class="mobile-home-footer">
-            <p class="mobile-home-tagline">DESIGNER/ DEVELOPER/ PHOTOGRAPHER</p>
-            <p class="mobile-home-location">CHICAGO, IL</p>
-            <nav class="mobile-home-links">
-              <button type="button" class="mobile-home-link" data-home-route="/work">&rarr;WORK</button>
-              <button type="button" class="mobile-home-link" data-home-route="/about">&rarr;ABOUT</button>
-              <button type="button" class="mobile-home-link" data-home-route="/contact">&rarr;CONTACT</button>
-            </nav>
-            <div class="mobile-home-rule"></div>
-            <p class="mobile-home-credit">BUILD BY XAVIER KANIA</p>
-          </div>
         </div>
       `;
     }
@@ -81,18 +70,8 @@ export default {
       const home = document.querySelector('.mobile-home');
       if (!home) return;
 
-      document.querySelectorAll('.mobile-home-tagline, .mobile-home-location, .mobile-home-link, .mobile-home-credit')
-        .forEach(el => fragmentElement(el));
-
-      document.querySelectorAll('.mobile-home-link').forEach(btn => {
-        btn.addEventListener('click', () => navigate(btn.dataset.homeRoute));
-      });
-
       const reveal = () => {
         requestAnimationFrame(() => { home.style.opacity = '1'; });
-        setTimeout(() => {
-          runReveal('.mobile-home-footer', { burstCount: 5, burstGap: 60, chunkGap: 18 });
-        }, 350);
       };
 
       if (sessionStorage.getItem('loaderPlayed')) {
