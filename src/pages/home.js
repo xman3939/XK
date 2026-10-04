@@ -2,7 +2,7 @@ import { navigate } from '../router.js';
 import { runReveal } from '../text-reveal.js';
 
 const BG_IMAGES = [
-  '/assets/backgrounds-mobile/1.webp',
+  '/assets/backgrounds-mobile/3.webp',
   '/assets/a7-images/mockup2.webp',
   '/assets/backgrounds-mobile/4.webp',
   '/assets/backgrounds-mobile/7.webp',
@@ -15,13 +15,13 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/12.webp',
   '/assets/backgrounds-mobile/13.webp',
   '/assets/backgrounds-mobile/2.webp',
-  '/assets/backgrounds-mobile/3.webp',
+  '/assets/backgrounds-mobile/1.webp',
 ];
 
 const SLIDE_OVERLAY = [0.25, 0.3, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25, 0.55, 0.25];
 
 const SLIDE_INFO = [
-  { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
+  { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'A7YPE',            href: '/work/a7ype' },
   { name: 'TERRA',            href: '/work/terra' },
   { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
@@ -34,7 +34,7 @@ const SLIDE_INFO = [
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
   { name: 'PYXL',             href: '/work/pyxl' },
-  { name: 'PYXL',             href: '/work/pyxl' },
+  { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
 ];
 
 const DESKTOP_BG_IMAGES = [
