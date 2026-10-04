@@ -3,6 +3,22 @@ import { fragmentElement, runReveal } from '../text-reveal.js';
 import { transitionState, PRE_DELAY } from '../transition-state.js';
 
 export const projects = [
+  { slug: 'a7ype', title: 'A7YPE',      date: '10/2026',       image: '/assets/a7-images/mockup2.webp', alt: 'A7YPE',
+    images: [
+      '/assets/a7-images/mockup1.webp',
+      '/assets/a7-images/frame142.webp',
+      '/assets/a7-images/gifloop.webp',
+      '/assets/a7-images/s1.webp',
+      '/assets/a7-images/s2.webp',
+      '/assets/a7-images/s4.webp',
+    ],
+    description: 'A7YPE is a collection of minigames designed to challenge your vision, memory, and coordination. Designed with a minimal, typographic approach, each game is built around glyphs and symbols as its core composition. Although the minigames are designed to be simple and addictive, the primary purpose of the site is to answer the question: can you create a web experience without images that feels complete? This experiment demonstrates how intentional website design can create an experience that feels curated, detailed, and entertaining. Designed thoughtfully for mobile and desktop, there is no intended way to play. A7YPE (pronounced "a-type") is a shortening of the term "atypography," which means making typography that is abstract and concealed but also legible. In a few of the minigames designed in this experience, it creates cluttered, dense, and often borderline illegible typographic compositions. It is an experience that is meant to be explored at your own pace.',
+    sections: [
+      { label: 'PROCESS', text: 'Designing this website consisted of several creative phases that all played essential roles in the final product. The first phase was an extensive ideation phase, taking in inspiration from a large variety of design worlds — ideating different visual languages, gameplay ideas, and user interface concepts. The next phase was designing a visual identity for the site, which consisted of working in the Adobe Creative Suite and Figma, which eventually led to the cyber-terminal theme the site has now. The next step was conceptualizing the games themselves — inspiration came from games like WarioWare, Wii Party, and other classic party games from the early 2000s. After the concept was formed, a prototype of the interface was created, used to visualize what would eventually be built in code. This prototyping included scroll reveals, custom animations, and page transitions, and assisted the development process as it evolved constantly. After several waves of user testing, the final result was made.' },
+    ],
+    tools: ['Figma', 'Adobe Creative Suite', 'JavaScript', 'HTML5 / CSS3', 'Vite', 'GSAP', 'Git / GitHub'],
+    more: '<a href="https://a7ype.vercel.app/" target="_blank" rel="noopener" class="meta-link">VIEW LIVE SITE</a>',
+  },
   { slug: 'pyxl', title: 'PYXL',        date: '05/2026',       image: '/assets/projects/project-1.jpg', alt: 'PYXL', objectPosition: 'center 25%',
     images: [
       '/assets/pyxl-images/1.webp',

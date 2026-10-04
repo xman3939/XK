@@ -5,6 +5,7 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/1.webp',
   '/assets/backgrounds-mobile/2.webp',
   '/assets/backgrounds-mobile/3.webp',
+  '/assets/a7-images/mockup2.webp',
   '/assets/backgrounds-mobile/4.webp',
   '/assets/backgrounds-mobile/5.webp',
   '/assets/backgrounds-mobile/6.webp',
@@ -17,12 +18,13 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/13.webp',
 ];
 
-const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
+const SLIDE_OVERLAY = [0.25, 0.55, 0.25, 0.3, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25];
 
 const SLIDE_INFO = [
   { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
   { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'PYXL',             href: '/work/pyxl' },
+  { name: 'A7YPE',            href: '/work/a7ype' },
   { name: 'TERRA',            href: '/work/terra' },
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
   { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
@@ -37,6 +39,7 @@ const SLIDE_INFO = [
 
 const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/1.jpg',
+  '/assets/a7-images/mockup2.webp',
   '/assets/backgrounds-desktop/2.jpg',
   '/assets/backgrounds-desktop/3.jpg',
   '/assets/backgrounds-desktop/4.jpg',
@@ -53,10 +56,11 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/15.jpg',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.3, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'PYXL',           href: '/work/pyxl' },
+  { name: 'A7YPE',          href: '/work/a7ype' },
   { name: 'ABSTRACT',       href: '/gallery/abstract-gallery' },
   { name: 'STREET',         href: '/gallery/street-gallery' },
   { name: 'CRYSTAL GOBLET', href: '/work/crystal-goblet' },
