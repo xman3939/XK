@@ -11,6 +11,7 @@ export const projects = [
       '/assets/a7-images/s1.webp',
       '/assets/a7-images/s2.webp',
       '/assets/a7-images/s4.webp',
+      '/assets/a7-images/color.webp',
     ],
     description: 'A7YPE is a collection of minigames designed to challenge your vision, memory, and coordination. Designed with a minimal, typographic approach, each game is built around glyphs and symbols as its core composition. Although the minigames are designed to be simple and addictive, the primary purpose of the site is to answer the question: can you create a web experience without images that feels complete? This experiment demonstrates how intentional website design can create an experience that feels curated, detailed, and entertaining. Designed thoughtfully for mobile and desktop, there is no intended way to play. A7YPE (pronounced "a-type") is a shortening of the term "atypography," which means making typography that is abstract and concealed but also legible. In a few of the minigames designed in this experience, it creates cluttered, dense, and often borderline illegible typographic compositions. It is an experience that is meant to be explored at your own pace.',
     sections: [
