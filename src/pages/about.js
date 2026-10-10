@@ -51,6 +51,7 @@ export default {
           </div>
           <div class="project-image-panel">
             <img class="project-hero-img" src="/assets/other/me.png" alt="" decoding="async" style="object-position:center top" />
+            <img class="about-mobile-logo" src="/assets/XK1W.svg" alt="XK" />
           </div>
         </section>
       </div>

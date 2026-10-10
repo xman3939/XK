@@ -318,6 +318,10 @@ body.about-page {
   display: block;
 }
 
+.about-mobile-logo {
+  display: none;
+}
+
 .project-images {
   padding: 140px 64px 140px 64px;
 }
@@ -893,8 +897,25 @@ body.contact-page {
     height: 100vw;
   }
 
+  body.about-page .project-hero-img {
+    display: none;
+  }
+
+  .about-mobile-logo {
+    display: block;
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    width: min(160px, 40vw);
+    height: auto;
+  }
+
   .project-info {
     padding: 48px 20px;
+  }
+
+  body.about-page .project-meta-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-back-btn {
@@ -927,6 +948,10 @@ body.contact-page {
     cursor: pointer;
     padding: 10px 0 0;
     text-align: left;
+  }
+
+  body.about-page .desc-toggle {
+    grid-column: 1;
   }
 
   .project-images {
