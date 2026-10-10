@@ -16,9 +16,11 @@ const BG_IMAGES = [
   '/assets/backgrounds-mobile/13.webp',
   '/assets/backgrounds-mobile/2.webp',
   '/assets/backgrounds-mobile/1.webp',
+  '/assets/a7-images/mockup1.webp',
+  '/assets/crystalgoblet-images/1.webp',
 ];
 
-const SLIDE_OVERLAY = [0.25, 0.3, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25, 0.55, 0.25];
+const SLIDE_OVERLAY = [0.25, 0.3, 0.55, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.55, 0.25, 0.55, 0.25, 0.25, 0.25];
 
 const SLIDE_INFO = [
   { name: 'PYXL',             href: '/work/pyxl' },
@@ -35,12 +37,15 @@ const SLIDE_INFO = [
   { name: 'STREET GALLERY',   href: '/gallery/street-gallery' },
   { name: 'PYXL',             href: '/work/pyxl' },
   { name: 'ABSTRACT GALLERY', href: '/gallery/abstract-gallery' },
+  { name: 'A7YPE',            href: '/work/a7ype' },
+  { name: 'CRYSTAL GOBLET',   href: '/work/crystal-goblet' },
 ];
 
 const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/1.jpg',
   '/assets/a7-images/mockup2.webp',
   '/assets/backgrounds-desktop/2.jpg',
+  '/assets/backgrounds-desktop/terra-promo.webp',
   '/assets/backgrounds-desktop/3.jpg',
   '/assets/backgrounds-desktop/4.jpg',
   '/assets/backgrounds-desktop/5.jpg',
@@ -54,14 +59,17 @@ const DESKTOP_BG_IMAGES = [
   '/assets/backgrounds-desktop/13.jpg',
   '/assets/backgrounds-desktop/14.jpg',
   '/assets/backgrounds-desktop/15.jpg',
+  '/assets/a7-images/mockup1.webp',
+  '/assets/crystalgoblet-images/1.webp',
 ];
 
-const DESKTOP_SLIDE_OVERLAY = [0.2, 0.3, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2];
+const DESKTOP_SLIDE_OVERLAY = [0.2, 0.3, 0.2, 0.25, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.25, 0.25];
 
 const DESKTOP_SLIDE_INFO = [
   { name: 'PYXL',           href: '/work/pyxl' },
   { name: 'A7YPE',          href: '/work/a7ype' },
   { name: 'ABSTRACT',       href: '/gallery/abstract-gallery' },
+  { name: 'TERRA',          href: '/work/terra' },
   { name: 'STREET',         href: '/gallery/street-gallery' },
   { name: 'CRYSTAL GOBLET', href: '/work/crystal-goblet' },
   { name: 'ABSTRACT',    href: '/gallery/abstract-gallery' },
@@ -75,6 +83,8 @@ const DESKTOP_SLIDE_INFO = [
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
   { name: 'NATURE',      href: '/gallery/nature-gallery' },
+  { name: 'A7YPE',          href: '/work/a7ype' },
+  { name: 'CRYSTAL GOBLET', href: '/work/crystal-goblet' },
 ];
 
 let _bgCleanup = null;
