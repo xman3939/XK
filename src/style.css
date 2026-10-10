@@ -66,7 +66,7 @@ body {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   font-weight: 400;
   transition: opacity 300ms ease, transform 300ms ease;
 }
@@ -114,7 +114,7 @@ body {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
@@ -147,6 +147,28 @@ body.home-page #app {
   width: min(450px, 87vw);
   height: auto;
   display: block;
+}
+
+.home-blurb {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .home-blurb {
+    display: block;
+    position: absolute;
+    top: 22vh;
+    left: 64px;
+    width: 33vw;
+    margin: 0;
+    color: #fff;
+    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: left;
+    z-index: 2;
+  }
 }
 
 /* ----------------------------- */
@@ -208,7 +230,7 @@ body.work-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0em;
   text-transform: uppercase;
   white-space: pre-wrap;
 }
@@ -255,7 +277,7 @@ body.about-page {
 .meta-label {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   color: #747474;
   text-transform: uppercase;
   line-height: 1.6;
@@ -298,7 +320,7 @@ body.about-page {
 .meta-value {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.04em;
   color: #fff;
   line-height: 1.6;
   text-transform: uppercase;
@@ -340,7 +362,7 @@ body.about-page {
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -398,7 +420,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 11px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -408,7 +430,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
@@ -452,7 +474,7 @@ body.contact-page {
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
     font-size: 13px;
     line-height: 1;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     font-weight: 400;
     text-transform: uppercase;
   }
@@ -566,7 +588,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   cursor: pointer;
   transition: color 300ms ease;
 }
@@ -617,75 +639,6 @@ body.contact-page {
 }
 
 /* ----------------------------- */
-/* DESKTOP BG SLIDESHOW */
-/* ----------------------------- */
-
-.desktop-bg-slideshow {
-  display: none;
-}
-
-@media (min-width: 769px) {
-  .desktop-bg-slideshow {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .desktop-bg-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 3;
-    pointer-events: none;
-    transition: background 900ms ease;
-  }
-
-  .desktop-bg-slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0;
-    transition: opacity 900ms ease;
-    z-index: 0;
-    pointer-events: none;
-  }
-}
-
-/* ----------------------------- */
-/* NAV SLIDE CAPTION */
-/* ----------------------------- */
-
-.nav-slide-caption {
-  color: #fff;
-  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1;
-  letter-spacing: 0.12em;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  opacity: 0;
-  transition: color 300ms ease, opacity 300ms ease;
-  cursor: pointer;
-  margin-left: 22px;
-  pointer-events: none;
-}
-
-.nav-slide-caption.is-visible {
-  pointer-events: auto;
-}
-
-.nav-slide-caption:hover {
-  color: #8f8f8f;
-}
-
-/* ----------------------------- */
 /* SLIDE CAPTION */
 /* ----------------------------- */
 
@@ -707,7 +660,7 @@ body.contact-page {
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
     font-size: 13px;
     line-height: 1;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     text-decoration: none;
     white-space: pre-wrap;
     opacity: 0;
@@ -778,7 +731,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
   opacity: 0;
@@ -803,7 +756,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   cursor: pointer;
   transition: color 300ms ease;
   align-self: flex-start;
@@ -920,7 +873,7 @@ body.contact-page {
     color: #747474;
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: underline;
     text-underline-offset: 3px;
