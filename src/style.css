@@ -304,6 +304,10 @@ body.about-page {
   text-transform: uppercase;
 }
 
+.meta-value-wrap {
+  display: block;
+}
+
 .project-image-panel {
   width: 50%;
   position: relative;
@@ -316,10 +320,6 @@ body.about-page {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.about-mobile-logo {
-  display: none;
 }
 
 .project-images {
@@ -894,20 +894,7 @@ body.contact-page {
   }
 
   body.about-page .project-image-panel {
-    height: 100vw;
-  }
-
-  body.about-page .project-hero-img {
     display: none;
-  }
-
-  .about-mobile-logo {
-    display: block;
-    position: absolute;
-    bottom: 24px;
-    left: 20px;
-    width: min(160px, 40vw);
-    height: auto;
   }
 
   .project-info {
@@ -935,7 +922,6 @@ body.contact-page {
 
   .desc-toggle {
     display: block;
-    grid-column: 2;
     background: none;
     border: none;
     color: #747474;
@@ -948,10 +934,6 @@ body.contact-page {
     cursor: pointer;
     padding: 10px 0 0;
     text-align: left;
-  }
-
-  body.about-page .desc-toggle {
-    grid-column: 1;
   }
 
   .project-images {

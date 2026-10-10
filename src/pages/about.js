@@ -41,8 +41,10 @@ export default {
           <div class="project-info">
             <div class="project-meta-grid">
               <span class="meta-label">ABOUT</span>
-              <span class="meta-value meta-value--desc">${bioHtml}</span>
-              <button class="desc-toggle" aria-expanded="false">VIEW MORE +</button>
+              <div class="meta-value-wrap">
+                <span class="meta-value meta-value--desc">${bioHtml}</span>
+                <button class="desc-toggle" aria-expanded="false">READ MORE +</button>
+              </div>
               <span class="meta-label">DESIGN TOOLS</span>
               <span class="meta-value meta-value--list">${designHtml}</span>
               <span class="meta-label">DEVELOPER TOOLS</span>
@@ -51,7 +53,6 @@ export default {
           </div>
           <div class="project-image-panel">
             <img class="project-hero-img" src="/assets/other/me.png" alt="" decoding="async" style="object-position:center top" />
-            <img class="about-mobile-logo" src="/assets/XK1W.svg" alt="XK" />
           </div>
         </section>
       </div>
@@ -80,7 +81,7 @@ export default {
     if (descToggle && descEl) {
       descToggle.addEventListener('click', () => {
         const expanded = descEl.classList.toggle('is-expanded');
-        descToggle.innerHTML = (expanded ? 'VIEW LESS -' : 'VIEW MORE +')
+        descToggle.innerHTML = (expanded ? 'READ LESS -' : 'READ MORE +')
           .split('').map(c => `<span class="reveal-chunk is-visible">${c}</span>`).join('');
         descToggle.setAttribute('aria-expanded', String(expanded));
       });

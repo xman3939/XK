@@ -21,8 +21,10 @@ export default {
     const languagesHtml = project.languages?.length ? project.languages.map(l => `<span class="meta-item">${l}</span>`).join('') : '';
     const extraSectionsHtml = project.sections?.length ? project.sections.map(sec => `
               <span class="meta-label">${sec.label}</span>
-              <span class="meta-value meta-value--desc">${sec.text}</span>
-              <button class="desc-toggle" aria-expanded="false">VIEW MORE +</button>`).join('') : '';
+              <div class="meta-value-wrap">
+                <span class="meta-value meta-value--desc">${sec.text}</span>
+                <button class="desc-toggle" aria-expanded="false">READ MORE +</button>
+              </div>`).join('') : '';
     const imagesHtml    = project.images?.length ? project.images.map((src, i) => `
       <div class="gallery-item" data-index="${i}">
         <img src="${src}" alt="" class="gallery-image" decoding="async"${i >= 4 ? ' loading="lazy"' : ''} />
@@ -35,8 +37,10 @@ export default {
           <div class="project-info">
             <div class="project-meta-grid">
               <span class="meta-label meta-label--title">${project.title}</span>
-              <span class="meta-value meta-value--desc">${project.description ?? ''}</span>
-              ${project.description ? `<button class="desc-toggle" aria-expanded="false">VIEW MORE +</button>` : ''}
+              <div class="meta-value-wrap">
+                <span class="meta-value meta-value--desc">${project.description ?? ''}</span>
+                ${project.description ? `<button class="desc-toggle" aria-expanded="false">READ MORE +</button>` : ''}
+              </div>
               ${extraSectionsHtml}
               ${project.skills?.length ? `
               <span class="meta-label">SKILLS</span>
@@ -97,7 +101,7 @@ export default {
       if (!descEl) return;
       descToggle.addEventListener('click', () => {
         const expanded = descEl.classList.toggle('is-expanded');
-        descToggle.innerHTML = (expanded ? 'VIEW LESS -' : 'VIEW MORE +')
+        descToggle.innerHTML = (expanded ? 'READ LESS -' : 'READ MORE +')
           .split('').map(c => `<span class="reveal-chunk is-visible">${c}</span>`).join('');
         descToggle.setAttribute('aria-expanded', String(expanded));
       });
