@@ -66,7 +66,7 @@ body {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-weight: 400;
   transition: opacity 300ms ease, transform 300ms ease;
 }
@@ -114,7 +114,7 @@ body {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
@@ -208,7 +208,7 @@ body.work-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: pre-wrap;
 }
@@ -255,7 +255,7 @@ body.about-page {
 .meta-label {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 11px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: #747474;
   text-transform: uppercase;
   line-height: 1.6;
@@ -298,7 +298,7 @@ body.about-page {
 .meta-value {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: #fff;
   line-height: 1.6;
   text-transform: uppercase;
@@ -340,7 +340,7 @@ body.about-page {
   color: #fff;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -398,7 +398,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 11px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -408,7 +408,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
@@ -452,7 +452,7 @@ body.contact-page {
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
     font-size: 13px;
     line-height: 1;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     font-weight: 400;
     text-transform: uppercase;
   }
@@ -566,7 +566,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   cursor: pointer;
   transition: color 300ms ease;
 }
@@ -665,7 +665,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
@@ -707,7 +707,7 @@ body.contact-page {
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
     font-size: 13px;
     line-height: 1;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-decoration: none;
     white-space: pre-wrap;
     opacity: 0;
@@ -778,7 +778,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   opacity: 0;
@@ -803,7 +803,7 @@ body.contact-page {
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   cursor: pointer;
   transition: color 300ms ease;
   align-self: flex-start;
@@ -920,7 +920,7 @@ body.contact-page {
     color: #747474;
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
     font-size: 11px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: underline;
     text-underline-offset: 3px;
