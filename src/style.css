@@ -158,14 +158,15 @@ body.home-page #app {
     display: block;
     position: absolute;
     top: 22vh;
-    left: 64px;
+    left: 32px;
     width: 33vw;
     margin: 0;
     color: #fff;
     font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     text-align: left;
     z-index: 2;
   }
