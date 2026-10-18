@@ -31,12 +31,12 @@ export default {
   render() {
     return `
       <div class="contact-desktop">
-        <div class="contact-logo letter-logo" role="img" aria-label="Xavier Kania"></div>
+        <div class="contact-logo letter-logo" role="img" aria-label="XK"></div>
         <div class="contact-links-row">${clustersHtml}</div>
       </div>
       <div class="contact-mobile">
         <div class="contact-mobile-links">${clustersHtml}</div>
-        <div class="contact-mobile-logo letter-logo" role="img" aria-label="Xavier"></div>
+        <div class="contact-mobile-logo letter-logo" role="img" aria-label="XK"></div>
       </div>
     `;
   },
@@ -48,8 +48,8 @@ export default {
     // the breakpoint never leaves a logo missing; a hidden one grows in when it appears.
     const desktopLogo = document.querySelector('.contact-logo');
     const mobileLogo = document.querySelector('.contact-mobile-logo');
-    if (desktopLogo) growLetterLogo(desktopLogo, LETTER_LOGOS.xavierKania);
-    if (mobileLogo) growLetterLogo(mobileLogo, LETTER_LOGOS.xavier);
+    if (desktopLogo) growLetterLogo(desktopLogo, LETTER_LOGOS.xk);
+    if (mobileLogo) growLetterLogo(mobileLogo, LETTER_LOGOS.xk);
 
     if (isMobile) {
       document.querySelectorAll('.contact-mobile .contact-label').forEach(el => fragmentElement(el));

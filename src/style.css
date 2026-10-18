@@ -393,10 +393,10 @@ body.contact-page {
   animation: contactDecompress 420ms cubic-bezier(0, 0, 0.3, 1) forwards;
 }
 
-/* Split-letter logos (contact XAVIER KANIA / XAVIER): each letter grows up from its baseline in turn */
+/* Split-letter logo (contact XK): each letter grows up from its baseline in turn */
 .letter-logo {
   transform: none;
-  aspect-ratio: 11193 / 2848;
+  aspect-ratio: 447.36 / 110.22;
 }
 
 .letter-logo svg {
@@ -494,7 +494,7 @@ body.contact-page {
     gap: 28px;
   }
 
-  /* XAVIER across the bottom, between the margins (letters grow in like desktop) */
+  /* XK across the bottom, between the margins (letters grow in like desktop) */
   .contact-mobile-logo {
     position: fixed;
     left: 16px;
@@ -745,22 +745,33 @@ body.contact-page {
 /* MOBILE MENU */
 /* ----------------------------- */
 
-.mobile-menu-toggle {
+.mobile-menu-toggle,
+.mobile-home-button {
   display: none;
   position: fixed;
   top: 18px;
-  right: 14px;
+  right: 16px;
   z-index: 10;
-  background: transparent;
-  border: 0;
-  padding: 0;
+  background: #1a1a1a;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  padding: 2px 20px;
+  color: #fff;
+  font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
-.mobile-menu-toggle img {
-  width: 38px;
-  height: auto;
-  display: block;
+/* XK is the filled one */
+.mobile-home-button {
+  left: 16px;
+  right: auto;
+  background: #fff;
+  color: #1a1a1a;
 }
 
 .mobile-menu {
@@ -769,7 +780,7 @@ body.contact-page {
   left: 0;
   right: 0;
   height: 40vh;
-  background: #1a1a1a;
+  background: #fff;
   z-index: 15;
   transform: translateY(-100%);
   transition: transform 380ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -799,7 +810,7 @@ body.contact-page {
   background: transparent;
   border: 0;
   padding: 0;
-  color: #fff;
+  color: #1a1a1a;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
@@ -824,7 +835,7 @@ body.contact-page {
   background: transparent;
   border: 0;
   padding: 0;
-  color: #fff;
+  color: #1a1a1a;
   font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
@@ -873,7 +884,8 @@ body.contact-page {
     display: none;
   }
 
-  .mobile-menu-toggle {
+  .mobile-menu-toggle,
+  .mobile-home-button {
     display: block;
   }
 
@@ -935,8 +947,8 @@ body.contact-page {
   }
 
   .project-back-btn {
-    top: 18px;
-    left: 14px;
+    top: 21px;
+    left: 92px;
   }
 
   .meta-value--desc {
@@ -1047,35 +1059,4 @@ body.contact-page {
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-}
-
-/* ----------------------------- */
-/* WORK, PROJECT + ABOUT PAGES: white background, black text */
-/* ----------------------------- */
-
-html:has(body.work-page),
-html:has(body.project-detail-page),
-html:has(body.about-page),
-body.work-page,
-body.project-detail-page,
-body.about-page {
-  background: #fff;
-}
-
-:is(body.work-page, body.project-detail-page, body.about-page) :is(.project-title, .project-date, .meta-value, .meta-label--title, .meta-link, .project-not-found, .gallery-lightbox-close) {
-  color: #1a1a1a;
-}
-
-body.project-detail-page .gallery-lightbox-close:hover {
-  color: #8f8f8f;
-}
-
-/* Fixed nav, BACK and menu icon stay white but invert against what's behind them:
-   black over the white page, white over photos */
-:is(body.work-page, body.project-detail-page, body.about-page) :is(.home-nav, .project-back-btn, .mobile-menu-toggle) {
-  mix-blend-mode: difference;
-}
-
-body.project-detail-page .gallery-lightbox.is-open {
-  background: rgba(255, 255, 255, 0.96);
 }

@@ -1,23 +1,23 @@
 // Splits a wordmark SVG into its letters so each one can grow in on its own,
 // one after another (stagger lives in CSS: .letter-logo__letter animation-delay).
-// Used by the contact page (XAVIER KANIA on desktop, XAVIER on mobile).
+// Used by the contact page (XK on desktop and mobile).
 
 // `starts` lists the x where each letter begins in that SVG's viewBox.
-// The E is drawn as two columns, so it's a single entry. If the artwork changes,
-// these positions need updating too.
+// If the artwork changes, these positions need updating too.
 export const LETTER_LOGOS = {
-  xavier: {
-    src: '/assets/logos/xavier-white.svg',
-    starts: [0, 2057, 4114, 6171, 7200, 9257], // X A V I E R
-  },
-  xavierKania: {
-    src: '/assets/logos/xavier-kania-white.svg',
-    starts: [0, 2057, 4114, 6171, 7200, 9257, 11584, 13641, 15698, 17755, 18784], // X A V I E R  K A N I A
+  xk: {
+    src: '/assets/XK1W.svg',
+    starts: [0, 228.11], // X K
   },
 };
 
-// Paths are absolute M/L/H/V rectangles; returns the leftmost x a path reaches
-function pathMinX(d) {
+// Leftmost x a shape reaches: polygons via their points, paths via absolute M/L/H/V commands
+function shapeMinX(el) {
+  if (el.tagName === 'polygon') {
+    const nums = (el.getAttribute('points').match(/-?\d*\.?\d+/g) || []).map(Number);
+    return Math.min(...nums.filter((_, i) => i % 2 === 0));
+  }
+  const d = el.getAttribute('d');
   const xs = [];
   let x = 0;
   for (const [, cmd, args] of d.matchAll(/([MLHV])([^MLHVZ]*)/g)) {
@@ -46,11 +46,13 @@ export async function buildLetterLogo(container, { src, starts }) {
     g.style.setProperty('--i', i);
     return g;
   });
-  [...svg.querySelectorAll('path')].forEach(path => {
-    const minX = pathMinX(path.getAttribute('d'));
+  // Only filled shapes are drawn; stray zero-width <line>s in the artwork are dropped
+  svg.querySelectorAll('line').forEach(line => line.remove());
+  [...svg.querySelectorAll('path, polygon')].forEach(shape => {
+    const minX = shapeMinX(shape);
     let idx = 0;
     starts.forEach((start, i) => { if (minX >= start - 1) idx = i; });
-    groups[idx].appendChild(path);
+    groups[idx].appendChild(shape);
   });
   groups.forEach(g => svg.appendChild(g));
   container.appendChild(document.importNode(svg, true));
