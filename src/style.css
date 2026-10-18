@@ -745,8 +745,7 @@ body.contact-page {
 /* MOBILE MENU */
 /* ----------------------------- */
 
-.mobile-menu-toggle,
-.mobile-home-button {
+.mobile-menu-toggle {
   display: none;
   position: fixed;
   top: 18px;
@@ -764,14 +763,6 @@ body.contact-page {
   font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
-}
-
-/* XK is the filled one */
-.mobile-home-button {
-  left: 16px;
-  right: auto;
-  background: #fff;
-  color: #1a1a1a;
 }
 
 .mobile-menu {
@@ -884,8 +875,7 @@ body.contact-page {
     display: none;
   }
 
-  .mobile-menu-toggle,
-  .mobile-home-button {
+  .mobile-menu-toggle {
     display: block;
   }
 
@@ -948,7 +938,7 @@ body.contact-page {
 
   .project-back-btn {
     top: 21px;
-    left: 92px;
+    left: 16px;
   }
 
   .meta-value--desc {

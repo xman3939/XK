@@ -40,12 +40,6 @@ function closeMobileMenu() {
 }
 
 mobileMenuToggle.addEventListener('click', openMobileMenu);
-
-// XK pill: back to home
-document.getElementById('mobile-home-button').addEventListener('click', () => {
-  if (mobileMenu.classList.contains('is-open')) closeMobileMenu();
-  navigate('/');
-});
 mobileMenuClose.addEventListener('click', closeMobileMenu);
 
 mobileMenuLinks.forEach(btn => {
