@@ -187,8 +187,7 @@ export default {
 
         const img = card.querySelector('.project-image');
 
-        // Skip animated transition on mobile
-        if (!img || window.innerWidth <= 768) {
+        if (!img) {
           navigate(`/work/${card.dataset.projectSlug}`);
           return;
         }
@@ -208,7 +207,7 @@ export default {
           `height:${rect.height}px`,
           'object-fit:cover',
           'object-position:center center',
-          'z-index:1000',
+          'z-index:9', // above the page, below the fixed nav / menu buttons
           'margin:0',
           'padding:0',
           'border:none',

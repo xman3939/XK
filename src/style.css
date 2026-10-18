@@ -147,6 +147,19 @@ body.home-page #app {
   width: min(450px, 87vw);
   height: auto;
   display: block;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+}
+
+.home-logo.is-decompressing {
+  animation: homeLogoGrow 1100ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+}
+
+/* Rises from a flat line, overshoots slightly, then settles */
+@keyframes homeLogoGrow {
+  0%   { transform: scaleY(0); }
+  60%  { transform: scaleY(1.06); }
+  100% { transform: scaleY(1); }
 }
 
 /* ----------------------------- */
@@ -328,7 +341,7 @@ body.about-page {
 
 .project-images-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 180px;
   row-gap: 120px;
   align-items: center;
@@ -378,6 +391,36 @@ body.contact-page {
 
 .contact-logo.is-decompressing {
   animation: contactDecompress 420ms cubic-bezier(0, 0, 0.3, 1) forwards;
+}
+
+/* Split-letter logos (contact XAVIER KANIA / XAVIER): each letter grows up from its baseline in turn */
+.letter-logo {
+  transform: none;
+  aspect-ratio: 11193 / 2848;
+}
+
+.letter-logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.letter-logo__letter {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+}
+
+.letter-logo.is-growing .letter-logo__letter {
+  animation: homeLogoGrow 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(150ms + var(--i) * 90ms);
+}
+
+/* Once grown, drop the animation so the logo renders crisp and static */
+.letter-logo.is-grown .letter-logo__letter {
+  animation: none;
+  transform: none;
 }
 
 @keyframes contactDecompress {
@@ -436,50 +479,28 @@ body.contact-page {
   }
 
   .contact-mobile {
-    padding: 80px 20px 100px 20px;
+    padding: 80px 16px 100px 16px;
+    /* Visible screen height (iOS Safari's 100vh includes the toolbar, which made the page scrollable) */
     min-height: 100vh;
+    min-height: 100svh;
     box-sizing: border-box;
   }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 24px;
-  }
-
-  .contact-grid-right {
-    text-align: right;
-  }
-
-  .contact-heading {
-    color: #fff;
-    font-family: "Space Grotesk", Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-
-  .contact-grid-right {
+  /* All contact links stacked on the left */
+  .contact-mobile-links {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 28px;
   }
 
+  /* XAVIER across the bottom, between the margins (letters grow in like desktop) */
   .contact-mobile-logo {
     position: fixed;
-    bottom: 32px;
+    left: 16px;
     right: 16px;
-    width: min(220px, 55vw);
-    height: auto;
-    display: block;
+    bottom: 32px;
     transform-origin: center bottom;
-    transform: scaleY(0);
-  }
-
-  .contact-mobile-logo.is-decompressing {
-    animation: contactDecompress 420ms cubic-bezier(0, 0, 0.3, 1) forwards;
   }
 }
 
@@ -861,7 +882,6 @@ body.contact-page {
     right: auto;
     bottom: 32px;
     width: calc(100vw - 32px);
-    transform: none;
   }
 
   .work-layout {
@@ -901,8 +921,17 @@ body.contact-page {
     padding: 48px 20px;
   }
 
+  body.about-page .project-info {
+    padding-top: 80px;
+  }
+
   body.about-page .project-meta-grid {
     grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+
+  body.about-page .meta-label:not(:first-child) {
+    margin-top: 28px;
   }
 
   .project-back-btn {
@@ -942,8 +971,8 @@ body.contact-page {
   }
 
   .project-images-grid {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 24px;
+    grid-template-columns: 1fr;
+    column-gap: 0;
     row-gap: 40px;
   }
 
@@ -989,4 +1018,64 @@ body.contact-page {
 
 .reveal-chunk.is-visible {
   opacity: 1;
+}
+
+/* ----------------------------- */
+/* ABOUT (DESKTOP): one screen, only the text column scrolls */
+/* ----------------------------- */
+
+@media (min-width: 769px) {
+  /* Section titles line up with the nav's left edge */
+  body.about-page .project-info {
+    padding-left: 32px;
+  }
+
+  body.about-page {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  body.about-page .project-hero {
+    height: 100vh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Only the left text column scrolls; the photo stays put */
+  body.about-page .project-info {
+    height: 100vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* ----------------------------- */
+/* WORK, PROJECT + ABOUT PAGES: white background, black text */
+/* ----------------------------- */
+
+html:has(body.work-page),
+html:has(body.project-detail-page),
+html:has(body.about-page),
+body.work-page,
+body.project-detail-page,
+body.about-page {
+  background: #fff;
+}
+
+:is(body.work-page, body.project-detail-page, body.about-page) :is(.project-title, .project-date, .meta-value, .meta-label--title, .meta-link, .project-not-found, .gallery-lightbox-close) {
+  color: #1a1a1a;
+}
+
+body.project-detail-page .gallery-lightbox-close:hover {
+  color: #8f8f8f;
+}
+
+/* Fixed nav, BACK and menu icon stay white but invert against what's behind them:
+   black over the white page, white over photos */
+:is(body.work-page, body.project-detail-page, body.about-page) :is(.home-nav, .project-back-btn, .mobile-menu-toggle) {
+  mix-blend-mode: difference;
+}
+
+body.project-detail-page .gallery-lightbox.is-open {
+  background: rgba(255, 255, 255, 0.96);
 }

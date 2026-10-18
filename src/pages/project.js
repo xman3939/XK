@@ -157,12 +157,15 @@ export default {
 
       heroImg.style.opacity = '0';
       info.style.opacity    = '0';
-      info.style.transform  = 'translateX(-20px)';
+      // Text slides in from the side on desktop, up from below on mobile (where it sits under the image)
+      info.style.transform  = window.innerWidth <= 768 ? 'translateY(20px)' : 'translateX(-20px)';
       page.style.opacity    = '1';
 
-      // Snap clone to the hero's object-position before animating so the crop
-      // matches when the clone is removed and the real image takes over
-      clone.style.objectPosition = heroImg.style.objectPosition || 'center center';
+      // The hero's crop (object-position) usually comes from CSS, not an inline style,
+      // so read the computed value. The clone eases into that crop during the move,
+      // so there's no jump when the real image takes over (very visible on mobile,
+      // where the landing strip is short and wide).
+      const heroObjectPosition = getComputedStyle(heroImg).objectPosition;
 
       const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
       requestAnimationFrame(() => {
@@ -171,7 +174,9 @@ export default {
           `top    ${MOVE_MS}ms ${ease}`,
           `width  ${MOVE_MS}ms ${ease}`,
           `height ${MOVE_MS}ms ${ease}`,
+          `object-position ${MOVE_MS}ms ${ease}`,
         ].join(',');
+        clone.style.objectPosition = heroObjectPosition;
         clone.style.left   = `${panelRect.left}px`;
         clone.style.top    = `${panelRect.top}px`;
         clone.style.width  = `${panelRect.width}px`;

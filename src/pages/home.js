@@ -88,16 +88,16 @@ export default {
   title: 'XK',
   bodyClass: 'home-page',
   render() {
-    return `<img src="/assets/XK1W.svg" alt="XK" class="home-logo" style="opacity:0;transition:opacity 900ms ease" />`;
+    return `<img src="/assets/XK1W.svg" alt="XK" class="home-logo" />`;
   },
   init() {
     const logo = document.querySelector('.home-logo');
     if (logo) {
       if (sessionStorage.getItem('loaderPlayed')) {
-        setTimeout(() => requestAnimationFrame(() => { logo.style.opacity = '1'; }), 380);
+        setTimeout(() => requestAnimationFrame(() => logo.classList.add('is-decompressing')), 380);
       } else {
         window.addEventListener('loaderHide', () => {
-          requestAnimationFrame(() => { logo.style.opacity = '1'; });
+          requestAnimationFrame(() => logo.classList.add('is-decompressing'));
         }, { once: true });
       }
     }
